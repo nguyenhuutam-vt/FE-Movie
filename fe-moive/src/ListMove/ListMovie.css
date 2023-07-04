@@ -1,0 +1,4 @@
+.poster:hover{
+    margin-top: -40px;
+    transition:   margin-top 2s;
+}
