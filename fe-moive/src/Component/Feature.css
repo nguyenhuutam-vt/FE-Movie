@@ -24,11 +24,11 @@
     width: 35%;
     position: absolute;
     left: 50px;
-    bottom: 65%;
+    bottom: 45%;
     color: white;
     display: flex;
     flex-direction: column;
     /* transform: translate(10px, -900px); */
-  
+    margin-left: 100px;
  }
  
