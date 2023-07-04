@@ -4,19 +4,79 @@ import { mobile } from "../responsive";
 import imgblack from "../assets/img/sjblackwidow 1 (1).png";
 import marvel from "../assets/img/MARVEL LOGO 1 (1).png";
 import blackwind from "../assets/img/Black_Widow 1.png";
-import rate from "../assets/img/2560px-4_stars 1.png";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+
+import "slick-carousel/slick/slick-theme.css";
+import Rating from "@mui/material/Rating";
 import "../Component/Feature.css";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
+import { movie } from "../data/fetchData";
+import icon2 from "../assets/img/S3.png";
+import icon1 from "../assets/img/S31.png";
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <>
+      <img
+        style={{
+          ...style,
+          display: "block",
+          zIndex: "1",
+          right: "90px",
+          top: "500px",
+          height: "40px",
+          width: "50px",
+        }}
+        id="Arrow"
+        className={className}
+        src={icon2}
+        alt=""
+        onClick={onClick}
+      />
+    </>
+  );
+}
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+
+  return (
+    <img
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        zIndex: "1",
+        left: "5px",
+        top: "500px",
+        height: "40px",
+        width: "50px",
+      }}
+      src={icon1}
+      alt=""
+      onClick={onClick}
+    />
+  );
+}
 const Feature = () => {
+  const Container = styled.div`
+    height: 100%;
+    width: 100%;
+
+    ${mobile({ height: "50px" })};
+  `;
   const Featured = styled.div`
     position: relative;
-    ${mobile({ height: "50px" })}
+
+    margin-top: -35px;
   `;
   const ImgMarvel = styled.img`
     width: 25%;
     height: 100%;
   `;
   const Marvel = styled.div`
-    text-align: center;
+    text-align: -webkit-center;
   `;
   const Rate = styled.img`
     width: 25%;
@@ -24,21 +84,140 @@ const Feature = () => {
   const Ratee = styled.div`
     margin-top: 10px;
   `;
-  const Genres = styled.div``;
+  const Genres = styled.div`
+    width: 50%;
+    height: 30px;
+
+    display: flex;
+    justify-content: space-between;
+  `;
+  const Rectangle = styled.div`
+    height: 16px;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: #d9d9d9;
+  `;
+  const Play = styled.div`
+    width: 55px;
+    height: 55px;
+    display: flex;
+  `;
+  const Drama = styled.div``;
+  const Action = styled.div``;
+  const Sci = styled.div``;
+  const Des = styled.div`
+    width: 451px;
+    height: 70px;
+    margin-top: 20px;
+  `;
+
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    nextArrow: <SampleNextArrow className="sample" />,
+    prevArrow: <SamplePrevArrow />,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
-    <Featured className="featured">
-      <img src={imgblack} alt="" className="imgblack" />
-      <div className="info">
-        <Marvel>
-          <ImgMarvel src={marvel} alt="" />
-        </Marvel>
-        <img src={blackwind} alt="" className="imgInfo" />
-        <Ratee>
-          <Rate src={rate} alt="" className="imgInfo" />
-        </Ratee>
-        <Genres></Genres>
-      </div>
-    </Featured>
+    // <Featured>
+    //   <img src={imgblack} alt="" className="imgblack" />
+    //   <div className="info">
+    //     <Marvel>
+    //       <ImgMarvel src={marvel} alt="" />
+    //     </Marvel>
+    //     <img src={blackwind} alt="" className="imgInfo" />
+    //     <Ratee>
+    //       <Rating name="read-only" value={5} readOnly />
+    //     </Ratee>
+    //     <Genres>
+    //       <Drama>Drama</Drama>
+    //       <Rectangle></Rectangle>
+    //       <Action>Action</Action>
+    //       <Rectangle></Rectangle>
+    //       <Sci>SCI-FI</Sci>
+    //     </Genres>
+    //     <Play>
+    //       <PlayCircleFilledWhiteIcon
+    //         style={{ color: "red", fontSize: "4.1875rem" }}
+    //       />
+    //       <AddCircleIcon style={{ color: "red", fontSize: "4.1875rem" }} />
+    //     </Play>
+    //     <Des>
+    //       Natasha Romanoff, aka Black Widow, confronts the darker parts of her
+    //       ledger when a dangerous conspiracy with ties to her past arises.
+    //       Pursued by a force that will stop at nothing to bring her down,
+    //       Natasha must deal with her history as a spy, and the broken
+    //       relationships left in her wake long before she became an Avenger.
+    //     </Des>
+    //   </div>
+    // </Featured>
+
+    <Container>
+      <Slider {...settings}>
+        {movie.map((item) => {
+          return (
+            <Featured>
+              <img src={item.imgB} alt="" className="imgblack" />
+              <div className="info">
+                <Marvel>
+                  <ImgMarvel src={item.imgMarvel} alt="" />
+                </Marvel>
+                <img src={item.imgBlackwind} alt="" className="imgInfo" />
+                <Ratee>
+                  <Rating name="read-only" value={5} readOnly />
+                </Ratee>
+                <Genres>
+                  <Drama>Drama</Drama>
+                  <Rectangle></Rectangle>
+                  <Action>Action</Action>
+                  <Rectangle></Rectangle>
+                  <Sci>SCI-FI</Sci>
+                </Genres>
+                <Play>
+                  <PlayCircleFilledWhiteIcon
+                    style={{ color: "red", fontSize: "4.1875rem" }}
+                  />
+                  <AddCircleIcon
+                    style={{ color: "red", fontSize: "4.1875rem" }}
+                  />
+                </Play>
+                <Des>{item.description}</Des>
+              </div>
+            </Featured>
+          );
+        })}
+      </Slider>
+    </Container>
   );
 };
 
