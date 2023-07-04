@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import { mobile } from "../responsive";
 import MenuIcon from "@mui/icons-material/Menu";
-import logo1 from "../img/M logo 1.png";
+// import logo1 from "../img/M logo 1.png";
 
 const NavbarDetail = () => {
   const Container = styled.div`
@@ -43,9 +43,7 @@ const NavbarDetail = () => {
       <Entrance>
         <MenuIcon htmlColor="black" />
       </Entrance>
-      <Img>
-        <img src={logo1} alt="" />
-      </Img>
+      <Img>{/* <img src={logo1} alt="" /> */}</Img>
       <Entrance>
         <SignIn>SIGN IN</SignIn>
         <SignUp>SIGN UP</SignUp>

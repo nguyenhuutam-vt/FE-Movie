@@ -9,7 +9,7 @@ const ListMovie = () => {
     width: 100%;
     height: 100%;
     background-color: #1b0301;
-    margin-top: -5px;
+    margin-top: -100px;
     display: flex;
     ${mobile({ height: "50px" })}
   `;
@@ -30,7 +30,10 @@ const ListMovie = () => {
         return (
           <Movie className="poster">
             <Poster>
-              <img src={item.imgList} alt="" />
+              <a href="/">
+                {" "}
+                <img src={item.imgList} alt="" />
+              </a>
             </Poster>
             <Title>{item.title}</Title>
           </Movie>

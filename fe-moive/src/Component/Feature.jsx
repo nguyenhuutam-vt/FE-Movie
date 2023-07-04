@@ -6,6 +6,7 @@ import marvel from "../assets/img/MARVEL LOGO 1 (1).png";
 import blackwind from "../assets/img/Black_Widow 1.png";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
+
 import "slick-carousel/slick/slick-theme.css";
 import Rating from "@mui/material/Rating";
 import "../Component/Feature.css";
@@ -63,11 +64,12 @@ const Feature = () => {
     height: 100%;
     width: 100%;
 
-    ${mobile({ height: "50px" })}
+    ${mobile({ height: "50px" })};
   `;
   const Featured = styled.div`
     position: relative;
-    margin-top: 65px;
+
+    margin-top: -35px;
   `;
   const ImgMarvel = styled.img`
     width: 25%;

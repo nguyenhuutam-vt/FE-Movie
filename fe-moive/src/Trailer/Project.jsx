@@ -1,66 +1,82 @@
 import React from "react";
-import styled from "styled-components";
-import trailer from "../assets/img/lala land 1.png";
-const Project = () => {
+import { styled } from "styled-components";
+import "../Trailer/WatchTrailer.css";
+import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
+const Project = (props) => {
+  const Container = styled.div`
+    width: 100%;
+    height: 100%;
+
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 400ms ease-in-out;
+    }
+    .disc {
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: -10rem;
+      text-align: left;
+      padding: 0.5rem;
+      background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
+      transition: all 400ms ease-in-out;
+      h1 {
+        font-size: 1rem;
+      }
+
+      p {
+        width: 90%;
+        font-size: 0.8rem;
+        a {
+          margin-left: 0.4rem;
+          color: red;
+        }
+      }
+    }
+
+    :hover > img {
+      transform: scale(1.3);
+    }
+
+    :hover > .disc {
+      bottom: 0;
+    }
+  `;
+  const Disc = styled.div`
+    transform: translate(10px, -91px);
+    position: absolute;
+
+    display: flex;
+  `;
+  const Img = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 400ms ease-in-out;
+  `;
+
+  const { img, disc } = props.item;
   return (
     <Container className="project">
-      <img src={trailer} alt="project" />
-      <div className="disc">
-        <h1>Description</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.Eveniet iure
-          rerum obcaecati et laborum earum!
-          <a href="#">demo</a>
-        </p>
-      </div>
+      <Img src={img} alt="project" />
+      <Disc>
+        <div>
+          <PlayCircleFilledWhiteIcon
+            style={{ color: "yellow", fontSize: "4.1875rem" }}
+          />
+        </div>
+        <div style={{ color: "white", marginTop: "25px" }}>WATCH TRAILER</div>
+      </Disc>
     </Container>
   );
 };
 
 export default Project;
-
-const Container = styled.div`
-  height: 100%;
-  margin: 0 0.5rem;
-  padding: 0.5rem;
-  border-radius: 5px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 400ms ease-in-out;
-  }
-  .disc {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: -10rem;
-    text-align: left;
-    padding: 0.5rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
-    transition: all 400ms ease-in-out;
-    h1 {
-      font-size: 1rem;
-    }
-
-    p {
-      width: 90%;
-      font-size: 0.8rem;
-      a {
-        margin-left: 0.4rem;
-        color: red;
-      }
-    }
-  }
-
-  :hover > img {
-    transform: scale(1.3);
-  }
-
-  :hover > .disc {
-    bottom: 0;
-  }
-`;
