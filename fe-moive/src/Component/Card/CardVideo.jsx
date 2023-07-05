@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import "./Card.css";
-import IFilter_Trailer from "../../img/IFilter_trailer.png";
+import IFilter_Trailer from "../../assets/img/IFilter_trailer.png";
 import { Container } from "@mui/material";
 const Cont = styled.div`
   align-items: center;

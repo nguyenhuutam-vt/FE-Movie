@@ -3,8 +3,8 @@ import { styled } from "styled-components";
 import { mobile } from "../responsive";
 import MenuIcon from "@mui/icons-material/Menu";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import logo1 from "../img/M logo 1.png";
-import ImgLogin from "../img/ACCOUNT 1.png";
+import logo1 from "../assets/img/M logo 1.png";
+import ImgLogin from "../assets/img/ACCOUNT 1.png";
 const NavbarDetail = () => {
   const Container = styled.div`
     width: 100%;
@@ -20,6 +20,7 @@ const NavbarDetail = () => {
   const Entrance = styled.div`
     display: flex;
     width: 160px;
+    justify-content: space-evenly;
     .icon {
       width: 50px;
       height: 50px;

@@ -2,10 +2,10 @@ import React from "react";
 import { styled } from "styled-components";
 import { mobile } from "../responsive";
 import NavbarDetail from "../Component/NavbarDetail";
-import Banner from "../img/Banner_Detail_Page.png";
+import Banner from "../assets/img/Banner_Detail_Page.png";
 import CardVideo from "../Component/Card/CardVideo";
-import Video1 from "../img/Trailer_Video_Detail.png";
-import Video2 from "../img/Movie_Detail.png";
+import Video1 from "../assets/img/Trailer_Video_Detail.png";
+import Video2 from "../assets/img/Movie_Detail.png";
 import PostersCard from "../Component/Card/Posters";
 import OverViewCard from "../Component/Card/OverviewCard";
 export const Detail = () => {
