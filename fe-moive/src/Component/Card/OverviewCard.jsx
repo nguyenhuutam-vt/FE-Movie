@@ -1,20 +1,26 @@
 import { styled } from "styled-components";
 const TextView = styled.p`
   color: #fff;
-  font-size: 28px;
+  font-size: 35px;
   font-family: Berlin Sans FB;
   font-style: normal;
   font-weight: 400;
-  line-height: 30px;
+  line-height: 35px;
+  margin: unset;
+  margin-block-start: unset;
 `;
 const TitleText = styled.p`
   color: #7b6844;
-  font-size: 24px;
+  font-size: 38px;
   font-family: Berlin Sans FB;
   font-style: normal;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 35px;
+  margin: unset;
+  margin-block-start: unset;
+  margin-top: 35px;
 `;
+const Content = styled.div``;
 const OverViewCard = () => {
   return (
     <container>
@@ -28,8 +34,10 @@ const OverViewCard = () => {
         Dog Nakia (Lupita Nyong’o) and Everett Ross (Martin Freeman) and forge a
         new path for the kingdom of Wakanda.
       </TextView>
-      <TitleText>DIRECTER</TitleText>
-      <TextView>Ryan Coogler</TextView>
+      <Content>
+        <TitleText>DIRECTER</TitleText>
+        <TextView>Ryan Coogler</TextView>
+      </Content>
       <TitleText>WRITER</TitleText>
       <TextView>Ryan Coogler</TextView>
       <TitleText>RELEASE DATE</TitleText>

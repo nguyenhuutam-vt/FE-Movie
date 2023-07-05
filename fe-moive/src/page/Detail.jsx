@@ -39,7 +39,7 @@ export const Detail = () => {
   `;
   const OverView = styled.footer`
     width: 50%;
-    margin-left: 17px;
+    margin-left: 37px;
   `;
   const Posters = styled.footer`
     width: 50%;
