@@ -1,8 +1,14 @@
 import { styled } from "styled-components";
+import FontBerlin from "../../font/BRLNSR.woff";
 const TextView = styled.p`
+  @font-face {
+    font-family: "Berlin Sans FB";
+    src: local("Berlin Sans FB"), local("Berlin Sans FB"),
+      url(${FontBerlin}) format("woff2");
+    font-style: normal;
+  }
   color: #fff;
   font-size: 35px;
-  font-family: Berlin Sans FB;
   font-style: normal;
   font-weight: 400;
   line-height: 35px;
@@ -12,7 +18,7 @@ const TextView = styled.p`
 const TitleText = styled.p`
   color: #7b6844;
   font-size: 38px;
-  font-family: Berlin Sans FB;
+  /* font-family: Berlin Sans FB; */
   font-style: normal;
   font-weight: 400;
   line-height: 35px;
