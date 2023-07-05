@@ -1,15 +1,15 @@
 import React from "react";
 import { styled } from "styled-components";
-import { mobile } from "../responsive";
-import list1 from "../assets/img/avatar.png";
-import { list } from "../data/fetchData";
-import "../ListMove/ListMovie.css";
+import { mobile } from "../../responsive";
+
+import { list } from "../../data/fetchData";
+import "./ListMovie.css";
 const ListMovie = () => {
   const Container = styled.div`
     width: 100%;
     height: 100%;
     background-color: #1b0301;
-    margin-top: -100px;
+    margin-top: -102px;
     display: flex;
     ${mobile({ height: "50px" })}
   `;

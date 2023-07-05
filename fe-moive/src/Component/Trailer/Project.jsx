@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import "../Trailer/WatchTrailer.css";
+import "../../Component/Trailer/WatchTrailer.css";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
 const Project = (props) => {
   const Container = styled.div`
@@ -51,7 +51,7 @@ const Project = (props) => {
     }
   `;
   const Disc = styled.div`
-    transform: translate(10px, -91px);
+    transform: translate(-270px, 45px);
     position: absolute;
 
     display: flex;
@@ -67,7 +67,7 @@ const Project = (props) => {
   return (
     <Container className="project">
       <Img src={img} alt="project" />
-      <Disc>
+      <Disc className="middle">
         <div>
           <PlayCircleFilledWhiteIcon
             style={{ color: "yellow", fontSize: "4.1875rem" }}

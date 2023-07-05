@@ -1,14 +1,13 @@
 import React from "react";
 import { styled } from "styled-components";
-import { mobile } from "../responsive";
-import Navbar from "../Component/Navbar";
-import "../index.css";
-import Feature from "../Component/Feature";
-import ListMovie from "../ListMove/ListMovie";
-import WatchTrailer from "../Trailer/WatchTrailer";
-import Projects from "../Trailer/Projects";
-import Project from "../Trailer/Project";
-import Projectt from "../Project/Projectt";
+import { mobile } from "../../responsive";
+import Navbar from "../../Component/Navbar";
+import "../../index.css";
+import Feature from "../../Component/Feature";
+import ListMovie from "../../Component/ListMove/ListMovie";
+
+import Projects from "../../Component/Trailer/Projects";
+
 export const Home = () => {
   const Container = styled.div`
     height: 100%;

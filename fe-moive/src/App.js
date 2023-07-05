@@ -2,8 +2,9 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Detail } from './page/Detail';
-import { Home } from './home/Home';
+
 import Login from './Auth/Login';
+import { Home } from './Container/home/Home';
 
 
 function App() {
