@@ -12,15 +12,28 @@ const NavbarDetail = () => {
     justify-content: space-between;
     padding-top: 20px;
     position: absolute;
-    ${mobile({ height: "50px" })};
+    ${mobile({ paddingTop: "5px" })}
+    .account {
+      width: 50px;
+      height: 50px;
+      display: none;
+      ${mobile({
+        display: "flex",
+        marginRight: "5%",
+        width: "25px",
+        height: "25px",
+      })}
+    }
   `;
   const Img = styled.div`
     /* margin-top: -15px; */
+    ${mobile({ display: "flex" })}
   `;
   const Entrance = styled.div`
     display: flex;
     width: 160px;
     justify-content: space-evenly;
+    ${mobile({ display: "none" })}
     .icon {
       width: 50px;
       height: 50px;
@@ -33,12 +46,13 @@ const NavbarDetail = () => {
         <MenuIcon className="icon" htmlColor="black" />
       </Entrance>
       <Img>
-        <img src={logo1} alt="" />
+        <img src={logo1} alt="" />{" "}
       </Img>
       <Entrance>
-        <img className="icon" src={ImgLogin} alt="" />
+        <img className="logo" src={ImgLogin} alt="" />
         <NotificationsNoneIcon className="icon"></NotificationsNoneIcon>
       </Entrance>
+      <img className="account" src={ImgLogin} alt="" />
     </Container>
   );
 };

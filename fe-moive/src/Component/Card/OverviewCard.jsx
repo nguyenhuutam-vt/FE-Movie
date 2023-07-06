@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import FontBerlin from "../../font/BRLNSR.woff";
+import { mobile } from "../../responsive";
 const TextView = styled.p`
   @font-face {
     font-family: "Berlin Sans FB";
@@ -14,6 +15,8 @@ const TextView = styled.p`
   line-height: 35px;
   margin: unset;
   margin-block-start: unset;
+  padding: 10px;
+  ${mobile({ fontSize: "14px", lineHeight: "15px" })}
 `;
 const TitleText = styled.p`
   color: #7b6844;
@@ -22,14 +25,16 @@ const TitleText = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: 35px;
+  padding: 10px;
   margin: unset;
   margin-block-start: unset;
+  ${mobile({ fontSize: "14px" })}
   margin-top: 35px;
 `;
 const Content = styled.div``;
 const OverViewCard = () => {
   return (
-    <container>
+    <container className="cont">
       <h1 className="text">OVERVIEW</h1>
       <TextView>
         Queen Ramonda (Angela Bassett), Shuri (Letitia Wright), M’Baku (Winston

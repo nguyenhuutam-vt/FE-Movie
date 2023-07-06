@@ -13,7 +13,6 @@ export const Detail = () => {
     display: flex;
     flex-direction: column;
     background-color: black;
-    ${mobile({ height: "50px" })}
     font-family: Berlin Sans FB;
   `;
   const BannerD = styled.header`
@@ -24,27 +23,47 @@ export const Detail = () => {
     background-size: cover;
     background-image: url(${Banner});
     background-repeat: no-repeat;
-    /* background-position: fixed; */
+    ${mobile({
+      backgroundSize: "contain",
+      height: "220px",
+    })}/* background-position: fixed; */
   `;
   const Content = styled.div`
     flex-direction: row;
     display: flex;
     justify-content: space-around;
+    ${mobile({
+      flexDirection: "column",
+      fontSize: "8px",
+      padding: "27px",
+    })}
   `;
   const Footer = styled.footer`
     flex-direction: row;
     display: flex;
     justify-content: space-between;
     margin-top: 100px;
+    ${mobile({
+      flexDirection: "column",
+      width: "100%",
+      marginTop: "50px",
+    })}
   `;
   const OverView = styled.footer`
     width: 50%;
     margin-left: 37px;
+    ${mobile({
+      width: "100%",
+      marginLeft: "0",
+    })}
   `;
   const Posters = styled.footer`
     width: 50%;
     text-align: center;
     align-items: center;
+    ${mobile({
+      width: "100%",
+    })}
   `;
   return (
     <Container>
