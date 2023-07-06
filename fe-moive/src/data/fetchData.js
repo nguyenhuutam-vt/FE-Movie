@@ -16,6 +16,16 @@ import list10 from "../assets/img/the greatest showman.png"
 import list11 from "../assets/img/the boys.png"
 import list12 from "../assets/img/black bird.png"
 import trailer from '../assets/img/lala land 1.png'
+import wakan from "../assets/img/wakanda forever 1.png";
+import menu from '../assets/img/the menu 1.svg';
+import wed from '../assets/img/lamborghini 1.svg';
+import blackadam from '../assets/img/black adam 1.svg';
+import violent from '../assets/img/violent night 1.svg';
+import hulk from '../assets/img/she hulk 1.svg';
+import tar from '../assets/img/tar 1.svg';
+import sprited from '../assets/img/spirited 1.svg';
+import woman from '../assets/img/the woman king 1.svg';
+import terri from '../assets/img/terrifier 1.svg';
 export const movie = [
     {
         id: 1,
@@ -126,4 +136,98 @@ export const trailerr = [
         id: 3,
         img: trailer
     }
+]
+
+export const popular = [
+    {
+        rate:7.3,
+        title:"BLACK PANTHER: WAKANDA FOREVER",
+        des:"Sci-Fi, Adventure, Drama",
+        img:wakan,
+        fill:"#556268",
+        color:"white"
+    },
+    {
+        rate:7.5,
+        title:"THE MENU",
+        des:"Comedy, Horror, Thriller",
+        img:menu,
+        fill:"#171616",
+        color:"white"
+    }
+    ,
+    {
+        rate:8.5,
+        title:"WEDNESDAY",
+        des:"Comedy, Family, Mystery",
+        img:wed,
+        fill:"#030A37",
+        color:"white"
+    }
+    ,
+    {
+        rate:6.7,
+        title:"BLACK ADAM",
+        des:"Action, Fantasy, Sci-Fi",
+        img:blackadam,
+        fill:"#2E180B",
+        color:"#DBAE8C"
+    }
+    ,
+    {
+        rate:7.1,
+        title:"VIOLENT NIGHT",
+        des:"Comedy, Crime",
+        img:violent,
+        fill:"#D6E9EE"
+        ,
+        color:"#AB0120"
+    }
+    ,
+    {
+        rate:5.2,
+        title:"SHE-HULK: ATTORNEY AT LAW",
+        des:"Comedy,Adventure, Drama",
+        img:hulk,
+        fill:"#347601",
+        color:"#FFFFFF"
+    }
+    ,
+    {
+        rate:7.8,
+        title:"TAR",
+        des:"Drama, Music",
+        img:tar,
+        fill:"#000000",
+        color:"#9E9FA1"
+    }
+    ,
+    {
+        rate:6.6,
+        title:"SPIRITED",
+        des:"Comedy, Family, Musical",
+        img:sprited,
+        fill:"#C90102",
+        color:"#FFFFFF"
+    }
+    ,
+    {
+        rate:6.7,
+        title:"THE WOMAN KING",
+        des:"Action, Drama, History",
+        img:woman,
+        fill:"#FD5502",
+        color:"#FFFFFF"
+    }
+    ,
+    {
+        rate:6.3,
+        title:"TERRIFIER 2",
+        des:"Horror",
+        img:terri,
+        fill:"#E90A1D",
+        color:"#FFFFFF"
+    }
+    
+    
 ]

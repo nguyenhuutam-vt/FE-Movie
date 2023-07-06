@@ -1,17 +1,18 @@
 import React from "react";
 import { styled } from "styled-components";
 import "../Trailer/WatchTrailer.css";
-import { mobile } from "../responsive";
+
 import SliderComp from "./SliderComp";
+import Genres from "../Genres/Genres";
+import Popular from "../Popular/Popular";
 
 const Projects = () => {
   const Container = styled.div`
     width: 100%;
-    height: 1000px;
+    height: 100%;
     margin: 0 auto;
     padding: 3rem 0;
 
-    text-align: center;
     position: relative;
     @media (max-width: 840px) {
       width: 90%;
@@ -34,6 +35,12 @@ const Projects = () => {
     <Container id="project" className="trailer">
       <div>
         <SliderComp />
+      </div>
+      <div>
+        <Genres />
+      </div>
+      <div>
+        <Popular />
       </div>
     </Container>
   );

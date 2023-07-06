@@ -1,11 +1,12 @@
 import React, { useRef } from "react";
-import Project from "./Project";
+
 import { styled } from "styled-components";
 import Slider from "react-slick";
-import trailer from "../assets/img/lala land 1.png";
-import icon2 from "../assets/img/S3.png";
-import icon1 from "../assets/img/S31.png";
+import trailer from "../../assets/img/lala land 1.png";
+import icon2 from "../../assets/img/S3.png";
+import icon1 from "../../assets/img/S31.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Project from "./Project";
 let data = [
   {
     img: trailer,
