@@ -17,6 +17,7 @@ import icon2 from "../assets/img/S3.png";
 import icon1 from "../assets/img/S31.png";
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
+
   return (
     <>
       <img
@@ -64,25 +65,46 @@ const Feature = () => {
     height: 100%;
     width: 100%;
 
-    ${mobile({ height: "50px" })};
+    ${mobile({
+      float: "right",
+      width: "150%",
+      height: "100%",
+      background: "#190401",
+      transform: "translate(10px, -70px)",
+    })};
   `;
   const Featured = styled.div`
     position: relative;
 
     margin-top: -35px;
+    ${mobile({
+      float: "right",
+      width: "60%",
+      height: "100%",
+      transform: " translate(75px, 10px)",
+    })};
   `;
   const ImgMarvel = styled.img`
     width: 25%;
     height: 100%;
+    ${mobile({ float: "right", width: "60%", height: "100%" })};
   `;
   const Marvel = styled.div`
     text-align: -webkit-center;
+    ${mobile({
+      float: "right",
+      width: "60%",
+      height: "100%",
+      transform: "translate(110px, 80px)",
+    })};
   `;
   const Rate = styled.img`
     width: 25%;
+    ${mobile({ float: "right", width: "60%", height: "100%" })};
   `;
   const Ratee = styled.div`
     margin-top: 10px;
+    ${mobile({ transform: "translate(120px, 80px)" })};
   `;
   const Genres = styled.div`
     width: 50%;
@@ -90,25 +112,65 @@ const Feature = () => {
 
     display: flex;
     justify-content: space-between;
+    ${mobile({ transform: "translate(129px, 75px)" })};
   `;
   const Rectangle = styled.div`
     height: 16px;
     border-radius: 10px;
     border: 1px solid;
     border-color: #d9d9d9;
+    ${mobile({
+      height: "10px",
+      borderRadius: "10px",
+      border: " 1px solid",
+      borderColor: "#d9d9d9",
+    })};
   `;
   const Play = styled.div`
     width: 55px;
     height: 55px;
     display: flex;
+    ${mobile({
+      float: "right",
+      width: "60%",
+      height: "100%",
+      display: "none",
+    })};
   `;
-  const Drama = styled.div``;
-  const Action = styled.div``;
-  const Sci = styled.div``;
+  const Drama = styled.div`
+    ${mobile({
+      float: "right",
+      width: "60%",
+      height: "100%",
+      fontSize: "10px",
+    })};
+  `;
+  const Action = styled.div`
+    ${mobile({
+      float: "right",
+      width: "60%",
+      height: "100%",
+      fontSize: "10px",
+    })};
+  `;
+  const Sci = styled.div`
+    ${mobile({
+      float: "right",
+      width: "60%",
+      height: "100%",
+      fontSize: "10px",
+    })};
+  `;
   const Des = styled.div`
     width: 451px;
     height: 70px;
     margin-top: 20px;
+    ${mobile({
+      float: "right",
+      width: "60%",
+      height: "100%",
+      display: "none",
+    })};
   `;
 
   const settings = {
@@ -118,8 +180,8 @@ const Feature = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
-    nextArrow: <SampleNextArrow className="sample" />,
-    prevArrow: <SamplePrevArrow />,
+    // nextArrow: <SampleNextArrow className="sample" />,
+    // prevArrow: <SamplePrevArrow />,
 
     responsive: [
       {
@@ -148,6 +210,22 @@ const Feature = () => {
       },
     ],
   };
+  const ImgInfo = styled.div`
+    ${mobile({
+      float: "right",
+      width: "60%",
+      height: "100%",
+    })};
+  `;
+
+  const ImgInfoo = styled.img`
+    ${mobile({
+      width: "100%",
+      height: "100%",
+      transform: "translate(135px, 90px)",
+    })};
+  `;
+
   return (
     // <Featured>
     //   <img src={imgblack} alt="" className="imgblack" />
@@ -192,7 +270,13 @@ const Feature = () => {
                 <Marvel>
                   <ImgMarvel src={item.imgMarvel} alt="" />
                 </Marvel>
-                <img src={item.imgBlackwind} alt="" className="imgInfo" />
+                <ImgInfo>
+                  <ImgInfoo
+                    src={item.imgBlackwind}
+                    alt=""
+                    className="imgInfo"
+                  />
+                </ImgInfo>
                 <Ratee>
                   <Rating name="read-only" value={5} readOnly />
                 </Ratee>
