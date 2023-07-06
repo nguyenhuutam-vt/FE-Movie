@@ -14,15 +14,29 @@ const Navbar = () => {
     padding-top: 20px;
     position: fixed;
     z-index: 999;
-    ${mobile({ height: "50px" })};
+    ${mobile({
+      display: "grid",
+      rowGap: "20px",
+      padding: "0px 0px",
+      height: "50%",
+      width: "0%",
+      float: "left",
+    })};
   `;
   const Nav = styled.div`
     display: flex;
     width: 600px;
     justify-content: space-between;
-    ${mobile({ height: "50px" })};
+    ${mobile({
+      height: "100%",
+      display: "block",
+      rowGap: "25px",
+      position: "relative",
+      width: "20%",
+      transform: "translate(10px, -50px)",
+    })};
   `;
-  const About = styled.button`
+  const About = styled.div`
     height: 25px;
     width: 110px;
     text-align: center;
@@ -32,14 +46,31 @@ const Navbar = () => {
       linear-gradient(to right, black, red) border-box;
     border-radius: 50em;
     border: 2px solid transparent;
+    ${mobile({
+      background: "none",
+      textAlign: "inherit",
+      transform: "translate(10px, 115px)",
+    })};
   `;
   const Img = styled.div`
     margin-top: -15px;
+    ${mobile({
+      height: "50px",
+      position: "absolute",
+
+      left: "30px",
+    })};
   `;
   const Entrance = styled.div`
     display: flex;
+    ${mobile({
+      display: "block",
+      position: "absolute",
+      transform: "translate(20px, 180px)",
+      padding: "0px 0px",
+    })};
   `;
-  const SignIn = styled.button`
+  const SignIn = styled.div`
     color: white;
     height: 25px;
     width: 80px;
@@ -47,8 +78,9 @@ const Navbar = () => {
       linear-gradient(to right, black, red) border-box;
     border-radius: 50em;
     border: 2px solid transparent;
+    ${mobile({ background: "none" })};
   `;
-  const SignUp = styled.button`
+  const SignUp = styled.div`
     color: white;
     height: 25px;
     width: 80px;
@@ -56,12 +88,16 @@ const Navbar = () => {
       linear-gradient(to right, black, red) border-box;
     border-radius: 50em;
     border: 2px solid transparent;
+    ${mobile({ background: "none" })};
+  `;
+  const Menu = styled.div`
+    ${mobile({ display: "none" })};
   `;
   return (
     <Container>
-      <div>
+      <Menu>
         <MenuIcon />
-      </div>
+      </Menu>
       <Nav>
         <About>ABOUT</About>
         <About>MOVIES</About>

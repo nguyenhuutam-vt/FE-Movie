@@ -5,6 +5,8 @@ import "../Trailer/WatchTrailer.css";
 import SliderComp from "./SliderComp";
 import Genres from "../Genres/Genres";
 import Popular from "../Popular/Popular";
+import GenresMovie from "../GenresMovie/GenresMovie";
+import Generess from "../GenresMovie/Generess";
 
 const Projects = () => {
   const Container = styled.div`
@@ -38,6 +40,7 @@ const Projects = () => {
       </div>
       <div>
         <Genres />
+        {/* <Generess /> */}
       </div>
       <div>
         <Popular />

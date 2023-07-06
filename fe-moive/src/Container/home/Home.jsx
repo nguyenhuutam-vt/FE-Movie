@@ -11,7 +11,7 @@ import Projects from "../../Component/Trailer/Projects";
 export const Home = () => {
   const Container = styled.div`
     height: 100%;
-    ${mobile({ height: "50px" })}
+    ${mobile({ height: "100%" })}
   `;
   const Black = styled.div`
     height: 100%;
@@ -23,17 +23,17 @@ export const Home = () => {
       rgb(43, 43, 53) 100%
     );
   `;
+  const Container1 = styled.div`
+    ${mobile({ height: "100%" })}
+  `;
   return (
     <Container>
       <Navbar />
       {/* <ImgBlack src={imgblack} alt="" /> */}
       <Feature />
-      <ListMovie />
 
+      <ListMovie />
       <Projects />
-      {/* <LightColor>
-        <Projectt />
-      </LightColor> */}
     </Container>
   );
 };
