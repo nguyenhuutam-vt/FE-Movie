@@ -7,12 +7,62 @@ import { ReactComponent as IconGoogle } from "../assets/icons/iconGoogle.svg";
 
 import { NavLink } from "react-router-dom";
 
+import { useState } from "react";
+
 const StyledLogin = styled.div`
+.err {
+  display: block;
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  color: #e64646;
+}
 `;
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const Login = () => {
+  const [input, setInput] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState({
+    email: "",
+    password: "",
+  });
+
+  const onInputChange = (e) => {
+    const { name, value } = e.target;
+    setInput((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    validateInput(e);
+  };
+
+  const validateInput = (e) => {
+    let { name, value } = e.target;
+
+    setError((prev) => {
+      const stateObj = { ...prev, [name]: "" };
+      switch (name) {
+        case "email":
+          if (!value) {
+            stateObj[name] = "Please enter Email.";
+          }
+          break;
+        case "password":
+          if (!value) {
+            stateObj[name] = "Please enter password.";
+          }
+          break;
+          break;
+        default:
+          break;
+      }
+      return stateObj;
+    });
+  };
   return (
       <StyledLogin>
       <div className="headerLogo">
@@ -31,12 +81,15 @@ const Login = () => {
                   id="email"
                   name="email"
                   placeholder="marvelous@email.com"
+                  value={input.email}
+                  onChange={onInputChange}
+                  onBlur={validateInput}
                 />
                 <div className="icon">
                   <IconEmail />
                 </div>
               </div>
-
+              {error.email && <span className="err">{error.email}</span>}
               <label htmlFor="password">Password</label>
               <div className="inputStyled">
                 <input
@@ -44,11 +97,15 @@ const Login = () => {
                   id="password"
                   name="password"
                   placeholder="Enter your password"
+                  value={input.password}
+                  onChange={onInputChange}
+                  onBlur={validateInput}
                 />
                 <div className="icon">
                   <IconPassword />
                 </div>
               </div>
+              {error.password && <span className="err">{error.password}</span>}
               <div className="underInput">
                 <div className="remember">
                     <Checkbox
