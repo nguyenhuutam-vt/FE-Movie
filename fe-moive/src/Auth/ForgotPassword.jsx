@@ -1,11 +1,5 @@
 import * as React from "react";
-// import { useForm } from "react-hook-form";
-// import { yupResolver } from '@hookform/resolvers/yup';
-// import * as Yup from 'yup';
 import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepButton from "@mui/material/StepButton";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { styled } from "styled-components";
@@ -13,32 +7,37 @@ import logo from "../assets/img/M logo 1.png";
 
 import { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
 
 const StyledStepOne = styled.div``;
-const StyledStepTwo = styled.div``;
+const StyledStepTwo = styled.div`
+  text-align: center;
+`;
 const StyledStepThree = styled.div``;
+/////////////////////////////////////Line step/////////////////////////////////////////////
 const StyledLineOne = styled.div`
   display: flex;
   justify-content: center;
   gap: 1em;
   width: 100%;
+  margin-bottom: 10.5em;
   .one {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: aliceblue;
+    background-color: #ffe919;
   }
   .two {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: green;
+    background-color: #e6e8eb;
   }
   .three {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: green;
+    background-color: #e6e8eb;
   }
 `;
 const StyledLineTwo = styled.div`
@@ -46,23 +45,24 @@ const StyledLineTwo = styled.div`
   justify-content: center;
   gap: 1em;
   width: 100%;
+  margin-bottom: 10.5em;
   .one {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: green;
+    background-color: #e6e8eb;
   }
   .two {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: aliceblue;
+    background-color: #ffe919;
   }
   .three {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: green;
+    background-color: #e6e8eb;
   }
 `;
 const StyledLineThree = styled.div`
@@ -70,41 +70,49 @@ const StyledLineThree = styled.div`
   justify-content: center;
   gap: 1em;
   width: 100%;
+  margin-bottom: 5.75em;
   .one {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: green;
+    background-color: #e6e8eb;
   }
   .two {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: green;
+    background-color: #e6e8eb;
   }
   .three {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: aliceblue;
+    background-color: #ffe919;
   }
 `;
 
 const ForgotStepOne = () => {
   return (
     <StyledStepOne>
+      <div className="headerLogo">
+        <div className="logo">
+          <img src={logo} alt="logo" />
+        </div>
+        <h5>Forgot Password?</h5>
+        <p>No worries, we'll send you reset instructions.</p>
+      </div>
       <label htmlFor="email">Email address</label>
-      <div className="inputSignup">
+      <div className="inputEmail">
         <input type="text" id="email" name="email" placeholder="Email" />
       </div>
     </StyledStepOne>
   );
 };
-
+// Forgot password step 2
 const numOfFields = 4;
 
 const useSSNFields = () => {
-  const [ssnValues, setValue] = React.useState({
+  const [ssnValues, setValue] = useState({
     ssn1: "",
     ssn2: "",
     ssn3: "",
@@ -145,8 +153,14 @@ const ForgotStepTwo = () => {
 
   return (
     <StyledStepTwo>
-      <label htmlFor="email">Password reset</label>
-      <p>We sent a code to yourmail@gmail.com</p>
+      <div className="headerLogo">
+        <div className="logo">
+          <img src={logo} alt="logo" />
+        </div>
+        <h5>Password reset</h5>
+        <p>We sent a code to yourmail@gmail.com</p>
+      </div>
+
       <div className="inputCode">
         <input
           type="text"
@@ -181,52 +195,33 @@ const ForgotStepTwo = () => {
   );
 };
 
-// form validation rules 
-// const validationSchema = Yup.object().shape({
-//     password: Yup.string()
-//         .required('Password is required')
-//         .min(6, 'Password must be at least 6 characters'),
-//     confirmPassword: Yup.string()
-//         .required('Confirm Password is required')
-//         .oneOf([Yup.ref('password')], 'Passwords must match')
-        
-// });
-// const formOptions = { resolver: yupResolver(validationSchema) };
-
-// // get functions to build form with useForm() hook
-// const { register, handleSubmit, reset, formState } = useForm(formOptions);
-// const { errors } = formState;
-// const onSubmit = (data) => {
-//     // display form data on success
-//     alert('SUCCESS!! :-)\n\n' + JSON.stringify(data, null, 4));
-//     return false;
-// }
 const ForgotStepThree = () => {
   return (
     <StyledStepThree>
-      <label htmlFor="email">Set new password</label>
+      <div className="headerLogo">
+        <div className="logo">
+          <img src={logo} alt="logo" />
+        </div>
+        <h5>Set new password</h5>
+        <p>Must be at least 8 characters.</p>
+      </div>
       <div className="inputNewPassword">
+        <label htmlFor="email">Password</label>
         <input
           type="text"
           id="password"
           name="password"
-        //   {...register('password')}
-        //   className={`form-control ${errors.password ? 'is-invalid' : ''}`}
           placeholder="**********"
         />
-        {/* <div className="invalid-feedback">{errors.password?.message}</div> */}
       </div>
-      <label htmlFor="email">Comfirm new password</label>
       <div className="inputNewPassword">
+        <label htmlFor="email">Comfirm password</label>
         <input
           type="text"
           id="password"
           name="confirmPassword"
-        //   {...register('confirmPassword')}
-        //   className={`form-control ${errors.confirmPassword ? 'is-invalid' : ''}`}
           placeholder="**********"
         />
-        {/* <div className="invalid-feedback">{errors.confirmPassword?.message}</div> */}
       </div>
     </StyledStepThree>
   );
@@ -265,6 +260,12 @@ const steps = ["", "", ""];
 const StyledForgotLayout = styled.div`
   width: 80%;
   margin: 0 auto;
+  .allStepDone{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10em;
+    margin-bottom: 22.2em;
+  }
 `;
 
 const ForgotPassword = () => {
@@ -316,16 +317,13 @@ const ForgotPassword = () => {
     setActiveStep(0);
     setCompleted({});
   };
+  let navigate = useNavigate();
+  const toLogin = () => {
+    navigate("/login");
+  }
 
   return (
     <StyledForgotLayout>
-      <div className="headerLogo">
-        <div className="logo">
-          <img src={logo} alt="logo" />
-        </div>
-        <h5>Forgot Password?</h5>
-        <p>No worries, we'll send you reset instructions.</p>
-      </div>
       {/* step forgot */}
       <Box sx={{ width: "100%" }}>
         <div>
@@ -333,11 +331,17 @@ const ForgotPassword = () => {
           {allStepsCompleted() ? (
             <>
               <Typography sx={{ mt: 2, mb: 1 }}>
-                All steps completed - you&apos;re finished
+                <div className="headerLogo">
+                  <div className="logo">
+                    <img src={logo} alt="logo" />
+                  </div>
+                  <h5>All done!</h5>
+                  <p>Your password has been reset. Would you like to login now?</p>
+                </div>
               </Typography>
-              <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+              <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }} className="allStepDone">
                 <Box sx={{ flex: "1 1 auto" }} />
-                <Button onClick={handleReset}>Reset</Button>
+                <Button onClick={toLogin}>Go to Login</Button>
               </Box>
             </>
           ) : (
@@ -345,9 +349,7 @@ const ForgotPassword = () => {
             <>
               <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
                 <div className="formForgotPassword">
-                  <form action=""
-                //    onSubmit={handleSubmit(onSubmit)}
-                   >
+                  <form action="">
                     {activeStep == 0 ? (
                       <ForgotStepOne />
                     ) : activeStep == 1 ? (
@@ -356,21 +358,23 @@ const ForgotPassword = () => {
                       <ForgotStepThree />
                     )}
                     <Box sx={{ flex: "1 1 auto" }} />
-                    {activeStep !== steps.length && (
-                      <Button onClick={handleComplete} type="submit">
-                        {completedSteps() === totalSteps() - 1
-                          ? "Finish"
-                          : "Continue"}
+                    <div className="btnfg">
+                      {activeStep !== steps.length && (
+                        <Button onClick={handleComplete}>
+                          {completedSteps() === totalSteps() - 1
+                            ? "Finish"
+                            : "Continue"}
+                        </Button>
+                      )}
+                      <Button
+                        color="inherit"
+                        disabled={activeStep === 0}
+                        onClick={handleBack}
+                        sx={{ mr: 1 }}
+                      >
+                        Back
                       </Button>
-                    )}
-                    <Button
-                      color="inherit"
-                      disabled={activeStep === 0}
-                      onClick={handleBack}
-                      sx={{ mr: 1 }}
-                    >
-                      Back
-                    </Button>
+                    </div>
                   </form>
                   {activeStep == 0 ? (
                     <LineOne />

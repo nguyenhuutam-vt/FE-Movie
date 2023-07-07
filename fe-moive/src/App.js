@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Detail } from './page/Detail';
 
-
 import LayoutAuth from './Auth/LayoutAuth';
 import Login from './Auth/Login';
 import Signup from './Auth/Signup';

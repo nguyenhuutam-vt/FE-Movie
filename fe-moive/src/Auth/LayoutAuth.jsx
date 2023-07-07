@@ -8,15 +8,14 @@ import { Outlet } from "react-router-dom";
 
 import InterForm from "./Font/Inter-Regular.woff";
 
+import { mobile } from "../responsive";
+
 const ThemeContext = createContext(null);
 
 const StyledLayoutAuth = styled.div`
   position: relative;
-
   width: 100%;
-
   #light {
-    //Login
     color: #000000;
     background-color: #ffffff;
     .cornerTopLeft {
@@ -25,6 +24,9 @@ const StyledLayoutAuth = styled.div`
       background-color: #ffe919;
       border-radius: 0 0 100px 0;
       display: inline-block;
+      ${mobile({
+        width: "10%"
+    })}
     }
     .cornerTopRight {
       position: absolute;
@@ -34,18 +36,27 @@ const StyledLayoutAuth = styled.div`
       height: 16vh;
       background-color: #ffe919;
       border-radius: 0 0 0 100%;
+      ${mobile({
+        width: "16%",
+        height: "14vh" 
+    })}
     }
     .cornerBotLeft {
       width: 5%;
       height: 10vh;
       background-color: #ffe919;
       border-radius: 0 100px 0 0;
+      ${mobile({
+        width: "10%"
+    })}
     }
+    ///////////////////////////////// Login page in light mode///////////////////////////////////////////////////
     .inputStyled {
       width: 100%;
       background-color: #000000;
       display: flex;
       border-radius: 10px;
+      ${mobile({ width: "80%" })}
       input {
         background-color: #000000;
         margin-left: 10px;
@@ -59,12 +70,14 @@ const StyledLayoutAuth = styled.div`
     }
     .underInput {
       margin-top: 16px;
+      ${mobile({ width: "80%" })}
       a {
         color: #000000;
       }
     }
     .btn {
       text-align: center;
+      ${mobile({ width: "80%" })}
       .login button {
         @font-face {
           font-family: "Inter";
@@ -72,8 +85,6 @@ const StyledLayoutAuth = styled.div`
         }
         font-size: 22px;
         font-weight: 700;
-        position: relative;
-        width: 86%;
         position: relative;
         width: 46%;
         height: 56px;
@@ -177,20 +188,23 @@ const StyledLayoutAuth = styled.div`
       margin: 0 auto;
       margin-top: 12px;
     }
-        //Signup Page
-        .inputSignup {
+    ///////////////////////////////////////////////////////////Signup Page in light mode////////////////////////////////////////////////////////////
+    .inputSignup {
       width: 100%;
       background-color: #000000;
       display: flex;
       border-radius: 10px;
       margin-bottom: 32px;
+      ${mobile({ width: "80%" })}
       input {
         background-color: #000000;
         margin-left: 10px;
       }
     }
     .btnSignupPage {
-      button{
+      ${mobile({ width: "80%" })}
+      ${mobile({ marginBottom: "9em" })}
+      button {
         @font-face {
           font-family: "Inter";
           src: local("Inter-Regular"), url(${InterForm}) format("woff");
@@ -202,33 +216,119 @@ const StyledLayoutAuth = styled.div`
         color: #000000;
         border: 2px solid transparent;
         border-radius: 49px;
-        background: linear-gradient(#FFFFFF 0 0) padding-box,
-        linear-gradient(
-            228.09deg,
-            #000000 -9.95%,
-            #ffe919 12.47%,
-            #ffe919 30.87%,
-            #ffe919 53.87%,
-            #000000 74.79%,
-            #000000 100.44%
-          )
+        background: linear-gradient(#ffffff 0 0) padding-box,
+          linear-gradient(
+              228.09deg,
+              #000000 -9.95%,
+              #ffe919 12.47%,
+              #ffe919 30.87%,
+              #ffe919 53.87%,
+              #000000 74.79%,
+              #000000 100.44%
+            )
             border-box;
       }
-      .signupPage{
+      .signupPage {
         width: 66%;
         margin: 0 auto;
         text-align: center;
-        p{
+        p {
           width: 100%;
-          font-family: 'Montserrat';
+          font-family: "Montserrat";
           font-size: 12px;
           font-weight: 500;
           line-height: 15px;
         }
       }
     }
+    //////////////////////////////////////////////////////////Forgot page in light mode/////////////////////////////////////////////////////
+    .formForgotPassword {
+      width: 466.49px;
+      margin: 0 auto;
+      ${mobile({ width: "100%" })}
+      form {
+        margin-bottom: 3.1em;
+      }
+      label {
+        display: inline-block;
+        font-family: "Poppins";
+        font-weight: 400;
+        font-size: 16.16px;
+        line-height: 24.23px;
+        margin-top: 3.7em;
+      }
+      .btnfg {
+        display: flex;
+        flex-direction: column;
+        button {
+          width: 70%;
+        }
+      }
+      //////////////////////////////////Email step////////////////////////
+      .inputEmail {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 2em;
+        input {
+          background-color: #000000;
+          color: #FFFFFF;
+          width: 100%;
+          padding: 15px 5px;
+          font-size: 22px;
+          border-radius: 8px;
+          outline: none;
+          border: none;
+        }
+        input::placeholder {
+          color: #FFFFFF;
+        }
+      }
+      button {
+        color: #000000;
+      }
+      //////////////////////////// verify code step///////////////////////////////////////////
+      .inputCode {
+        display: flex;
+        margin: 0 auto;
+        width: 80%;
+        justify-content: space-between;
+        margin-top: 6.25em;
+        margin-bottom: 2em;
+        input {
+          color: #ffffff;
+          background-color: #000000;
+          width: 16%;
+          font-size: 22px;
+          padding: 0.682em 0.3em;
+          border-radius: 6px;
+          outline: none;
+          border: none;
+        }
+      }
+      ////////////////////////////Comfirm password step//////////////////////////////////
+      .inputNewPassword {
+        margin-top: 2em;
+        margin-bottom: 2em;
+        label {
+          margin-top: 0;
+        }
+        input {
+          color: #ffffff;
+          background-color: #000000;
+          width: 100%;
+          padding: 15px 5px;
+          font-size: 22px;
+          border-radius: 8px;
+        }
+      }
+
+      button {
+        margin-bottom: 1.3em;
+      }
+    }
   }
-//////////////////////////////////////Dark mode////////////////////////////////////////////
+  ///////////////////////////////////////End light mode/////////////////////////////////////////
+  //////////////////////////////////////Dark mode///////////////////////////////////////////////
   #dark {
     color: #ffffff;
     background-color: #252525;
@@ -238,6 +338,7 @@ const StyledLayoutAuth = styled.div`
       background-color: #46348b;
       border-radius: 0 0 100px 0;
       display: inline-block;
+      ${mobile({ width: "10%" })}
     }
     .cornerTopRight {
       position: absolute;
@@ -247,16 +348,22 @@ const StyledLayoutAuth = styled.div`
       height: 16vh;
       background-color: #46348b;
       border-radius: 0 0 0 100%;
+      ${mobile({
+        width: "16%",
+        height: "14vh" 
+    })}
     }
     .cornerBotLeft {
       width: 5%;
       height: 10vh;
       background-color: #46348b;
       border-radius: 0 100px 0 0;
+      ${mobile({ width: "10%" })}
     }
-    ///////////////////////////////////////////Login page///////////////////////////////////////////
+    ///////////////////////////////////////////Login page in Dark mode///////////////////////////////////////////
     .inputStyled {
       width: 100%;
+      ${mobile({ width: "80%" })}
       background-color: #ffffff;
       display: flex;
       border-radius: 10px;
@@ -264,7 +371,6 @@ const StyledLayoutAuth = styled.div`
         margin-left: 10px;
       }
     }
-
     input::placeholder {
       font-size: 14.14px;
       color: #555555;
@@ -272,6 +378,7 @@ const StyledLayoutAuth = styled.div`
       font-weight: 400;
     }
     .underInput {
+      ${mobile({ width: "80%" })}
       margin-top: 16px;
       a {
         color: #ffffff;
@@ -279,6 +386,7 @@ const StyledLayoutAuth = styled.div`
     }
     .btn {
       text-align: center;
+      ${mobile({ width: "80%" })}
       .login button {
         @font-face {
           font-family: "Inter";
@@ -286,8 +394,6 @@ const StyledLayoutAuth = styled.div`
         }
         font-size: 22px;
         font-weight: 700;
-        position: relative;
-        width: 86%;
         position: relative;
         width: 46%;
         height: 56px;
@@ -310,6 +416,7 @@ const StyledLayoutAuth = styled.div`
               #780eff 101.13%
             )
             border-box;
+            
       }
       .or {
         display: flex;
@@ -384,13 +491,16 @@ const StyledLayoutAuth = styled.div`
       border-radius: 10px;
       margin-bottom: 32px;
       display: flex;
+      ${mobile({ width: "80%" })}
       input {
         margin-left: 10px;
         width: 90%;
       }
     }
     .btnSignupPage {
-      button{
+      ${mobile({ width: "80%" })}
+      ${mobile({ marginBottom: "9em" })}
+      button {
         @font-face {
           font-family: "Inter";
           src: local("Inter-Regular"), url(${InterForm}) format("woff");
@@ -414,13 +524,13 @@ const StyledLayoutAuth = styled.div`
             )
             border-box;
       }
-      .signupPage{
+      .signupPage {
         width: 66%;
         margin: 0 auto;
         text-align: center;
-        p{
+        p {
           width: 100%;
-          font-family: 'Montserrat';
+          font-family: "Montserrat";
           font-size: 12px;
           font-weight: 500;
           line-height: 15px;
@@ -430,49 +540,79 @@ const StyledLayoutAuth = styled.div`
     ////////////////////////////////////////////////////Forgot password page in Dark Mode/////////////////////////////////////////////////
 
     .formForgotPassword {
-    width: 466.49px;
-    margin: 0 auto;
-    margin-bottom: 11.9em;
-    form{
-      margin-bottom: 3.1em;
-    }
-    label {
-      display: inline-block;
-      font-family: "Poppins";
-      font-weight: 400;
-      font-size: 16.16px;
-      line-height: 24.23px;
-      margin-top: 60px;
-    }
-    .inputCode{
-      display: flex;
+      width: 466.49px;
       margin: 0 auto;
-      width: 80%;
-      justify-content: space-between;
-      margin-bottom: 1em;
-    }
-    input {
-      width: 10%;
-      padding: 15px 5px;
-      font-size: 22px;
-      border-radius: 8px;
-      outline: none;
-      border: none;
-
-    }
-    .inputNewPassword{
-      input{
-        width: 100%;
+      ${mobile({ width: "100%" })}
+      form {
+        margin-bottom: 3.1em;
       }
-    }
+      label {
+        display: inline-block;
+        font-family: "Poppins";
+        font-weight: 400;
+        font-size: 16.16px;
+        line-height: 24.23px;
+        margin-top: 3.7em;
+      }
+      .btnfg {
+        display: flex;
+        flex-direction: column;
+        button {
+          width: 70%;
+        }
+      }
+      //////////////////////////////email step//////////////////////////////
+      .inputEmail {
+        width: 100%;
+        background-color: #ffffff;
+        border-radius: 8px;
+        margin-bottom: 2em;
+        input {
+          width: 90%;
+          padding: 15px 5px;
+          font-size: 22px;
+          border-radius: 8px;
+          outline: none;
+          border: none;
+        }
+      }
+      .inputCode {
+        display: flex;
+        margin: 0 auto;
+        width: 80%;
+        justify-content: space-between;
+        margin-top: 6.25em;
+        margin-bottom: 2em;
+        input {
+          width: 16%;
+          font-size: 22px;
+          padding: 0.682em 0.3em;
+          border-radius: 6px;
+          outline: none;
+          border: none;
+        }
+      }
+      .inputNewPassword {
+        margin-top: 2em;
+        margin-bottom: 2em;
+        label {
+          margin-top: 0;
+        }
+        input {
+          width: 100%;
+          padding: 15px 5px;
+          font-size: 22px;
+          border-radius: 8px;
+        }
+      }
 
-    button{
-      margin-bottom: 1.3em;
+      button {
+        margin-bottom: 1.3em;
+      }
     }
   }
   //////////////////////////////////////////////////End Dark Mode////////////////////////////////////////
-  }
-  /////////////////////////////////////////////////////////////// ALL ///////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////// Login page default ///////////////////////////////////////////////////////
   button {
     cursor: pointer;
     text-transform: uppercase;
@@ -507,6 +647,7 @@ const StyledLayoutAuth = styled.div`
       font-size: 16.16px;
       line-height: 24.23px;
       margin-top: 60px;
+      ${mobile({ marginTop: "2.24em" })}
     }
     input {
       height: 50.49px;
@@ -516,11 +657,12 @@ const StyledLayoutAuth = styled.div`
       border: none;
     }
   }
-  ////////////////////////////////////////////Sign up page ALL///////////////////////////////////////////
-  .formSingup {
+  ////////////////////////////////////////////Sign up page default///////////////////////////////////////////
+  .formSignup {
     width: 466.49px;
     margin: 0 auto;
     margin-bottom: 11.9em;
+    ${mobile({ marginBottom: "2em" })}
     label {
       display: inline-block;
       font-family: "Poppins";
@@ -562,18 +704,23 @@ const StyledLayoutAuth = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  //
+  //Switch
   .SwitchMode {
     position: absolute;
     right: 0;
     bottom: 2%;
     width: 5%;
+    ${mobile({ 
+      right: "13%",
+      })}
   }
-  //Switch
   .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 24px;
+    
   }
   //hide default checkbox
   .switch input {
