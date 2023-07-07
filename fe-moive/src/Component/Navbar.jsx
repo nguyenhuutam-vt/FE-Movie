@@ -21,6 +21,7 @@ const Navbar = () => {
       height: "50%",
       width: "0%",
       float: "left",
+      position: "absolute",
     })};
   `;
   const Nav = styled.div`
