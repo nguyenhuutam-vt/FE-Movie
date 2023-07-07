@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import wakan from "../../assets/img/wakanda forever 1.png";
 import { popular } from "../../data/fetchData";
+import { mobile } from "../../responsive";
 const Rate = styled.div`
   width: 40px;
   height: 25px;
@@ -13,6 +14,15 @@ left: 155px; */
   text-align: center;
   transform: translate(80px, -320px);
   color: ${(props) => props.fills};
+  ${mobile({
+    padding: "0px 0px",
+    width: "25px",
+    height: "12px",
+
+    transform: "translate(22px, -110px)",
+    position: "absolute",
+    fontSize: "xx-small",
+  })};
 `;
 
 const RateFill = ({ fill, fills, ...rest }) => {
@@ -22,6 +32,10 @@ const Popular = () => {
   const Container = styled.div`
     height: 1100px;
     width: 100%;
+    ${mobile({
+      height: "100%",
+      transform: " translate(0px, -210px)",
+    })};
   `;
   const Wrapper = styled.div`
     width: 100%;
@@ -30,13 +44,25 @@ const Popular = () => {
     color: white;
 
     justify-content: space-between;
+    ${mobile({
+      height: "100%",
+      fontSize: " xx-small",
+      justifyContent: "space-around",
+    })};
   `;
   const PopularRight = styled.div`
     padding: 0px 70px;
+    ${mobile({
+      padding: "0px 0px",
+      marginRight: " 80px",
+    })};
   `;
   const SeeAll = styled.div`
     padding: 0px 190px;
     cursor: pointer;
+    ${mobile({
+      padding: "0px 0px",
+    })};
   `;
   const Movie = styled.div`
     padding: 30px 70px;
@@ -46,11 +72,23 @@ const Popular = () => {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     row-gap: 100px;
+    ${mobile({
+      padding: "0px 10px",
+      rowGap: "20px",
+      columnGap: "10px",
+      marginTop: "35px",
+    })};
   `;
   const Title = styled.div`
     width: 230px;
     color: white;
     font-size: 24px;
+    ${mobile({
+      padding: "0px 0px",
+      color: "white",
+      fontSize: "8px",
+      width: "100%",
+    })};
     /* position: absolute;
     transform: translate(0px, 310px); */
   `;
@@ -59,15 +97,33 @@ const Popular = () => {
     width: 100%;
     height: 16px;
     font-size: 12px;
+    ${mobile({
+      padding: "0px 0px",
+
+      height: "0px",
+      fontSize: "5px",
+    })};
     /* position: absolute; */
     /* bottom: 700px; */
     /* transform: translate(0px, 390px); */
   `;
-  const Img = styled.div``;
+  const Img = styled.div`
+    ${mobile({ padding: "0px 0px" })};
+  `;
+  const Wrapperr = styled.div`
+    ${mobile({
+      padding: "0px 0px",
+    })};
+  `;
   const ImgWakan = styled.img`
     position: relative;
+    ${mobile({
+      padding: "0px 0px",
+      width: "100%",
+    })};
   `;
 
+  const Footer = styled.div``;
   return (
     <Container>
       <Wrapper>
@@ -77,18 +133,18 @@ const Popular = () => {
       <Movie>
         {popular.map((item) => {
           return (
-            <div>
+            <Wrapperr>
               {" "}
-              <div>
+              <Img>
                 {" "}
                 <ImgWakan src={item.img} alt="" />
-              </div>
+              </Img>
               <RateFill fill={item.fill} fills={item.color}>
                 {item.rate}
               </RateFill>
               <Title>{item.title}</Title>
               <Des>{item.des}</Des>
-            </div>
+            </Wrapperr>
           );
         })}
       </Movie>
