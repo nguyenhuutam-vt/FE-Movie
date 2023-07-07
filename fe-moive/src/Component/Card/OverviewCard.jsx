@@ -9,52 +9,65 @@ const TextView = styled.p`
     font-style: normal;
   }
   color: #fff;
-  font-size: 35px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 400;
-  line-height: 35px;
+  line-height: 22px;
   margin: unset;
   margin-block-start: unset;
   padding: 10px;
-  ${mobile({ fontSize: "14px", lineHeight: "15px" })}
+  ${mobile({ fontSize: "15.5px", lineHeight: "14.2px" })}
 `;
 const TitleText = styled.p`
   color: #7b6844;
-  font-size: 38px;
+  font-size: 24px;
+  left: 50%;
   /* font-family: Berlin Sans FB; */
   font-style: normal;
   font-weight: 400;
-  line-height: 35px;
+  line-height: 22px;
   padding: 10px;
   margin: unset;
   margin-block-start: unset;
-  ${mobile({ fontSize: "14px" })}
+  ${mobile({ fontSize: "15.5px", lineHeight: "14.2px", margin: "0px" })}
   margin-top: 35px;
 `;
-const Content = styled.div``;
+const Content = styled.div`
+  ${mobile({ display: "flex", flexDirection: "row" })}
+`;
+const ViewRight = styled.div`
+  ${mobile({ width: "40%" })}
+`;
+const ViewLeft = styled.div`
+  ${mobile({ width: "60%" })}
+`;
 const OverViewCard = () => {
   return (
     <container className="cont">
       <h1 className="text">OVERVIEW</h1>
-      <TextView>
-        Queen Ramonda (Angela Bassett), Shuri (Letitia Wright), M’Baku (Winston
-        Duke), Okoye (Danai Gurira) and the Dora Milaje (including Florence
-        Kasumba), fight to protect their nation from intervening world powers in
-        the wake of King T’Challa’s death. As the Wakandans strive to embrace
-        their next chapter, the heroes must band together with the help of War
-        Dog Nakia (Lupita Nyong’o) and Everett Ross (Martin Freeman) and forge a
-        new path for the kingdom of Wakanda.
-      </TextView>
       <Content>
-        <TitleText>DIRECTER</TitleText>
-        <TextView>Ryan Coogler</TextView>
+        <ViewLeft>
+          <TextView>
+            Queen Ramonda (Angela Bassett), Shuri (Letitia Wright), M’Baku
+            (Winston Duke), Okoye (Danai Gurira) and the Dora Milaje (including
+            Florence Kasumba), fight to protect their nation from intervening
+            world powers in the wake of King T’Challa’s death. As the Wakandans
+            strive to embrace their next chapter, the heroes must band together
+            with the help of War Dog Nakia (Lupita Nyong’o) and Everett Ross
+            (Martin Freeman) and forge a new path for the kingdom of Wakanda.
+          </TextView>
+        </ViewLeft>
+        <ViewRight>
+          <TitleText>DIRECTER</TitleText>
+          <TextView>Ryan Coogler</TextView>
+          <TitleText>WRITER</TitleText>
+          <TextView>Ryan Coogler</TextView>
+          <TitleText>RELEASE DATE</TitleText>
+          <TextView>November 11, 2022</TextView>
+          <TitleText>RUNNING TIME</TitleText>
+          <TextView>161 MINUTES</TextView>
+        </ViewRight>
       </Content>
-      <TitleText>WRITER</TitleText>
-      <TextView>Ryan Coogler</TextView>
-      <TitleText>RELEASE DATE</TitleText>
-      <TextView>November 11, 2022</TextView>
-      <TitleText>RUNNING TIME</TitleText>
-      <TextView>161 MINUTES</TextView>
       <TitleText>CAST</TitleText>
       <TextView>
         Angela Bassett, Letitia Wright, Winston Duke, Danai Gurira, Florence

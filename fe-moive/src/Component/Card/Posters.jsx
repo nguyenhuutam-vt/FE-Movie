@@ -11,7 +11,7 @@ const Posters = () => {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 17px;
-    padding: 17px;
+    padding: 10px;
   `;
   return (
     <container>

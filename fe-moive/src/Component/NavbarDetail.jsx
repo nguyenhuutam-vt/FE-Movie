@@ -19,15 +19,14 @@ const NavbarDetail = () => {
       display: none;
       ${mobile({
         display: "flex",
-        marginRight: "5%",
         width: "25px",
         height: "25px",
       })}
     }
   `;
-  const Img = styled.div`
+  const Img = styled.img`
     /* margin-top: -15px; */
-    ${mobile({ display: "flex" })}
+    ${mobile({ display: "flex", width: "25px", Height: "25px" })}
   `;
   const Entrance = styled.div`
     display: flex;
@@ -45,9 +44,7 @@ const NavbarDetail = () => {
       <Entrance>
         <MenuIcon className="icon" htmlColor="black" />
       </Entrance>
-      <Img>
-        <img src={logo1} alt="" />{" "}
-      </Img>
+      <Img src={logo1} alt="" />{" "}
       <Entrance>
         <img className="logo" src={ImgLogin} alt="" />
         <NotificationsNoneIcon className="icon"></NotificationsNoneIcon>
