@@ -2,17 +2,18 @@ import React from "react";
 import { styled } from "styled-components";
 import { mobile } from "../responsive";
 import NavbarDetail from "../Component/NavbarDetail";
-import Banner from "../img/Banner_Detail_Page.png";
+import Banner from "../assets/img/Banner_Detail_Page.png";
 import CardVideo from "../Component/Card/CardVideo";
-import Video1 from "../img/Trailer_Video_Detail.png";
-import Video2 from "../img/Movie_Detail.png";
-
+import Video1 from "../assets/img/Trailer_Video_Detail.png";
+import Video2 from "../assets/img/Movie_Detail.png";
+import PostersCard from "../Component/Card/Posters";
+import OverViewCard from "../Component/Card/OverviewCard";
 export const Detail = () => {
   const Container = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: green;
-    ${mobile({ height: "50px" })}
+    background-color: black;
+    font-family: Berlin Sans FB;
   `;
   const BannerD = styled.header`
     display: flex;
@@ -22,27 +23,47 @@ export const Detail = () => {
     background-size: cover;
     background-image: url(${Banner});
     background-repeat: no-repeat;
-    /* background-position: fixed; */
+    ${mobile({
+      backgroundSize: "contain",
+      height: "220px",
+    })}/* background-position: fixed; */
   `;
   const Content = styled.div`
     flex-direction: row;
     display: flex;
     justify-content: space-around;
+    ${mobile({
+      flexDirection: "column",
+      fontSize: "8px",
+      padding: "27px",
+    })}
   `;
   const Footer = styled.footer`
     flex-direction: row;
     display: flex;
     justify-content: space-between;
+    margin-top: 100px;
+    ${mobile({
+      flexDirection: "column",
+      width: "100%",
+      marginTop: "50px",
+    })}
   `;
   const OverView = styled.footer`
-    background-color: blue;
     width: 50%;
-    height: 1000px;
+    margin-left: 37px;
+    ${mobile({
+      width: "100%",
+      marginLeft: "0",
+    })}
   `;
   const Posters = styled.footer`
-    background-color: red;
     width: 50%;
-    height: 1000px;
+    text-align: center;
+    align-items: center;
+    ${mobile({
+      width: "100%",
+    })}
   `;
   return (
     <Container>
@@ -54,8 +75,12 @@ export const Detail = () => {
         <CardVideo Title={"WATCH MOVIE NOW"} Video={Video2}></CardVideo>
       </Content>
       <Footer>
-        <OverView></OverView>
-        <Posters></Posters>
+        <OverView>
+          <OverViewCard />
+        </OverView>
+        <Posters>
+          <PostersCard />
+        </Posters>
       </Footer>
     </Container>
   );

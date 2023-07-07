@@ -2,7 +2,10 @@ import React from "react";
 import { styled } from "styled-components";
 import { mobile } from "../responsive";
 import MenuIcon from "@mui/icons-material/Menu";
-// import logo1 from "../img/M logo 1.png";
+
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import logo1 from "../assets/img/M logo 1.png";
+import ImgLogin from "../assets/img/ACCOUNT 1.png";
 
 const NavbarDetail = () => {
   const Container = styled.div`
@@ -11,43 +14,46 @@ const NavbarDetail = () => {
     justify-content: space-between;
     padding-top: 20px;
     position: absolute;
-    ${mobile({ height: "50px" })};
+    ${mobile({ paddingTop: "5px" })}
+    .account {
+      width: 50px;
+      height: 50px;
+      display: none;
+      ${mobile({
+        display: "flex",
+        width: "25px",
+        height: "25px",
+      })}
+    }
   `;
-  const Img = styled.div`
-    margin-top: -15px;
+  const Img = styled.img`
+    /* margin-top: -15px; */
+    ${mobile({ display: "flex", width: "25px", Height: "25px" })}
   `;
   const Entrance = styled.div`
     display: flex;
     width: 160px;
+    justify-content: space-evenly;
+    ${mobile({ display: "none" })}
+    .icon {
+      width: 50px;
+      height: 50px;
+    }
   `;
-  const SignIn = styled.button`
-    color: white;
-    height: 25px;
-    width: 80px;
-    background: linear-gradient(black, black) padding-box,
-      linear-gradient(to right, black, red) border-box;
-    border-radius: 50em;
-    border: 2px solid transparent;
-  `;
-  const SignUp = styled.button`
-    color: white;
-    height: 25px;
-    width: 80px;
-    background: linear-gradient(black, black) padding-box,
-      linear-gradient(to right, black, red) border-box;
-    border-radius: 50em;
-    border: 2px solid transparent;
-  `;
+
   return (
     <Container>
       <Entrance>
-        <MenuIcon htmlColor="black" />
+        <MenuIcon className="icon" htmlColor="black" />
       </Entrance>
-      <Img>{/* <img src={logo1} alt="" /> */}</Img>
+
+      <Img src={logo1} alt="" />{" "}
+
       <Entrance>
-        <SignIn>SIGN IN</SignIn>
-        <SignUp>SIGN UP</SignUp>
+        <img className="logo" src={ImgLogin} alt="" />
+        <NotificationsNoneIcon className="icon"></NotificationsNoneIcon>
       </Entrance>
+      <img className="account" src={ImgLogin} alt="" />
     </Container>
   );
 };
