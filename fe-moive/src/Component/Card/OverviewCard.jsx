@@ -16,7 +16,12 @@ const TextView = styled.p`
   margin: unset;
   margin-block-start: unset;
   padding: 10px;
-  ${mobile({ fontSize: "15.5px", lineHeight: "14.2px" })}
+  ${mobile({
+    fontSize: "15.5px",
+    lineHeight: "14.2px",
+    padding: "0px",
+    margin: "0px 10px 20px 10px",
+  })}
 `;
 const TitleText = styled.p`
   color: #7b6844;
@@ -29,7 +34,12 @@ const TitleText = styled.p`
   padding: 10px;
   margin: unset;
   margin-block-start: unset;
-  ${mobile({ fontSize: "15.5px", lineHeight: "14.2px", margin: "0px" })}
+  ${mobile({
+    fontSize: "15.5px",
+    lineHeight: "14.2px",
+    margin: "0px 10px 0px 10px",
+    padding: "0px",
+  })}
   margin-top: 35px;
 `;
 const Content = styled.div`
