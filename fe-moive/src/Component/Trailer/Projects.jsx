@@ -17,7 +17,8 @@ const Projects = () => {
 
     position: relative;
     @media (max-width: 840px) {
-      width: 90%;
+      width: 100%;
+      margin-top: -235px;
     }
     h1 {
       font-size: 1.9rem;
@@ -29,7 +30,7 @@ const Projects = () => {
       padding: 1rem 0;
       font-size: 0.9rem;
       @media (max-width: 500px) {
-        width: 90%;
+        width: 100%;
       }
     }
   `;
@@ -40,7 +41,6 @@ const Projects = () => {
       </div>
       <div>
         <Genres />
-        {/* <Generess /> */}
       </div>
       <div>
         <Popular />

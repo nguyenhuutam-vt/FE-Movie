@@ -7,6 +7,7 @@ import Feature from "../../Component/Feature";
 import ListMovie from "../../Component/ListMove/ListMovie";
 
 import Projects from "../../Component/Trailer/Projects";
+import Footer from "../../Component/Footer/Footer";
 
 export const Home = () => {
   const Container = styled.div`
@@ -28,12 +29,14 @@ export const Home = () => {
   `;
   return (
     <Container>
-      <Navbar />
-      {/* <ImgBlack src={imgblack} alt="" /> */}
-      <Feature />
+      <Container1>
+        <Navbar />
+        <Feature />
+      </Container1>
 
       <ListMovie />
       <Projects />
+      <Footer />
     </Container>
   );
 };

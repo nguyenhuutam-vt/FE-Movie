@@ -5,8 +5,9 @@ import Slider from "react-slick";
 import trailer from "../../assets/img/lala land 1.png";
 import icon2 from "../../assets/img/S3.png";
 import icon1 from "../../assets/img/S31.png";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
 import Project from "./Project";
+import { mobile } from "../../responsive";
 let data = [
   {
     img: trailer,
@@ -121,6 +122,10 @@ const Container = styled.div`
   height: 100%;
   width: 100%;
   margin-top: 20px;
+  ${mobile({
+    height: "100%",
+    transform: "translate(0px, -135px)",
+  })};
 `;
 const Buttons = styled.div`
   button {
@@ -138,6 +143,9 @@ const Buttons = styled.div`
   .back {
     left: 0rem;
   }
+  ${mobile({
+    display: "none",
+  })};
 `;
 const SliderComp = () => {
   const arrowRef = useRef(null);

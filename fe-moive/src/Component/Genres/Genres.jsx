@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import "../Genres/Genres.css";
 import menu from "../../assets/img/MENU 1.png";
 import filter from "../../assets/img/filter-icon-svg-3 1.png";
+import { mobile } from "../../responsive";
 const Genres = ({ type }) => {
   const [isActive, setActive] = useState(false);
 
@@ -10,6 +11,9 @@ const Genres = ({ type }) => {
     height: 100%;
     width: 100%;
     color: white;
+    ${mobile({
+      display: "none",
+    })};
   `;
   return (
     <Container>
