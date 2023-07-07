@@ -13,7 +13,13 @@ const StyledStepOne = styled.div``;
 const StyledStepTwo = styled.div`
   text-align: center;
 `;
-const StyledStepThree = styled.div``;
+const StyledStepThree = styled.div`
+.err {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  color: #e64646;
+}
+`;
 /////////////////////////////////////Line step/////////////////////////////////////////////
 const StyledLineOne = styled.div`
   display: flex;
@@ -109,7 +115,6 @@ const ForgotStepOne = () => {
   );
 };
 // Forgot password step 2
-const numOfFields = 4;
 
 const useSSNFields = () => {
   const [ssnValues, setValue] = useState({
@@ -196,6 +201,61 @@ const ForgotStepTwo = () => {
 };
 
 const ForgotStepThree = () => {
+  const [input, setInput] = useState({
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [error, setError] = useState({
+    password: "",
+    confirmPassword: "",
+  });
+
+  const onInputChange = (e) => {
+    const { name, value } = e.target;
+    setInput((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    validateInput(e);
+  };
+
+  const validateInput = (e) => {
+    let { name, value } = e.target;
+
+    setError((prev) => {
+      const stateObj = { ...prev, [name]: "" };
+      switch (name) {
+        case "password":
+          if (!value) {
+            stateObj[name] = "Please enter Password.";
+          } else if (input.confirmPassword && value !== input.confirmPassword) {
+            stateObj["confirmPassword"] =
+              "Password and Confirm Password does not match.";
+          } else {
+            stateObj["confirmPassword"] = input.confirmPassword
+              ? ""
+              : error.confirmPassword;
+          }
+          break;
+        case "confirmPassword":
+          if (!value) {
+            stateObj[name] = "Please enter Password.";
+          } else if (input.confirmPassword && value !== input.confirmPassword) {
+            stateObj["confirmPassword"] =
+              "Password and Confirm Password does not match.";
+          } else {
+            stateObj["confirmPassword"] = input.confirmPassword
+              ? ""
+              : error.confirmPassword;
+          }
+          break;
+        default:
+          break;
+      }
+      return stateObj;
+    });
+  };
   return (
     <StyledStepThree>
       <div className="headerLogo">
@@ -208,20 +268,28 @@ const ForgotStepThree = () => {
       <div className="inputNewPassword">
         <label htmlFor="email">Password</label>
         <input
-          type="text"
+          type="password"
           id="password"
           name="password"
           placeholder="**********"
+          value={input.password}
+          onChange={onInputChange}
+          onBlur={validateInput}
         />
+        {error.password && <span className="err">{error.password}</span>}
       </div>
       <div className="inputNewPassword">
         <label htmlFor="email">Comfirm password</label>
         <input
-          type="text"
-          id="password"
+          type="password"
+          id="confirmPassword"
           name="confirmPassword"
           placeholder="**********"
+          value={input.confirmPassword}
+          onChange={onInputChange}
+          onBlur={validateInput}
         />
+        {error.confirmPassword && <span className="err">{error.confirmPassword}</span>}
       </div>
     </StyledStepThree>
   );
@@ -255,7 +323,6 @@ const LineThree = () => {
   );
 };
 
-const steps = ["", "", ""];
 
 const StyledForgotLayout = styled.div`
   width: 80%;
@@ -267,6 +334,7 @@ const StyledForgotLayout = styled.div`
     margin-bottom: 22.2em;
   }
 `;
+const steps = ["", "", ""];
 
 const ForgotPassword = () => {
   const [activeStep, setActiveStep] = useState(0);
