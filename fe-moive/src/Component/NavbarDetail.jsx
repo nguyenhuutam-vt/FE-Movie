@@ -2,9 +2,11 @@ import React from "react";
 import { styled } from "styled-components";
 import { mobile } from "../responsive";
 import MenuIcon from "@mui/icons-material/Menu";
+
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import logo1 from "../assets/img/M logo 1.png";
 import ImgLogin from "../assets/img/ACCOUNT 1.png";
+
 const NavbarDetail = () => {
   const Container = styled.div`
     width: 100%;
@@ -44,7 +46,9 @@ const NavbarDetail = () => {
       <Entrance>
         <MenuIcon className="icon" htmlColor="black" />
       </Entrance>
+
       <Img src={logo1} alt="" />{" "}
+
       <Entrance>
         <img className="logo" src={ImgLogin} alt="" />
         <NotificationsNoneIcon className="icon"></NotificationsNoneIcon>
