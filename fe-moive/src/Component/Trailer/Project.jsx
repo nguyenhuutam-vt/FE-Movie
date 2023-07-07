@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import "../../Component/Trailer/WatchTrailer.css";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
+import { mobile } from "../../responsive";
 const Project = (props) => {
   const Container = styled.div`
     width: 100%;
@@ -49,6 +50,9 @@ const Project = (props) => {
     :hover > .disc {
       bottom: 0;
     }
+    ${mobile({
+      height: "100%",
+    })};
   `;
   const Disc = styled.div`
     transform: translate(-270px, 45px);

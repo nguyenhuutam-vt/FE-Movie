@@ -8,6 +8,13 @@
     transition: all 400ms ease-in-out;
     pointer-events: all;
     opacity: 1;
+    @media (max-width: 640px) {
+      transform: scale(1.3);
+    z-index: 10000;
+    transition: all 400ms ease-in-out;
+    pointer-events: all;
+    opacity: 1;
+    }
   }
   .project:hover .middle {
     opacity: 1;

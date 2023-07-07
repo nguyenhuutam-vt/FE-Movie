@@ -31,4 +31,6 @@
     /* transform: translate(10px, -900px); */
     margin-left: 100px;
  }
- 
+ .slick-dots{
+    display: none;
+ }
