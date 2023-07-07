@@ -12,7 +12,7 @@ const Signup = () => {
         </div>
         <h5>Register</h5>
       </div>
-      <div className="formSingup">
+      <div className="formSignup">
         <form action="">
           <div className="inputSignup">
             <input type="text" id="email" name="email" placeholder="Name" />

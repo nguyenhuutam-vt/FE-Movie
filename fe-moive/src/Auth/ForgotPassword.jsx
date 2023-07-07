@@ -260,6 +260,12 @@ const steps = ["", "", ""];
 const StyledForgotLayout = styled.div`
   width: 80%;
   margin: 0 auto;
+  .allStepDone{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10em;
+    margin-bottom: 22.2em;
+  }
 `;
 
 const ForgotPassword = () => {
@@ -333,7 +339,7 @@ const ForgotPassword = () => {
                   <p>Your password has been reset. Would you like to login now?</p>
                 </div>
               </Typography>
-              <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+              <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }} className="allStepDone">
                 <Box sx={{ flex: "1 1 auto" }} />
                 <Button onClick={toLogin}>Go to Login</Button>
               </Box>
@@ -352,21 +358,23 @@ const ForgotPassword = () => {
                       <ForgotStepThree />
                     )}
                     <Box sx={{ flex: "1 1 auto" }} />
-                    {activeStep !== steps.length && (
-                      <Button onClick={handleComplete}>
-                        {completedSteps() === totalSteps() - 1
-                          ? "Finish"
-                          : "Continue"}
+                    <div className="btnfg">
+                      {activeStep !== steps.length && (
+                        <Button onClick={handleComplete}>
+                          {completedSteps() === totalSteps() - 1
+                            ? "Finish"
+                            : "Continue"}
+                        </Button>
+                      )}
+                      <Button
+                        color="inherit"
+                        disabled={activeStep === 0}
+                        onClick={handleBack}
+                        sx={{ mr: 1 }}
+                      >
+                        Back
                       </Button>
-                    )}
-                    <Button
-                      color="inherit"
-                      disabled={activeStep === 0}
-                      onClick={handleBack}
-                      sx={{ mr: 1 }}
-                    >
-                      Back
-                    </Button>
+                    </div>
                   </form>
                   {activeStep == 0 ? (
                     <LineOne />
