@@ -19,13 +19,12 @@ export const Detail = () => {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 1000px;
-    background-size: cover;
+    height: 900px;
+    background-size: contain;
     background-image: url(${Banner});
     background-repeat: no-repeat;
     ${mobile({
-      backgroundSize: "contain",
-      height: "220px",
+      height: "200px",
     })}/* background-position: fixed; */
   `;
   const Content = styled.div`
