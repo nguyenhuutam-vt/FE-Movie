@@ -25,8 +25,8 @@ const StyledLayoutAuth = styled.div`
       border-radius: 0 0 100px 0;
       display: inline-block;
       ${mobile({
-        width: "10%"
-    })}
+        width: "10%",
+      })}
     }
     .cornerTopRight {
       position: absolute;
@@ -38,8 +38,8 @@ const StyledLayoutAuth = styled.div`
       border-radius: 0 0 0 100%;
       ${mobile({
         width: "16%",
-        height: "14vh" 
-    })}
+        height: "14vh",
+      })}
     }
     .cornerBotLeft {
       width: 5%;
@@ -47,8 +47,8 @@ const StyledLayoutAuth = styled.div`
       background-color: #ffe919;
       border-radius: 0 100px 0 0;
       ${mobile({
-        width: "10%"
-    })}
+        width: "10%",
+      })}
     }
     ///////////////////////////////// Login page in light mode///////////////////////////////////////////////////
     .inputStyled {
@@ -271,7 +271,7 @@ const StyledLayoutAuth = styled.div`
         margin-bottom: 2em;
         input {
           background-color: #000000;
-          color: #FFFFFF;
+          color: #ffffff;
           width: 100%;
           padding: 15px 5px;
           font-size: 22px;
@@ -280,7 +280,7 @@ const StyledLayoutAuth = styled.div`
           border: none;
         }
         input::placeholder {
-          color: #FFFFFF;
+          color: #ffffff;
         }
       }
       button {
@@ -350,8 +350,8 @@ const StyledLayoutAuth = styled.div`
       border-radius: 0 0 0 100%;
       ${mobile({
         width: "16%",
-        height: "14vh" 
-    })}
+        height: "14vh",
+      })}
     }
     .cornerBotLeft {
       width: 5%;
@@ -416,7 +416,6 @@ const StyledLayoutAuth = styled.div`
               #780eff 101.13%
             )
             border-box;
-            
       }
       .or {
         display: flex;
@@ -711,16 +710,15 @@ const StyledLayoutAuth = styled.div`
     right: 0;
     bottom: 2%;
     width: 5%;
-    ${mobile({ 
+    ${mobile({
       right: "13%",
-      })}
+    })}
   }
   .switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 24px;
-    
   }
   //hide default checkbox
   .switch input {
