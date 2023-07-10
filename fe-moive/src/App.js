@@ -8,6 +8,7 @@ import Login from './Auth/Login';
 import Signup from './Auth/Signup';
 import ForgotPassword from './Auth/ForgotPassword';
 import { Home } from './Container/home/Home';
+import Profile from './Container/Profile/Profile';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/signup' element={<Signup/>} />
         <Route path='/forgotpassword' element={<ForgotPassword/>} />
       </Route>
+      <Route path='/Profile' element={<Profile/>} />
     </Routes>
   );
 }

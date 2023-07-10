@@ -12,7 +12,6 @@ const NavbarDetail = () => {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
     position: absolute;
     ${mobile({ paddingTop: "5px" })}
     .account {
@@ -33,6 +32,7 @@ const NavbarDetail = () => {
   const Entrance = styled.div`
     display: flex;
     width: 160px;
+    padding-top: 20px;
     justify-content: space-evenly;
     ${mobile({ display: "none" })}
     .icon {
