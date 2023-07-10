@@ -13,6 +13,7 @@ import Profile from './Container/Profile/Profile';
 
 import Upcoming from './Component/UpComing/Upcoming';
 
+import About from './Container/About/About';
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
       <Route path='/Profile' element={<Profile/>} />
 
       <Route path="/upcoming" element={<Upcoming/>}/>
+
+      <Route path="/about" element={<About/>} />
 
     </Routes>
   );
