@@ -79,7 +79,7 @@ const ListMovie = () => {
           return (
             <Movie className="poster">
               <Poster>
-                <a href="/">
+                <a href="/detail">
                   {" "}
                   <Img src={item.imgList} alt="" />
                 </a>
