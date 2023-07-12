@@ -33,7 +33,6 @@ export const Home = () => {
         <Navbar />
         <Feature />
       </Container1>
-
       <ListMovie />
       <Projects />
       <Footer />

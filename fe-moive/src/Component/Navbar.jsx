@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { mobile } from "../responsive";
 import MenuIcon from "@mui/icons-material/Menu";
 import logo1 from "../assets/img/M logo 1.png";
+import { NavLink } from "react-router-dom";
 const Navbar = () => {
   const Container = styled.div`
     width: 100%;
@@ -94,6 +95,7 @@ const Navbar = () => {
   const Menu = styled.div`
     ${mobile({ display: "none" })};
   `;
+
   return (
     <Container>
       <Menu>
@@ -107,11 +109,19 @@ const Navbar = () => {
           <img src={logo1} alt="" />
         </Img>
         <About>SERIES</About>
-        <About>UPCOMING</About>
+
+        <NavLink to="/upcoming">
+          <About>UPCOMING</About>
+        </NavLink>
       </Nav>
       <Entrance>
-        <SignIn>SIGN IN</SignIn>
-        <SignUp>SIGN UP</SignUp>
+        <NavLink to="/login">
+          {" "}
+          <SignIn>SIGN IN</SignIn>
+        </NavLink>
+        <NavLink to="/signup">
+          <SignUp>SIGN UP</SignUp>
+        </NavLink>
       </Entrance>
     </Container>
   );

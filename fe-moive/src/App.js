@@ -7,9 +7,10 @@ import Login from "./Auth/Login";
 import Signup from "./Auth/Signup";
 import ForgotPassword from "./Auth/ForgotPassword";
 import { Home } from "./Container/home/Home";
+
 import Profile from "./Container/Profile/Profile";
 
-// import Upcoming from "./Component/UpComing/Upcoming";
+import Upcoming from "./Component/UpComing/Upcoming";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
       <Route path="/Profile" element={<Profile />} />
 
       {/* <Route path="/upcoming" element={<Upcoming />} /> */}
+      <Route path="/Profile" element={<Profile />} />
+
+      <Route path="/upcoming" element={<Upcoming />} />
     </Routes>
   );
 }
