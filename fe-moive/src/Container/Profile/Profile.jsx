@@ -4,6 +4,7 @@ import NavbarDetail from "./../../Component/NavbarDetail";
 import Modal from "react-modal";
 // import Avatar2 from "../../Component/Card/Avatar";
 import Avatar1 from "../../assets/img/M logo 2.png";
+import { mobile } from "../../responsive";
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [Avatar, setAvatar] = useState(Avatar1);
@@ -20,6 +21,9 @@ const Profile = () => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    ${mobile({
+      fontSize: "12px",
+    })}
   `;
   const Body = styled.div`
     width: 70%;
@@ -43,6 +47,16 @@ const Profile = () => {
     justify-content: center;
     cursor: pointer;
     background-color: #1b0301;
+    ${mobile({
+      width: "50px",
+      height: "50px",
+    })}
+    img {
+      ${mobile({
+        width: "50px",
+        height: "50px",
+      })}
+    }
   `;
   const Name = styled.p`
     text-align: center;
@@ -55,6 +69,9 @@ const Profile = () => {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    ${mobile({
+      padding: "0px",
+    })}
   `;
   const handleAvatarClick = () => {
     setModalIsOpen(true);
@@ -73,13 +90,16 @@ const Profile = () => {
   `;
   const Content = styled.div`
     width: 80%;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     background-color: #1b0301;
     border-radius: 10px;
     padding: 20px;
     margin-top: 10px;
+    ${mobile({
+      padding: "10px",
+      width: "90%",
+    })}
   `;
   const Info = styled.div`
     width: 80%;
@@ -90,6 +110,9 @@ const Profile = () => {
   `;
   const Label = styled.div`
     font-size: 22px;
+    ${mobile({
+      fontSize: "16px",
+    })}
   `;
   const Text = styled.div`
     margin: unset;
