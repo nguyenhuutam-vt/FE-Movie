@@ -16,6 +16,8 @@ import Movie from './Component/UpComing/Movie/Movie';
 import Series from './Container/Serie/Series';
 
 
+import Movie from './Container/Movie/Movie';
+
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
       <Route path='/series' element={<Series/>} />
       <Route path="/upcoming" element={<Upcoming />} />
 
+
+      <Route path='/movie' element={<Movie/>} />
 
     </Routes>
   );

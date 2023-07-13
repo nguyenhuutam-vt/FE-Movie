@@ -104,12 +104,21 @@ const Navbar = () => {
         <MenuIcon />
       </Menu>
       <Nav>
-        <About>ABOUT</About>
+        <NavLink to="/about">
+          <About>ABOUT</About>
+        </NavLink>
+        <NavLink to="/movie">
         <About>MOVIES</About>
-        <Img>
-          {" "}
-          <img src={logo1} alt="" />
-        </Img>
+
+
+        </NavLink>
+        <NavLink to="/home">
+          <Img>
+            {" "}
+            <img src={logo1} alt="" />
+          </Img>
+        </NavLink>
+
         <NavLink to="/series">
           <About>SERIES</About>
         </NavLink>
