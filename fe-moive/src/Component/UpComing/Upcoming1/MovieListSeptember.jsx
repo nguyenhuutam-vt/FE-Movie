@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./movieList.css";
 import Cards from "./Card/Cards";
-const MovieList = () => {
+
+const MovieListSeptember = () => {
   const [movieList, setMovieList] = useState([]);
   const { type } = useParams();
 
@@ -18,14 +18,16 @@ const MovieList = () => {
     fetch(
       `https://api.themoviedb.org/3/movie/${
         type ? type : "upcoming"
-      }?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US&page=3`
+      }?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US&page=1`
     )
       .then((res) => res.json())
       .then((data) => setMovieList(data.results));
   };
   return (
     <div className="movie__list">
-      <h2 className="list__title">{(type ? type : "AUGUST").toUpperCase()}</h2>
+      <h2 className="list__title">
+        {(type ? type : "September").toUpperCase()}
+      </h2>
       <div className="list__cards">
         {movieList.map((movie) => (
           <Cards movie={movie} />
@@ -35,4 +37,4 @@ const MovieList = () => {
   );
 };
 
-export default MovieList;
+export default MovieListSeptember;

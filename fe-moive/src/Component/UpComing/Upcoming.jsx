@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import Navbar from "../Navbar";
 import Poster from "./Poster/Poster";
 import Upcoming1 from "./Upcoming1/Upcoming1";
+import Footer from "../Footer/Footer";
 
 const Upcoming = () => {
   const Container = styled.div`
@@ -14,6 +15,7 @@ const Upcoming = () => {
       <Navbar />
       <Poster />
       <Upcoming1 />
+      <Footer />
     </Container>
   );
 };

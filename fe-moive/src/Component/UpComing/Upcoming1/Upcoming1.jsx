@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { styled } from "styled-components";
 import "../../Genres/Genres.css";
 import August from "./August";
+import September from "./September";
 
 const Upcoming1 = ({ type }) => {
   const Container = styled.div`
@@ -108,6 +109,7 @@ const Upcoming1 = ({ type }) => {
         </Drop>
       </Release>
       <August />
+      <September />
     </Container>
   );
 };
