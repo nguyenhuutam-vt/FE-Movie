@@ -10,6 +10,8 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import logo1 from "../assets/img/M logo 1.png";
 import ImgLogin from "../assets/img/ACCOUNT 1.png";
+import { NavLink } from "react-router-dom";
+import Profile from "./../Container/Profile/Profile";
 
 const NavbarDetail = () => {
   const InputContainer = styled.div`
@@ -124,9 +126,10 @@ const NavbarDetail = () => {
 
   const handleAvatarClick = () => {
     setShowOptions(!showOptions);
+    setShowAnalog(true);
   };
   return (
-    <Container onMouseLeave={handleMouseLeave} >
+    <Container onMouseLeave={handleMouseLeave}>
       <Entrance>
         <MenuIcon className="icon" htmlColor="black" />
       </Entrance>
@@ -138,38 +141,38 @@ const NavbarDetail = () => {
           src={ImgLogin}
           alt=""
         />
-        {showAnalog && (
-          <Dialog>
-            {showOptions && (
-              <InputContainer>
-                <Value>
-                  <AccountCircleIcon className="icon2" />
-                  Profile
-                </Value>
-                <Value>
-                  <FavoriteIcon className="icon2" />
-                  Favorite
-                </Value>
-                <Value>
-                  <SettingsIcon className="icon2" />
-                  Setting
-                </Value>
-                <Value>
-                  <LogoutIcon className="icon2" />
-                  Logout
-                </Value>
-              </InputContainer>
-            )}
-          </Dialog>
-        )}
         <NotificationsNoneIcon className="icon"></NotificationsNoneIcon>
       </Entrance>
       <img
         className="account"
+        onClick={handleAvatarClick}
         src={ImgLogin}
         alt=""
-        onClick={handleAvatarClick}
-      />
+      />{" "}
+      {showAnalog && (
+        <Dialog>
+          {showOptions && (
+            <InputContainer>
+              <Value>
+                <AccountCircleIcon className="icon2" />
+                <NavLink to="/profile">Profile</NavLink>
+              </Value>
+              <Value>
+                <FavoriteIcon className="icon2" />
+                Favorite
+              </Value>
+              <Value>
+                <SettingsIcon className="icon2" />
+                Setting
+              </Value>
+              <Value>
+                <LogoutIcon className="icon2" />
+                <NavLink to="/Login">Log Out</NavLink>
+              </Value>
+            </InputContainer>
+          )}
+        </Dialog>
+      )}
     </Container>
   );
 };

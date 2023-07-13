@@ -5,15 +5,10 @@ import Modal from "react-modal";
 // import Avatar2 from "../../Component/Card/Avatar";
 import Avatar1 from "../../assets/img/M logo 2.png";
 import { mobile } from "../../responsive";
+import EditProfile from "./EditProfile";
 const Profile = () => {
-  const [isEditing, setIsEditing] = useState(false);
   const [Avatar, setAvatar] = useState(Avatar1);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [fullName, setFullName] = useState("Nguyen Thai Nguyen");
-  const [email, setEmail] = useState("example@example.com");
-  const [phone, setPhone] = useState("1234567890");
-  const [address, setAddress] = useState("123 ABC Street, XYZ City");
-  const [dateOfBirth, setDateOfBirth] = useState("01/01/2000");
   const Container = styled.div`
     background-color: #1b0301;
     width: 100%;
@@ -61,6 +56,8 @@ const Profile = () => {
   const Name = styled.p`
     text-align: center;
     margin-left: 10px;
+    font-size: 32px;
+    ${mobile({ fontSize: "12px" })}
   `;
   const Button = styled.button`
     padding: 10px 20px;
@@ -70,7 +67,7 @@ const Profile = () => {
     border-radius: 10px;
     cursor: pointer;
     ${mobile({
-      padding: "0px",
+      padding: "0px"
     })}
   `;
   const handleAvatarClick = () => {
@@ -108,25 +105,6 @@ const Profile = () => {
     justify-content: space-between;
     align-items: center;
   `;
-  const Label = styled.div`
-    font-size: 22px;
-    ${mobile({
-      fontSize: "16px",
-    })}
-  `;
-  const Text = styled.div`
-    margin: unset;
-  `;
-  const StyDiv = styled.div`
-    margin: 10px;
-  `;
-  const handleEditProfile = () => {
-    setIsEditing(true);
-  };
-
-  const handleSaveProfile = () => {
-    setIsEditing(false);
-  };
   return (
     <Container>
       <NavbarDetail />
@@ -138,87 +116,9 @@ const Profile = () => {
             </SAvatar>
             <Name>Thái Nguyên</Name>
           </InfoUser>
-          {isEditing ? (
-            <Button onClick={handleSaveProfile}>Save Profile</Button>
-          ) : (
-            <Button onClick={handleEditProfile}>Edit Profile</Button>
-          )}
         </Info>
         <Content>
-          <StyDiv>
-            <Label htmlFor="name">Full Name</Label>
-            {isEditing ? (
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Full Name"
-                required
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-              />
-            ) : (
-              <Text>{fullName}</Text>
-            )}
-          </StyDiv>
-          <StyDiv>
-            <Label htmlFor="email">Email</Label>
-            {isEditing ? (
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            ) : (
-              <Text>{email}</Text>
-            )}
-          </StyDiv>
-          <StyDiv>
-            <Label htmlFor="phone">Phone</Label>
-            {isEditing ? (
-              <input
-                type="tel"
-                name="tel"
-                placeholder="Phone"
-                value={phone}
-                required
-                onChange={(e) => setPhone(e.target.value)}
-              />
-            ) : (
-              <Text>{phone}</Text>
-            )}
-          </StyDiv>
-          <StyDiv>
-            <Label htmlFor="address">Address</Label>
-            {isEditing ? (
-              <input
-                type="text"
-                name="address"
-                placeholder="address"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                required
-              />
-            ) : (
-              <Text>{address}</Text>
-            )}
-          </StyDiv>
-          <StyDiv>
-            <Label htmlFor="dateOfBirth">Date of Birth</Label>
-            {isEditing ? (
-              <input
-                type="date"
-                lang="vi"
-                value={dateOfBirth}
-                onChange={(e) => setDateOfBirth(e.target.value)}
-                required
-              />
-            ) : (
-              <Text>{dateOfBirth}</Text>
-            )}
-          </StyDiv>
+          <EditProfile />
           <Button>Reset Password</Button>
         </Content>
       </Body>
