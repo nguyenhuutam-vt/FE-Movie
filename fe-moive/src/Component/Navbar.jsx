@@ -65,6 +65,7 @@ const Navbar = () => {
   `;
   const Entrance = styled.div`
     display: flex;
+    width: 10%;
     ${mobile({
       display: "block",
       position: "absolute",
@@ -93,6 +94,7 @@ const Navbar = () => {
     ${mobile({ background: "none" })};
   `;
   const Menu = styled.div`
+    width: 10%;
     ${mobile({ display: "none" })};
   `;
 
@@ -108,7 +110,9 @@ const Navbar = () => {
           {" "}
           <img src={logo1} alt="" />
         </Img>
-        <About>SERIES</About>
+        <NavLink to="/series">
+          <About>SERIES</About>
+        </NavLink>
 
         <NavLink to="/upcoming">
           <About>UPCOMING</About>
