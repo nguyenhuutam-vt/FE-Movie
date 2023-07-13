@@ -6,9 +6,9 @@ import Checkbox from "@mui/material/Checkbox";
 import { ReactComponent as IconGoogle } from "../assets/icons/iconGoogle.svg";
 
 import { NavLink } from "react-router-dom";
-
 import { useState } from "react";
-
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 const StyledLogin = styled.div`
   .err {
     display: block;
@@ -55,7 +55,6 @@ const Login = () => {
           if (!value) {
             stateObj[name] = "Please enter password.";
           }
-          break;
           break;
         default:
           break;
