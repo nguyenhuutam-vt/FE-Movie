@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { Link } from "react-router-dom";
+import StarIcon from "@mui/icons-material/Star";
 import "./card.css";
 const Cards = ({ movie }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,7 +40,7 @@ const Cards = ({ movie }) => {
                 {movie ? movie.release_date : ""}
                 <span className="card__rating">
                   {movie ? movie.vote_average : ""}
-                  <i className="fas fa-star" />
+                  <i class="fa-thin fa-star"></i>
                 </span>
               </div>
               <div className="card__description">
@@ -47,6 +48,7 @@ const Cards = ({ movie }) => {
               </div>
             </div>
           </div>
+          <div style={{ width: "65%" }}>{movie.original_title}</div>
         </Link>
       )}
     </>

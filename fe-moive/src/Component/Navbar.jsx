@@ -65,6 +65,7 @@ const Navbar = () => {
   `;
   const Entrance = styled.div`
     display: flex;
+    width: 10%;
     ${mobile({
       display: "block",
       position: "absolute",
@@ -93,6 +94,7 @@ const Navbar = () => {
     ${mobile({ background: "none" })};
   `;
   const Menu = styled.div`
+    width: 10%;
     ${mobile({ display: "none" })};
   `;
 
@@ -102,13 +104,24 @@ const Navbar = () => {
         <MenuIcon />
       </Menu>
       <Nav>
-        <About>ABOUT</About>
+        <NavLink to="/about">
+          <About>ABOUT</About>
+        </NavLink>
+        <NavLink to="/movie">
         <About>MOVIES</About>
-        <Img>
-          {" "}
-          <img src={logo1} alt="" />
-        </Img>
-        <About>SERIES</About>
+
+
+        </NavLink>
+        <NavLink to="/home">
+          <Img>
+            {" "}
+            <img src={logo1} alt="" />
+          </Img>
+        </NavLink>
+
+        <NavLink to="/series">
+          <About>SERIES</About>
+        </NavLink>
 
         <NavLink to="/upcoming">
           <About>UPCOMING</About>

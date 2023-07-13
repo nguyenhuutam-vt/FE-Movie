@@ -70,7 +70,7 @@ const Feature = () => {
       width: "150%",
       height: "100%",
       background: "#190401",
-      transform: "translate(10px, -70px)",
+      transform: "translate(0px, -70px)",
     })};
   `;
   const Featured = styled.div`
@@ -174,14 +174,14 @@ const Feature = () => {
   `;
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
-    // nextArrow: <SampleNextArrow className="sample" />,
-    // prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow className="sample" />,
+    prevArrow: <SamplePrevArrow />,
 
     responsive: [
       {

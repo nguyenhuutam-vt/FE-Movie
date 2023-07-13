@@ -26,6 +26,7 @@ import tar from '../assets/img/tar 1.svg';
 import sprited from '../assets/img/spirited 1.svg';
 import woman from '../assets/img/the woman king 1.svg';
 import terri from '../assets/img/terrifier 1.svg';
+
 export const movie = [
     {
         id: 1,
@@ -42,10 +43,305 @@ export const movie = [
         color: "yellow",
         imgBlackwind: start,
         description: 'The travels of a lone bounty hunter in the outer reaches of the galaxy, far from the authority of the New Republic. After the stories of Jango and Boba Fett, another warrior emerges in the Star Wars universe. The Mandalorian is set after the fall of the Empire and before the emergence of the First Order'
-
-
     }
 
+]
+
+export const top5Movie = [
+    {
+        id: 1,
+        imgB: man,
+        color: "yellow",
+        imgBlackwind: start,
+        description: 'The travels of a lone bounty hunter in the outer reaches of the galaxy, far from the authority of the New Republic. After the stories of Jango and Boba Fett, another warrior emerges in the Star Wars universe. The Mandalorian is set after the fall of the Empire and before the emergence of the First Order',
+        top: 5
+    }
+]
+
+export const topMovie = [
+    {
+        rate:7.3,
+        title:"BLACK PANTHER: WAKANDA FOREVER",
+        des:"Sci-Fi, Adventure, Drama",
+        img:wakan,
+        fill:"#556268",
+        color:"white",
+        top: 1
+    },
+    {
+        rate:7.5,
+        title:"THE MENU",
+        des:"Comedy, Horror, Thriller",
+        img:menu,
+        fill:"#171616",
+        color:"white",
+        top: 2
+    }
+    ,
+    {
+        rate:8.5,
+        title:"WEDNESDAY",
+        des:"Comedy, Family, Mystery",
+        img:wed,
+        fill:"#030A37",
+        color:"white",
+        top: 3
+    }
+    ,
+    {
+        rate:6.7,
+        title:"BLACK ADAM",
+        des:"Action, Fantasy, Sci-Fi",
+        img:blackadam,
+        fill:"#2E180B",
+        color:"#DBAE8C",
+        top: 4
+    }
+    ,
+    {
+        rate:7.1,
+        title:"VIOLENT NIGHT",
+        des:"Comedy, Crime",
+        img:violent,
+        fill:"#D6E9EE",
+        color:"#AB0120",
+        top: 5
+    }
+    ,
+    {
+        rate:5.2,
+        title:"SHE-HULK: ATTORNEY AT LAW",
+        des:"Comedy,Adventure, Drama",
+        img:hulk,
+        fill:"#347601",
+        color:"#FFFFFF",
+        top: 6
+    }
+    ,
+    {
+        rate:7.8,
+        title:"TAR",
+        des:"Drama, Music",
+        img:tar,
+        fill:"#000000",
+        color:"#9E9FA1",
+        top: 7
+    }
+    ,
+    {
+        rate:6.6,
+        title:"SPIRITED",
+        des:"Comedy, Family, Musical",
+        img:sprited,
+        fill:"#C90102",
+        color:"#FFFFFF",
+        top: 8
+    }
+    ,
+    {
+        rate:6.7,
+        title:"THE WOMAN KING",
+        des:"Action, Drama, History",
+        img:woman,
+        fill:"#FD5502",
+        color:"#FFFFFF",
+        top: 9
+    }
+    ,
+    {
+        rate:6.3,
+        title:"TERRIFIER 2",
+        des:"Horror",
+        img:terri,
+        fill:"#E90A1D",
+        color:"#FFFFFF",
+        top: 10
+    }
+]
+
+export const horror = [
+    {
+        rate:8.5,
+        title:"WEDNESDAY",
+        des:"Comedy, Family, Mystery",
+        img:wed,
+        fill:"#030A37",
+        color:"white"
+    }
+    ,
+    {
+        rate:6.7,
+        title:"BLACK ADAM",
+        des:"Action, Fantasy, Sci-Fi",
+        img:blackadam,
+        fill:"#2E180B",
+        color:"#DBAE8C"
+    }
+    ,
+    {
+        rate:7.1,
+        title:"VIOLENT NIGHT",
+        des:"Comedy, Crime",
+        img:violent,
+        fill:"#D6E9EE"
+        ,
+        color:"#AB0120"
+    }
+    ,
+    {
+        rate:5.2,
+        title:"SHE-HULK: ATTORNEY AT LAW",
+        des:"Comedy,Adventure, Drama",
+        img:hulk,
+        fill:"#347601",
+        color:"#FFFFFF"
+    }
+    ,
+    {
+        rate:7.8,
+        title:"TAR",
+        des:"Drama, Music",
+        img:tar,
+        fill:"#000000",
+        color:"#9E9FA1"
+    }
+    ,
+    {
+        rate:6.6,
+        title:"SPIRITED",
+        des:"Comedy, Family, Musical",
+        img:sprited,
+        fill:"#C90102",
+        color:"#FFFFFF"
+    }
+    ,
+    {
+        rate:6.7,
+        title:"THE WOMAN KING",
+        des:"Action, Drama, History",
+        img:woman,
+        fill:"#FD5502",
+        color:"#FFFFFF"
+    }
+    ,
+    {
+        rate:6.3,
+        title:"TERRIFIER 2",
+        des:"Horror",
+        img:terri,
+        fill:"#E90A1D",
+        color:"#FFFFFF"
+    },
+    {
+        rate:7.3,
+        title:"BLACK PANTHER: WAKANDA FOREVER",
+        des:"Sci-Fi, Adventure, Drama",
+        img:wakan,
+        fill:"#556268",
+        color:"white",
+    },
+    {
+        rate:7.5,
+        title:"THE MENU",
+        des:"Comedy, Horror, Thriller",
+        img:menu,
+        fill:"#171616",
+        color:"white"
+    }
+]
+
+export const actionComedies = [
+
+    {
+        rate:7.5,
+        title:"THE MENU",
+        des:"Comedy, Horror, Thriller",
+        img:menu,
+        fill:"#171616",
+        color:"white"
+    }
+    ,
+    {
+        rate:8.5,
+        title:"WEDNESDAY",
+        des:"Comedy, Family, Mystery",
+        img:wed,
+        fill:"#030A37",
+        color:"white"
+    }
+    ,
+    {
+        rate:6.7,
+        title:"BLACK ADAM",
+        des:"Action, Fantasy, Sci-Fi",
+        img:blackadam,
+        fill:"#2E180B",
+        color:"#DBAE8C"
+    }
+    ,
+    {
+        rate:7.1,
+        title:"VIOLENT NIGHT",
+        des:"Comedy, Crime",
+        img:violent,
+        fill:"#D6E9EE"
+        ,
+        color:"#AB0120"
+    }
+    ,
+    {
+        rate:5.2,
+        title:"SHE-HULK: ATTORNEY AT LAW",
+        des:"Comedy,Adventure, Drama",
+        img:hulk,
+        fill:"#347601",
+        color:"#FFFFFF"
+    }
+    ,
+    {
+        rate:7.8,
+        title:"TAR",
+        des:"Drama, Music",
+        img:tar,
+        fill:"#000000",
+        color:"#9E9FA1"
+    }
+    ,
+    {
+        rate:6.6,
+        title:"SPIRITED",
+        des:"Comedy, Family, Musical",
+        img:sprited,
+        fill:"#C90102",
+        color:"#FFFFFF"
+    }
+    ,
+    {
+        rate:6.7,
+        title:"THE WOMAN KING",
+        des:"Action, Drama, History",
+        img:woman,
+        fill:"#FD5502",
+        color:"#FFFFFF"
+    }
+    ,
+    {
+        rate:6.3,
+        title:"TERRIFIER 2",
+        des:"Horror",
+        img:terri,
+        fill:"#E90A1D",
+        color:"#FFFFFF"
+    }
+    ,
+    {
+        rate:7.3,
+        title:"BLACK PANTHER: WAKANDA FOREVER",
+        des:"Sci-Fi, Adventure, Drama",
+        img:wakan,
+        fill:"#556268",
+        color:"white",
+    }
 ]
 
 export const list = [
@@ -228,8 +524,6 @@ export const popular = [
         fill:"#E90A1D",
         color:"#FFFFFF"
     }
-    
-    
 ]
 
 export const geners = [
