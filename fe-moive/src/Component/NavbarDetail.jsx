@@ -12,7 +12,7 @@ import logo1 from "../assets/img/M logo 1.png";
 import ImgLogin from "../assets/img/ACCOUNT 1.png";
 import { NavLink } from "react-router-dom";
 
-const NavbarDetail = () => {
+const NavbarDetail = ({ ImgLogin }) => {
   const InputContainer = styled.div`
     display: flex;
     box-sizing: border-box;
@@ -83,6 +83,13 @@ const NavbarDetail = () => {
         display: "flex",
         width: "25px",
         height: "25px",
+        borderRadius: "50%",
+        border: "#1b0301 solid 5px",
+        overflow: "hidden",
+        display: "flex",
+        justifyContent: "center",
+        cursor: "pointer",
+        backgroundColor: "#1b0301",
       })}
     }
   `;
@@ -119,6 +126,18 @@ const NavbarDetail = () => {
     .icon {
       width: 50px;
       height: 50px;
+    }
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: #1b0301 solid 5px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      background-color: #1b0301;
+      box-sizing: border-box;
     }
   `;
   const [showOptions, setShowOptions] = useState(false);
