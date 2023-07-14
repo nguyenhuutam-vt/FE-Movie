@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import SaveIcon from "@mui/icons-material/Save";
-import BadgeIcon from "@mui/icons-material/Badge";
-import MailIcon from "@mui/icons-material/Mail";
-import HomeIcon from "@mui/icons-material/Home";
-import CakeIcon from "@mui/icons-material/Cake";
-import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import { mobile } from "../../responsive";
 import "./Edit.css";
@@ -59,10 +54,10 @@ const EditProfile = () => {
     display: flex;
   `;
   return (
-    <div>
+    <form className="form">
       <Div>
         {isEditing ? (
-          <Button onClick={handleSaveProfile}>
+          <Button type="submit" onClick={handleSaveProfile}>
             <SaveIcon />
             <TextB>Save Profile</TextB>
           </Button>
@@ -83,10 +78,7 @@ const EditProfile = () => {
           onChange={(e) => setFullName(e.target.value)}
         />
       ) : (
-        <Text>
-          <BadgeIcon />
-          {fullName}
-        </Text>
+        <Text>{fullName}</Text>
       )}
       <Label htmlFor="email">Email</Label>
       {isEditing ? (
@@ -100,10 +92,7 @@ const EditProfile = () => {
           required
         />
       ) : (
-        <Text>
-          <MailIcon />
-          {email}
-        </Text>
+        <Text>{email}</Text>
       )}
       <Label htmlFor="phone"> Phone</Label>
       {isEditing ? (
@@ -117,10 +106,7 @@ const EditProfile = () => {
           onChange={(e) => setPhone(e.target.value)}
         />
       ) : (
-        <Text>
-          <PhoneAndroidIcon />
-          {phone}
-        </Text>
+        <Text>{phone}</Text>
       )}
       <Label htmlFor="address">Address</Label>
       {isEditing ? (
@@ -134,10 +120,7 @@ const EditProfile = () => {
           required
         />
       ) : (
-        <Text>
-          <HomeIcon />
-          {address}
-        </Text>
+        <Text>{address}</Text>
       )}
       <Label htmlFor="dateOfBirth">Date of Birth</Label>
       {isEditing ? (
@@ -150,12 +133,15 @@ const EditProfile = () => {
           required
         />
       ) : (
-        <Text>
-          <CakeIcon />
-          {dateOfBirth}
-        </Text>
+        <div className="button">
+          <Text>{dateOfBirth}</Text>
+          {/* <Button>
+            <DriveFileRenameOutlineIcon />
+            <TextB>Edit Profile</TextB>
+          </Button> */}
+        </div>
       )}
-    </div>
+    </form>
   );
 };
 export default EditProfile;
