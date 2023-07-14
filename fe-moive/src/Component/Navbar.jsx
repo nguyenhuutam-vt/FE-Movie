@@ -107,12 +107,10 @@ const Navbar = () => {
         <NavLink to="/about">
           <About>ABOUT</About>
         </NavLink>
-        <NavLink to="/movie">
+        <NavLink to="/movies">
         <About>MOVIES</About>
-
-
         </NavLink>
-        <NavLink to="/home">
+        <NavLink to="/">
           <Img>
             {" "}
             <img src={logo1} alt="" />

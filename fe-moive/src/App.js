@@ -19,7 +19,7 @@ import Movie from './Component/UpComing/Movie/Movie';
 import Series from './Container/Serie/Series';
 
 
-import Movie from './Container/Movie/Movie';
+import Movies from './Container/Movie/Movie';
 
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
       <Route path="/upcoming" element={<Upcoming/>}/>
 
 
-      <Route path='/movie' element={<Movie/>} />
+      <Route path='/movies' element={<Movies/>} />
 
     </Routes>
   );
