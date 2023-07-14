@@ -11,15 +11,15 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import logo1 from "../assets/img/M logo 1.png";
 import ImgLogin from "../assets/img/ACCOUNT 1.png";
 import { NavLink } from "react-router-dom";
-import Profile from "./../Container/Profile/Profile";
 
 const NavbarDetail = () => {
   const InputContainer = styled.div`
     display: flex;
+    box-sizing: border-box;
+    padding: 20px;
     flex-direction: column;
     width: 150px;
     background-color: #0d1117;
-    justify-content: center;
     border-radius: 10px;
   `;
 
@@ -31,8 +31,7 @@ const NavbarDetail = () => {
     color: white;
     position: relative;
     cursor: pointer;
-    font-size: 14px;
-    justify-content: space-around;
+    font-size: 18px;
     text-align: center;
     border-radius: 10px;
     &:not(:active):hover,
@@ -72,6 +71,10 @@ const NavbarDetail = () => {
     display: flex;
     justify-content: space-between;
     position: absolute;
+    .icon2 {
+      width: 20px;
+      height: 20px;
+    }
     ${mobile({ paddingTop: "5px" })}.account {
       width: 50px;
       height: 50px;
@@ -117,10 +120,6 @@ const NavbarDetail = () => {
       width: 50px;
       height: 50px;
     }
-    .icon2 {
-      width: 20px;
-      height: 20px;
-    }
   `;
   const [showOptions, setShowOptions] = useState(false);
 
@@ -153,22 +152,30 @@ const NavbarDetail = () => {
         <Dialog>
           {showOptions && (
             <InputContainer>
-              <Value>
-                <AccountCircleIcon className="icon2" />
-                <NavLink to="/profile">Profile</NavLink>
-              </Value>
-              <Value>
-                <FavoriteIcon className="icon2" />
-                Favorite
-              </Value>
-              <Value>
-                <SettingsIcon className="icon2" />
-                Setting
-              </Value>
-              <Value>
-                <LogoutIcon className="icon2" />
-                <NavLink to="/Login">Log Out</NavLink>
-              </Value>
+              <NavLink to="/profile">
+                <Value>
+                  <AccountCircleIcon className="icon2" />
+                  Profile
+                </Value>
+              </NavLink>
+              <NavLink to="">
+                <Value>
+                  <FavoriteIcon className="icon2" />
+                  Favorite
+                </Value>
+              </NavLink>
+              <NavLink to="/setting">
+                <Value>
+                  <SettingsIcon className="icon2" />
+                  Setting
+                </Value>
+              </NavLink>
+              <NavLink to="/Login">
+                <Value>
+                  <LogoutIcon className="icon2" />
+                  Log Out
+                </Value>
+              </NavLink>
             </InputContainer>
           )}
         </Dialog>
