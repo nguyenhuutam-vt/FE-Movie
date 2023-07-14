@@ -8,8 +8,8 @@ const Footer = () => {
     width: 100%;
     background-color: #190401;
     ${mobile({
-      position: "absolute",
-      marginTop: "-200px",
+      // position: "absolute",
+      // marginTop: "-200px",
     })};
   `;
   const ImgM = styled.div`

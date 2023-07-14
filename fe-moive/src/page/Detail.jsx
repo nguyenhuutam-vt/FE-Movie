@@ -8,12 +8,13 @@ import Video1 from "../assets/img/Trailer_Video_Detail.png";
 import Video2 from "../assets/img/Movie_Detail.png";
 import PostersCard from "../Component/Card/Posters";
 import OverViewCard from "../Component/Card/OverviewCard";
+import Footer from "../Component/Footer/Footer";
 export const Detail = () => {
   const Container = styled.div`
     display: flex;
     flex-direction: column;
     background-color: black;
-    font-family: Berlin Sans FB;
+    /* font-family: Berlin Sans FB; */
   `;
   const BannerD = styled.header`
     display: flex;
@@ -37,7 +38,7 @@ export const Detail = () => {
       padding: "27px",
     })}
   `;
-  const Footer = styled.footer`
+  const DFooter = styled.footer`
     flex-direction: row;
     display: flex;
     justify-content: space-between;
@@ -73,14 +74,15 @@ export const Detail = () => {
         <CardVideo Title={"WATCH TRAILER"} Video={Video1}></CardVideo>
         <CardVideo Title={"WATCH MOVIE NOW"} Video={Video2}></CardVideo>
       </Content>
-      <Footer>
+      <DFooter>
         <OverView>
           <OverViewCard />
         </OverView>
         <Posters>
           <PostersCard />
         </Posters>
-      </Footer>
+      </DFooter>
+      <Footer/>
     </Container>
   );
 };
