@@ -95,6 +95,7 @@ const Recommended = ({ recommend }) => {
                   to={`/movie/${item?.id}`}
                   style={{ textDecoration: "none", color: "white" }}
                   // onClick={refreshPage}
+                  target="_blank"
                   rel="noopener noreferrer"
                 >
                   <div className="cards">
