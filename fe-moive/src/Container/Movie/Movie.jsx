@@ -5,7 +5,6 @@ import TopTenMovie from "../../Component/TopTenMovie/TopTenMovie";
 import GenresMovie2 from "../../Component/TopTenMovie/Genres";
 import { actionComedies, horror } from "../../data/fetchData";
 import Footer from "../../Component/Footer/Footer";
-import Test from "../../Component/Test/Test";
 
 const StyledMovie = styled.div`
     background-color: #1B0301;

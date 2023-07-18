@@ -7,7 +7,7 @@ import Signup from './Auth/Signup';
 import ForgotPassword from './Auth/ForgotPassword';
 import { Home } from './Container/home/Home';
 import Profile from './Container/Profile/Profile';
-
+import Setting from './Container/Profile/Setting';
 import Upcoming from './Component/UpComing/Upcoming';
 import About from './Container/About/About';
 import MovieUpComing from './Component/UpComing/Movie/MovieUpComing';
