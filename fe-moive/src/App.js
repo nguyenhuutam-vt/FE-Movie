@@ -47,7 +47,7 @@ function App() {
 
 
 
-      <Route path="/movie" element={<Movie />} />
+      {/* <Route path="/movie" element={<Movie />} /> */}
     </Routes>
   );
 }

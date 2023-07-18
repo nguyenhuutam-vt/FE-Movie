@@ -1,13 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./MovieUpComing.css";
-
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { styled } from "styled-components";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import Container from "./Container";
 import MediaVideosSlide from "./MediaVideosSlide";
 import Cast from "./Cast";
 import MovieTeaster from "./MovieTeaster";
 import Recommended from "./Recommended";
+import { LoadingButton } from "@mui/lab";
+import Comment from "./Comment";
+
 const TrailerItem = styled.div`
   margin-top: -100px;
 `;
@@ -16,6 +20,9 @@ const MovieUpComing = () => {
   const [videoTester, setVideoTester] = useState(null);
   const [imgTeaster, setImgTeaster] = useState(null);
   const [recommend, setRecommend] = useState(null);
+  const [comment, setComment] = useState(null);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [onRequest, setOnRequest] = useState(false);
   //   useEffect(() => {
   //     const height = (iframeRef.current.offsetWidth * 9) / 16 + "px";
   //     iframeRef.current.setAttribute("height", height);
@@ -26,14 +33,47 @@ const MovieUpComing = () => {
   console.log("currentMovieDetail", currentMovieDetail);
   console.log("getDataImg", imgTeaster);
   console.log("recommend", recommend);
+  console.log("comment", comment);
   useEffect(() => {
     getData("");
     getDataa();
     getDataImg("");
     getRecommend("");
+    getComment("");
     window.scrollTo(0, 0);
   }, []);
 
+  // const onFavoriteClick = async () => {
+  //   if (!user) return dispatch(setAuthModalOpen(true));
+
+  //   if (onRequest) return;
+
+  //   if (isFavorite) {
+  //     onRemoveFavorite();
+  //     return;
+  //   }
+
+  //   setOnRequest(true);
+
+  //   const body = {
+  //     mediaId: media.id,
+  //     mediaTitle: media.title || media.name,
+  //     mediaType: mediaType,
+  //     mediaPoster: media.poster_path,
+  //     mediaRate: media.vote_average,
+  //   };
+
+  //   const { response, err } = await favoriteApi.add(body);
+
+  //   setOnRequest(false);
+
+  //   if (err) toast.error(err.message);
+  //   if (response) {
+  //     dispatch(addFavorite(response));
+  //     setIsFavorite(true);
+  //     toast.success("Add favorite success");
+  //   }
+  // };
   const getData = () => {
     fetch(
       `https://api.themoviedb.org/3/movie/${id}/videos?api_key=394a932c98b41cda99cc5b67d380cc7a&language=en-US`
@@ -51,15 +91,22 @@ const MovieUpComing = () => {
   };
   const getDataa = () => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=394a932c98b41cda99cc5b67d380cc7a&language=en-US`
     )
       .then((res) => res.json())
       .then((data) => setMovie(data));
   };
+  const getComment = () => {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=394a932c98b41cda99cc5b67d380cc7a&language=en-US`
+    )
+      .then((res) => res.json())
+      .then((data) => setComment(data.results));
+  };
 
   const getRecommend = () => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`
+      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=394a932c98b41cda99cc5b67d380cc7a&language=en-US`
     )
       .then((res) => res.json())
       .then((data) => setRecommend(data.results));
@@ -120,6 +167,21 @@ const MovieUpComing = () => {
                     </>
                   ))
                 : ""}
+              <LoadingButton
+                variant="text"
+                sx={{
+                  width: "max-content",
+                  "& .MuiButon-starIcon": { marginRight: "0" },
+                }}
+                style={{ color: "red" }}
+                size="large"
+                startIcon={
+                  isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />
+                }
+                loadingPosition="start"
+                loading={onRequest}
+                // onClick={onFavoriteClick}
+              />
             </div>
           </div>
           <div className="movie__detailRightBottom">
@@ -157,7 +219,7 @@ const MovieUpComing = () => {
       ></iframe> */}
 
       <Cast imgTeaster={imgTeaster} />
-
+      <Comment comment={comment} />
       <Recommended recommend={recommend} />
 
       {/* <div ref={videoRef} style={{ paddingTop: "2rem" }}>
