@@ -17,6 +17,7 @@ import Series from './Container/Serie/Series';
 
 import Movies from './Container/Movie/Movie';
 
+
 function App() {
   return (
     <Routes>
@@ -36,6 +37,7 @@ function App() {
 
       <Route path="/setting" element={<Setting />} />
 
+
       <Route path='/Profile' element={<Profile/>} />
 
       <Route path="/upcoming" element={<Upcoming/>}/>
@@ -44,7 +46,8 @@ function App() {
       <Route path='/movies' element={<Movies/>} />
 
 
-      <Route path="/movie" element={<Movie />} />
+
+      {/* <Route path="/movie" element={<Movie />} /> */}
     </Routes>
   );
 }

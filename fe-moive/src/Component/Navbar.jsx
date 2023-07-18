@@ -108,7 +108,7 @@ const Navbar = () => {
           <About>ABOUT</About>
         </NavLink>
         <NavLink to="/movies">
-        <About>MOVIES</About>
+          <About>MOVIES</About>
         </NavLink>
         <NavLink to="/">
           <Img>
