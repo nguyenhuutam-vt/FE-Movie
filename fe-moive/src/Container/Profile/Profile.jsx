@@ -6,6 +6,7 @@ import Modal from "react-modal";
 import Avatar1 from "../../assets/img/M logo 2.png";
 import { mobile } from "../../responsive";
 import EditProfile from "./EditProfile";
+import Footer from "../../Component/Footer/Footer";
 const Profile = () => {
   const [Avatar, setAvatar] = useState(Avatar1);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -29,7 +30,7 @@ const Profile = () => {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: black;
     border-radius: 10px;
   `;
   const SAvatar = styled.div`
@@ -67,7 +68,7 @@ const Profile = () => {
     border-radius: 10px;
     cursor: pointer;
     ${mobile({
-      padding: "0px"
+      padding: "0px",
     })}
   `;
   const handleAvatarClick = () => {
@@ -127,6 +128,7 @@ const Profile = () => {
         <input type="file" onChange={handleImageSelect} />
         <button onClick={closeModal}>Close</button>
       </Modal>
+      <Footer />
     </Container>
   );
 };

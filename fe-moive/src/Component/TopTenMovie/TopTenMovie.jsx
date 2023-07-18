@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import { styled } from "styled-components";
 import Slider from "react-slick";
@@ -85,11 +85,16 @@ const StyledCardTopTen = styled.div`
     }
   }
   .top:hover{
+    transition: 0.4s ease-in-out;
     .num{
       opacity: 0;
+      transition: 0.9s ease-in-out;
     }
     img{
-      transform: scale(1.9);
+      transition: 0.9s ease-in-out;
+      z-index: 99;
+      transform: translate(-50%, -50%) scale(2);
+      width: 10em;
     }
   }
   .num {
@@ -99,29 +104,27 @@ const StyledCardTopTen = styled.div`
     }
   }
 `;
-const StyledTopTenMovie = styled.div`
-  width: 100%;
-  
-  h3 {
-    color: #ffffff;
-    font-size: 26px;
-  }
-  .rowHeader{
-    width: 100%;
-    margin: 0 auto;
-    /* background-color: rgba(0, 0, 0, 0.3); */
-  }
-  .slick-list,
-  .slick-slider,
-  .slick-track {
-    padding: 0;
-    /* overflow: visible; */
-  }
-  .slick-list{
-  }
-`;
 const TopTenMovie = () => {
   const arrowRef = useRef(null);
+  const StyledTopTenMovie = styled.div`
+    width: 100%;
+    
+    h3 {
+      color: #ffffff;
+      font-size: 26px;
+      padding-left: 2em;
+    }
+    .rowHeader{
+      width: 100%;
+      margin: 0 auto;
+    }
+    .slick-list,
+    .slick-slider,
+    .slick-track {
+      padding: 0;
+      overflow: visible;
+    }
+  `;
   return (
     <StyledTopTenMovie>
       <Container>
@@ -131,7 +134,8 @@ const TopTenMovie = () => {
             {topMovie.map((item) => {
               return (
                 <StyledCardTopTen>
-                  <div className="top">
+                  <div className="top" 
+                  >
                     <div className="num">
                       {item.top === 1 ? (
                         <Num1 />

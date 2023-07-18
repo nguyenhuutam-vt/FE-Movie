@@ -1,7 +1,3 @@
-
-
-
-
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Detail } from './page/Detail';
@@ -11,7 +7,7 @@ import Signup from './Auth/Signup';
 import ForgotPassword from './Auth/ForgotPassword';
 import { Home } from './Container/home/Home';
 import Profile from './Container/Profile/Profile';
-
+import Setting from './Container/Profile/Setting';
 import Upcoming from './Component/UpComing/Upcoming';
 import About from './Container/About/About';
 import MovieUpComing from './Component/UpComing/Movie/MovieUpComing';
@@ -25,7 +21,6 @@ import Movies from './Container/Movie/Movie';
 function App() {
   return (
     <Routes>
-
       <Route path="/detail" element={<Detail />} />
       <Route path="/" element={<Home />} />
 
@@ -35,11 +30,12 @@ function App() {
         <Route path="/forgotpassword" element={<ForgotPassword />} />
       </Route>
       <Route path="/Profile" element={<Profile />} />
-      <Route path="/about" element={<About/>} />
-      <Route path='/movie/:id' element={<Movie/>}/>
-      <Route path='/series' element={<Series/>} />
+      <Route path="/about" element={<About />} />
+      <Route path="/movie/:id" element={<Movie />} />
+      <Route path="/series" element={<Series />} />
       <Route path="/upcoming" element={<Upcoming />} />
 
+      <Route path="/setting" element={<Setting />} />
 
 
       <Route path='/Profile' element={<Profile/>} />
@@ -50,6 +46,8 @@ function App() {
       <Route path='/movies' element={<Movies/>} />
 
 
+
+      <Route path="/movie" element={<Movie />} />
     </Routes>
   );
 }
