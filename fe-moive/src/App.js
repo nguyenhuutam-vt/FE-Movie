@@ -36,8 +36,6 @@ function App() {
       <Route path="/upcoming" element={<Upcoming />} />
 
       <Route path="/setting" element={<Setting />} />
-
-
       <Route path='/Profile' element={<Profile/>} />
 
       <Route path="/upcoming" element={<Upcoming/>}/>
