@@ -16,9 +16,11 @@ const StyledLayoutAuth = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
+  position: fixed;
   #light {
     color: #000000;
     background-color: #ffffff;
+    padding-bottom: 2em;
     .cornerTopLeft {
       width: 5%;
       height: 10vh;
@@ -47,6 +49,8 @@ const StyledLayoutAuth = styled.div`
       height: 10vh;
       background-color: #ffe919;
       border-radius: 0 100px 0 0;
+      position: absolute;
+      bottom: 0;
       ${mobile({
         width: "10%",
       })}
@@ -367,6 +371,7 @@ const StyledLayoutAuth = styled.div`
   #dark {
     color: #ffffff;
     background-color: #252525;
+    padding-bottom: 8em;
     .cornerTopLeft {
       width: 5%;
       height: 10vh;
@@ -393,6 +398,8 @@ const StyledLayoutAuth = styled.div`
       height: 10vh;
       background-color: #46348b;
       border-radius: 0 100px 0 0;
+      position: absolute;
+      bottom: 0;
       ${mobile({ width: "10%" })}
     }
     ///////////////////////////////////////////Login page in Dark mode///////////////////////////////////////////
