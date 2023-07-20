@@ -82,10 +82,9 @@ const StyledTopTenMovie = styled.div`
     height: 26em;
     .img1 {
       cursor: pointer;
-      object-fit: cover;
       transition: 0.2s ease-in-out;
       height: 26em;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
   .overLay{
@@ -98,7 +97,7 @@ const StyledTopTenMovie = styled.div`
     width: 73.57%;
     border-radius: 28px;
     color: #FFFFFF;
-    background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1));
+    background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,0.8));
     opacity: 0;
     transition: 0.4s ease-in-out;
     z-index: 100;
@@ -107,6 +106,9 @@ const StyledTopTenMovie = styled.div`
     transform: scale(1.2);
     transition: 0.4s ease-in-out;
     z-index: 10;
+    .img1{
+      opacity: 0.9;
+    }
     .overLay{
       opacity: 1;
     }
