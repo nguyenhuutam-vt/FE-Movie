@@ -15,6 +15,7 @@ const ThemeContext = createContext(null);
 const StyledLayoutAuth = styled.div`
   position: relative;
   width: 100%;
+  height: 100vh;
   #light {
     color: #000000;
     background-color: #ffffff;
@@ -60,6 +61,7 @@ const StyledLayoutAuth = styled.div`
       input {
         background-color: #000000;
         margin-left: 10px;
+        color: #ffffff;
       }
     }
     input::placeholder {
@@ -262,6 +264,39 @@ const StyledLayoutAuth = styled.div`
         flex-direction: column;
         button {
           width: 70%;
+        }
+      }
+      .lineOne {
+        .one {
+          background-color: #ffe919;
+        }
+        .two {
+          background-color: #e6e8eb;
+        }
+        .three {
+          background-color: #e6e8eb;
+        }
+      }
+      .lineTwo {
+        .one {
+          background-color: #e6e8eb;
+        }
+        .two {
+          background-color: #ffe919;
+        }
+        .three {
+          background-color: #e6e8eb;
+        }
+      }
+      .lineThree {
+        .one {
+          background-color: #e6e8eb;
+        }
+        .two {
+          background-color: #e6e8eb;
+        }
+        .three {
+          background-color: #ffe919;
         }
       }
       //////////////////////////////////Email step////////////////////////
@@ -560,6 +595,39 @@ const StyledLayoutAuth = styled.div`
           width: 70%;
         }
       }
+      .lineOne {
+        .one {
+          background-color: #46348b;
+        }
+        .two {
+          background-color: #e6e8eb;
+        }
+        .three {
+          background-color: #e6e8eb;
+        }
+      }
+      .lineTwo {
+        .one {
+          background-color: #e6e8eb;
+        }
+        .two {
+          background-color: #46348b;
+        }
+        .three {
+          background-color: #e6e8eb;
+        }
+      }
+      .lineThree {
+        .one {
+          background-color: #e6e8eb;
+        }
+        .two {
+          background-color: #e6e8eb;
+        }
+        .three {
+          background-color: #46348b;
+        }
+      }
       //////////////////////////////email step//////////////////////////////
       .inputEmail {
         width: 100%;
@@ -638,6 +706,7 @@ const StyledLayoutAuth = styled.div`
   }
   .form {
     width: 466.49px;
+    padding-bottom: 0.2em;
     margin: 0 auto;
     label {
       display: inline-block;
@@ -660,7 +729,7 @@ const StyledLayoutAuth = styled.div`
   .formSignup {
     width: 466.49px;
     margin: 0 auto;
-    margin-bottom: 11.9em;
+    margin-bottom: 11.6em;
     ${mobile({ marginBottom: "2em" })}
     label {
       display: inline-block;

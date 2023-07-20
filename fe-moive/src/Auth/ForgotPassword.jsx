@@ -26,24 +26,21 @@ const StyledLineOne = styled.div`
   justify-content: center;
   gap: 1em;
   width: 100%;
-  margin-bottom: 10.5em;
+  margin-bottom: 10.2em;
   .one {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: #ffe919;
   }
   .two {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: #e6e8eb;
   }
   .three {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: #e6e8eb;
   }
 `;
 const StyledLineTwo = styled.div`
@@ -51,24 +48,21 @@ const StyledLineTwo = styled.div`
   justify-content: center;
   gap: 1em;
   width: 100%;
-  margin-bottom: 10.5em;
+  margin-bottom: 10.2em;
   .one {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: #e6e8eb;
   }
   .two {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: #ffe919;
   }
   .three {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: #e6e8eb;
   }
 `;
 const StyledLineThree = styled.div`
@@ -76,24 +70,21 @@ const StyledLineThree = styled.div`
   justify-content: center;
   gap: 1em;
   width: 100%;
-  margin-bottom: 5.75em;
+  margin-bottom: 5.45em;
   .one {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: #e6e8eb;
   }
   .two {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: #e6e8eb;
   }
   .three {
     height: 0.5em;
     width: 20%;
     border-radius: 0.5em;
-    background-color: #ffe919;
   }
 `;
 
@@ -297,7 +288,7 @@ const ForgotStepThree = () => {
 
 const LineOne = () => {
   return (
-    <StyledLineOne>
+    <StyledLineOne className="lineOne">
       <div className="one"></div>
       <div className="two"></div>
       <div className="three"></div>
@@ -306,7 +297,7 @@ const LineOne = () => {
 };
 const LineTwo = () => {
   return (
-    <StyledLineTwo>
+    <StyledLineTwo className="lineTwo">
       <div className="one"></div>
       <div className="two"></div>
       <div className="three"></div>
@@ -315,7 +306,7 @@ const LineTwo = () => {
 };
 const LineThree = () => {
   return (
-    <StyledLineThree>
+    <StyledLineThree className="lineThree">
       <div className="one"></div>
       <div className="two"></div>
       <div className="three"></div>
