@@ -98,7 +98,7 @@ const Recommended = ({ recommend }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="cards">
+                  <div className="cards" style={{ marginLeft: "80px" }}>
                     <img
                       className="cards__img"
                       src={`https://image.tmdb.org/t/p/original${item?.poster_path}`}

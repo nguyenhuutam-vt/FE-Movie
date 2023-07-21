@@ -5,6 +5,8 @@ import TopTenMovie from "../../Component/TopTenMovie/TopTenMovie";
 import GenresMovie2 from "../../Component/TopTenMovie/Genres";
 import { actionComedies, horror } from "../../data/fetchData";
 import Footer from "../../Component/Footer/Footer";
+import { useEffect } from "react";
+import axiosInstance from "../../service/axios";
 
 const StyledMovie = styled.div`
   background-color: #1b0301;
@@ -19,6 +21,14 @@ const StyledMovie = styled.div`
   }
 `;
 const Movie = () => {
+  useEffect(() => {
+    axiosInstance
+      .get("/movies/top-ten")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {});
+  });
   return (
     <StyledMovie>
       <Navbar />

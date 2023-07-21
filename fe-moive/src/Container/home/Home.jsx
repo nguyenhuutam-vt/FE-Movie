@@ -5,11 +5,19 @@ import Navbar from "../../Component/Navbar";
 import "../../index.css";
 import Feature from "../../Component/Feature";
 import ListMovie from "../../Component/ListMove/ListMovie";
-
+import { useEffect } from "react";
 import Projects from "../../Component/Trailer/Projects";
 import Footer from "../../Component/Footer/Footer";
-
+import axios from "../../service/axios";
 export const Home = () => {
+  useEffect(() => {
+    axios
+      .get("/movies")
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {});
+  }, []);
   const Container = styled.div`
     height: 100%;
     ${mobile({ height: "100%" })}
