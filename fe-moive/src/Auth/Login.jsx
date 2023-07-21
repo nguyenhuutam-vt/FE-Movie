@@ -5,7 +5,7 @@ import { ReactComponent as IconPassword } from "../assets/icons/iconPassword.svg
 import Checkbox from "@mui/material/Checkbox";
 import { ReactComponent as IconGoogle } from "../assets/icons/iconGoogle.svg";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -19,15 +19,15 @@ const StyledLogin = styled.div`
 `;
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
+const initioValue = { username: "", password: "" };
 const Login = () => {
   const [input, setInput] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
   const [error, setError] = useState({
-    email: "",
+    username: "",
     password: "",
   });
 
@@ -46,7 +46,7 @@ const Login = () => {
     setError((prev) => {
       const stateObj = { ...prev, [name]: "" };
       switch (name) {
-        case "email":
+        case "username":
           if (!value) {
             stateObj[name] = "Please enter Email.";
           }
@@ -62,6 +62,28 @@ const Login = () => {
       return stateObj;
     });
   };
+  const auth = useSelector((item) => item.auth);
+  console.log("auth", auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // const [values, setValues] = useState(initioValue);
+  const handleSummit = (e) => {
+    dispatch.auth
+      .login(input)
+      .then((res) => {
+        dispatch.auth.setAuth(true);
+        localStorage.setItem("access_token", res.data.access_token);
+        navigate("/");
+      })
+      .catch((err) => err);
+    console.log(input);
+
+    // else if(error.response.data.data === "User not verify yet. Please verify your email"){
+    //   toast.warning("User not verify yet. Please verify your email");
+    //   <Alert severity="warning">This is a warning alert — check it out!</Alert>
+    // }
+  };
+
   return (
     <StyledLogin>
       <div className="headerLogo">
@@ -72,15 +94,15 @@ const Login = () => {
       </div>
       <div className="form">
         <div className="formLogin">
-          <form action="">
-            <label htmlFor="email">Email address</label>
+          <form>
+            <label htmlFor="email">Username</label>
             <div className="inputStyled">
               <input
                 type="text"
                 id="email"
-                name="email"
-                placeholder="marvelous@email.com"
-                value={input.email}
+                name="username"
+                placeholder="marvelous"
+                value={input.username}
                 onChange={onInputChange}
                 onBlur={validateInput}
               />
@@ -88,7 +110,7 @@ const Login = () => {
                 <IconEmail />
               </div>
             </div>
-            {error.email && <span className="err">{error.email}</span>}
+            {error.username && <span className="err">{error.username}</span>}
             <label htmlFor="password">Password</label>
             <div className="inputStyled">
               <input
@@ -127,7 +149,9 @@ const Login = () => {
             </div>
             <div className="btn">
               <div className="login">
-                <button type="submit">LOGIN NOW</button>
+                <button type="button" onClick={handleSummit}>
+                  LOGIN NOW
+                </button>
                 <button type="submit">
                   <IconGoogle />
                 </button>
