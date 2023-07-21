@@ -82,7 +82,7 @@ export const Detail = () => {
           <PostersCard />
         </Posters>
       </DFooter>
-      <Footer/>
+      <Footer />
     </Container>
   );
 };

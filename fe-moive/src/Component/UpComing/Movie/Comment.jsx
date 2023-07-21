@@ -1,25 +1,14 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Divider, Stack, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import TextAvatar from "./TextAvatar";
 import dayjs from "dayjs";
 import "./Comment.css";
+import StarIcon from "@mui/icons-material/Star";
+import ReadMoreReact from "read-more-react/dist/components/ReadMoreReact";
+import { LoadingButton } from "@mui/lab";
+import SendIcon from "@mui/icons-material/Send";
 
-const ReadMore = ({ children }) => {
-  const text = children;
-  const [isReadMore, setIsReadMore] = useState(true);
-  const toggleReadMore = () => {
-    setIsReadMore(!isReadMore);
-  };
-  return (
-    <p className="text">
-      {isReadMore ? text.slice(0, 150) : text}
-      <span onClick={toggleReadMore} className="read-or-hide">
-        {isReadMore ? "...read more" : " show less"}
-      </span>
-    </p>
-  );
-};
 const Comment = ({ comment }) => {
   console.log("commenttt", comment);
   const Container = styled.div`
@@ -27,6 +16,7 @@ const Comment = ({ comment }) => {
     width: 60%;
   `;
   const [onRequest, setOnRequest] = useState(false);
+  const [content, setContent] = useState("");
   return (
     <Container>
       <h1 className="text-center mb-5" style={{ color: "wheat" }}>
@@ -34,37 +24,105 @@ const Comment = ({ comment }) => {
       </h1>
       {comment?.map((item) => {
         return (
-          <Box
-            sx={{
-              padding: 2,
-              borderRadius: "5px",
-              position: "relative",
-              background: "red",
-              opacity: onRequest ? 0.6 : 1,
-              "&:hover": { backgroundColor: "background.paper" },
-            }}
-          >
-            <Stack direction="row" spacing={2}>
-              {/* avatar */}
-              {/* <TextAvatar text={item?.author_details?.username} /> */}
-              {/* avatar */}
-              <Stack spacing={2} flexGrow={1}>
-                <Stack spacing={1}>
-                  <Typography variant="h6" fontWeight="700">
-                    {item?.author_details?.username}
-                  </Typography>
-                  <Typography variant="caption">
-                    {dayjs(item?.updated_at).format("DD-MM-YYYY HH:mm:ss")}
+          <div>
+            <Box
+              sx={{
+                padding: 2,
+                borderRadius: "5px",
+                position: "relative",
+                background: "wheat",
+                opacity: onRequest ? 0.6 : 1,
+                marginBottom: "24px",
+                "&:hover": { backgroundColor: "white" },
+              }}
+            >
+              <Stack direction="row" spacing={2}>
+                {/* avatar */}
+                <TextAvatar text={item?.author_details?.username} />
+                {/* avatar */}
+                <Stack spacing={2} flexGrow={1}>
+                  <Stack spacing={1}>
+                    <Typography
+                      variant="h6"
+                      fontWeight="700"
+                      style={{ display: "flex" }}
+                    >
+                      {item?.author_details?.username}
+                      <div style={{ display: "flex", marginLeft: "30px" }}>
+                        <div style={{ marginTop: "2px" }}>
+                          {" "}
+                          <StarIcon style={{ color: "red" }} />
+                        </div>
+                        {item?.author_details?.rating}
+                      </div>
+                    </Typography>
+
+                    <Typography
+                      variant="caption"
+                      fontWeight="700"
+                      style={{ color: "black" }}
+                    >
+                      {dayjs(item?.updated_at).format("DD-MM-YYYY HH:mm:ss")}
+                    </Typography>
+                  </Stack>
+
+                  <Typography
+                    variant="body1"
+                    textAlign="justify"
+                    sx={{
+                      "&:hover": { cursor: "pointer" },
+                    }}
+                  >
+                    <ReadMoreReact
+                      text={item?.content}
+                      min={80}
+                      ideal={100}
+                      max={200}
+                      readMoreText="... Read more"
+                    />
                   </Typography>
                 </Stack>
-                <Typography variant="body1" textAlign="justify">
-                  {item?.content}
-                </Typography>
               </Stack>
-            </Stack>
-          </Box>
+            </Box>
+          </div>
         );
       })}
+      <Divider style={{ background: "black" }} />
+      <Stack direction="row" spacing={2}>
+        <TextAvatar text="Tam" />
+        <Stack spacing={2} flexGrow={1}>
+          <Typography variant="h6" fontWeight="700" style={{ color: "white" }}>
+            Nguyen Tam
+          </Typography>
+          {/* <TextField
+            style={{ background: "aliceblue" }}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            multiline
+            rows={4}
+            placeholder="Write your review"
+            variant="outlined"
+          /> */}
+          <TextField
+            style={{ background: "aliceblue" }}
+            multiline
+            rows={4}
+            placeholder="Write your review"
+            variant="outlined"
+          />
+          <LoadingButton
+            variant="contained"
+            size="large"
+            sx={{ width: "max-content" }}
+            startIcon={<SendIcon />}
+            loadingPosition="start"
+            loading={onRequest}
+            // onClick={onAddReview}
+          >
+            post
+          </LoadingButton>
+        </Stack>
+      </Stack>
     </Container>
   );
 };
