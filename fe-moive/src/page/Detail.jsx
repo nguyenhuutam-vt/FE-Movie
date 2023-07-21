@@ -4,8 +4,6 @@ import { mobile } from "../responsive";
 import NavbarDetail from "../Component/NavbarDetail";
 import Banner from "../assets/img/Banner_Detail_Page.png";
 import CardVideo from "../Component/Card/CardVideo";
-import Video1 from "../assets/img/Trailer_Video_Detail.png";
-import Video2 from "../assets/img/Movie_Detail.png";
 import PostersCard from "../Component/Card/Posters";
 import OverViewCard from "../Component/Card/OverviewCard";
 import Footer from "../Component/Footer/Footer";
@@ -32,6 +30,7 @@ export const Detail = () => {
     flex-direction: row;
     display: flex;
     justify-content: space-around;
+    position: relative;
     ${mobile({
       flexDirection: "column",
       fontSize: "8px",
@@ -71,8 +70,14 @@ export const Detail = () => {
         <NavbarDetail />
       </BannerD>
       <Content>
-        <CardVideo Title={"WATCH TRAILER"} Video={Video1}></CardVideo>
-        <CardVideo Title={"WATCH MOVIE NOW"} Video={Video2}></CardVideo>
+        <CardVideo
+          Title={"WATCH TRAILER"}
+          Video={"https://www.youtube.com/embed/v8ItGrI-Ou0"}
+        ></CardVideo>
+        <CardVideo
+          Title={"WATCH MOVIE NOW"}
+          Video={"https://www.youtube.com/watch?v=UH0KeoB72zs"}
+        ></CardVideo>
       </Content>
       <DFooter>
         <OverView>

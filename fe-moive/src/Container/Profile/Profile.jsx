@@ -108,7 +108,7 @@ const Profile = () => {
   `;
   return (
     <Container>
-      <NavbarDetail />
+      <NavbarDetail ImgLogin={Avatar} />
       <Body>
         <Info>
           <InfoUser>

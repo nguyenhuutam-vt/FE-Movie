@@ -14,12 +14,18 @@ import MovieUpComing from "./Component/UpComing/Movie/MovieUpComing";
 import Movie from "./Component/UpComing/Movie/Movie";
 import Series from "./Container/Serie/Series";
 
+import Favorites from "./Container/Profile/Favorite";
+// import Movie from './Container/Movie/Movie';
+
+
+
 import { Detail } from "./page/Detail";
 import Movies from "./Container/Movie/Movie";
 import Search from "./Container/Search/Search";
 import SearchMovie from "./Container/Search/SearchMovie";
 import CastInfo from "./Component/UpComing/Movie/CastInfo";
 import { useSelector } from "react-redux";
+
 function App() {
   const auth = useSelector((item) => item.auth.isAuthenticated);
   // const navigate = useNavigate();
@@ -30,11 +36,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
 
+
+      <Route path="/setting" element={<Setting />} />
+      <Route path="/favorites" element={<Favorites />} />
+
         <Route element={<LayoutAuth />}>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
         </Route>
+
 
         <Route path="/Profile" element={<Profile />} />
         <Route path="/about" element={<About />} />

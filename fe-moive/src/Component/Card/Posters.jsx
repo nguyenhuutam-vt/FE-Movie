@@ -4,7 +4,7 @@ import IPosters2 from "../../assets/img/IPoster2.png";
 import IPosters3 from "../../assets/img/IPoster3.png";
 import IPosters4 from "../../assets/img/IPoster4.png";
 import IPosters5 from "../../assets/img/IPoster5.png";
-import IPosters6 from "../../assets/img/IPoster6.png";
+import IPosters6 from "../../assets/img/transformer.avif";
 import { mobile } from "../../responsive";
 const Posters = () => {
   const GridPoster = styled.div`
