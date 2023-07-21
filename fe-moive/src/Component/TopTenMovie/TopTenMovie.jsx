@@ -80,12 +80,28 @@ const StyledCardTopTen = styled.div`
     width: 90%;
     padding: 1em;
     img {
-      width: 50%;
+      width: 42%;
       height: 13em;
     }
   }
+  .overLay{
+    user-select: none;
+    cursor: pointer;
+    position: absolute;
+    padding: 0 1em;
+    bottom: 8%;
+    /* left: 18.5%; */
+    right: 10%;
+    width: 48%;
+    border-radius: 28px;
+    color: #FFFFFF;
+    background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1));
+    opacity: 0;
+    z-index: 100;
+  }
   .top:hover{
     transition: 0.4s ease-in-out;
+    transform: scale(1.1);
     .num{
       opacity: 0;
       transition: 0.9s ease-in-out;
@@ -93,14 +109,19 @@ const StyledCardTopTen = styled.div`
     img{
       transition: 0.9s ease-in-out;
       z-index: 99;
-      transform: translate(-50%, -50%) scale(2);
+      transform: translate(-50%, -30%) scale(1.6);
       width: 10em;
+    }
+    .overLay{
+      transition: 0.9s ease-in-out;
+      transform: translate(-37%, 0%) scale(1.1);
+      opacity: 1;
     }
   }
   .num {
-    width: 50%;
+    width: 40%;
     svg {
-      height: 13em;
+      height: 12.8em;
     }
   }
 `;
@@ -160,6 +181,14 @@ const TopTenMovie = () => {
                       )}
                     </div>
                     <img src={item.img} alt="123" />
+                    <div className="overLay">
+                    <div className="title">
+                      <h1>Title</h1>
+                    </div>
+                    <div className="description">
+                      <p>Description tio n tion tio ntion tion tion</p>
+                    </div>
+                  </div>
                   </div>
                 </StyledCardTopTen>
               );

@@ -25,6 +25,7 @@ function App() {
   // const navigate = useNavigate();
   // if (auth === false) navigate("/login");
   return (
+
     <>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -48,6 +49,7 @@ function App() {
         <Route path="/cast/:id" element={<CastInfo />} />
       </Routes>
     </>
+
   );
 }
 
