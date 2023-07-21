@@ -20,7 +20,7 @@ const MovieUpComing = () => {
   const [videoTester, setVideoTester] = useState(null);
   const [imgTeaster, setImgTeaster] = useState(null);
   const [recommend, setRecommend] = useState(null);
-  const [comment, setComment] = useState(null);
+  const [comment, setComment] = useState([]);
   const [isFavorite, setIsFavorite] = useState(false);
   const [onRequest, setOnRequest] = useState(false);
   //   useEffect(() => {
