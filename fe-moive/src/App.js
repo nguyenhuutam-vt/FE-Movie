@@ -13,7 +13,7 @@ import About from "./Container/About/About";
 import MovieUpComing from "./Component/UpComing/Movie/MovieUpComing";
 import Movie from "./Component/UpComing/Movie/Movie";
 import Series from "./Container/Serie/Series";
-
+import Favorites from "./Container/Profile/Favorite";
 // import Movie from './Container/Movie/Movie';
 
 function App() {
@@ -34,6 +34,7 @@ function App() {
       <Route path="/upcoming" element={<Upcoming />} />
 
       <Route path="/setting" element={<Setting />} />
+      <Route path="/favorites" element={<Favorites />} />
 
       <Route path="/upcoming" element={<Upcoming />} />
 
