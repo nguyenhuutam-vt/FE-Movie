@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import tmdbConfigs from "./configs/tmdb.configs";
 import { styled } from "styled-components";
@@ -68,10 +68,13 @@ const Cast = ({ imgTeaster }) => {
         {imgTeaster?.map((item) => {
           return (
             <div>
-              <ImgCast
-                src={`https://image.tmdb.org/t/p/w500/${item?.profile_path}`}
-                alt=""
-              />
+              <NavLink to={`/cast/${item?.id}`}>
+                <ImgCast
+                  src={`https://image.tmdb.org/t/p/w500/${item?.profile_path}`}
+                  alt=""
+                />
+              </NavLink>
+
               <NameCast>{item?.name}</NameCast>
             </div>
           );

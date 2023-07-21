@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-
+import React, {useRef} from "react";
 import { styled } from "styled-components";
 import Slider from "react-slick";
 import {ReactComponent as NextArrow} from '../../assets/icons/nextArrow.svg';
@@ -13,7 +12,7 @@ const settings = {
   dots: false,
   infinite: false,
   speed: 500,
-  slidesToShow: 5,
+  slidesToShow: 6,
   slidesToScroll: 1,
   initialSlide: 0,
   arrows: false,
@@ -41,20 +40,19 @@ const Buttons = styled.div`
   button {
     opacity: 0;
     width: 5em;
-    height: 73.5%;
+    height: 84%;
     background-color: rgba(255, 255, 255, 0.1);
     cursor: pointer;
     color: #01be96;
     border: none;
     position: absolute;
-    top: 22.5%;
+    top: 15%;
   }
-
   .back {
-    left: 0%;
+    left: 3%;
   }
   .next{
-    right: 1.5%;
+    right: 0;
   }
   ${mobile({
     display: "none",
@@ -66,37 +64,51 @@ const Buttons = styled.div`
     }
   }
 `;
-const StyledCardTopTen = styled.div`
-  .top {
+const StyledTopTenMovie = styled.div`
+
+  h3 {
+    color: #ffffff;
+    font-size: 26px;
+    z-index: 1;
+    user-select: none;
+    padding-left: 2em;
+  }
+  .rowHeader{
+    width: 100%;
+    padding-left: 4em;
+    .top {
     display: flex;
     position: relative;
-    width: 13em;
-    padding: 1em;
+    height: 26em;
     .img1 {
       cursor: pointer;
-      object-fit: cover;
       transition: 0.2s ease-in-out;
-      width: 100%;
-      height: 19em;
-      /* z-index: 99; */
+      height: 26em;
+      object-fit: cover;
     }
   }
   .overLay{
+    user-select: none;
     cursor: pointer;
     position: absolute;
-    padding: 0 1em 1em 1em;
-    bottom: 4.5%;
-    width: 73.5%;
-    border-radius: 15px;
+    padding: 0 1em;
+    bottom: -0.2%;
+    left: 0%;
+    width: 73.57%;
+    border-radius: 28px;
     color: #FFFFFF;
-    background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1));
+    background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,0.8));
     opacity: 0;
     transition: 0.4s ease-in-out;
     z-index: 100;
   }
   .top:hover{
-    transform: scale(1.1);
-    transition: 0.2s ease-in-out;
+    transform: scale(1.2);
+    transition: 0.4s ease-in-out;
+    z-index: 10;
+    .img1{
+      opacity: 0.9;
+    }
     .overLay{
       opacity: 1;
     }
@@ -107,32 +119,18 @@ const StyledCardTopTen = styled.div`
       height: 13em;
     }
   }
-`;
-const StyledTopTenMovie = styled.div`
-  width: 100%;
-  h3 {
-    color: #ffffff;
-    font-size: 26px;
-    z-index: 1;
-  }
-  .rowHeader{
-    width: 100%;
   }
   .slick-list,
   .slick-slider,
   .slick-track {
     padding: 0;
-    /* overflow-y: visible; */
-  }
-  /* .slick-list{
-  } */
-  .slick-list::-webkit-scrollbar{
-    display: none;
+    overflow: visible;
   }
 `;
 const GenresMovie2 = ({data, name}) => {
   const arrowRef = useRef(null);
   const datas = [...data];
+
   return (
     <StyledTopTenMovie>
       <Container>
@@ -141,7 +139,6 @@ const GenresMovie2 = ({data, name}) => {
           <Slider ref={arrowRef} {...settings}>
             {datas.map((item) => {
               return (
-                <StyledCardTopTen className="hv">
                   <div className="top">
                     <img className="img1" src={item.img} alt="123" />
                   <div className="overLay">
@@ -153,7 +150,6 @@ const GenresMovie2 = ({data, name}) => {
                     </div>
                   </div>
                   </div>
-                </StyledCardTopTen>
               );
             })}
           </Slider>

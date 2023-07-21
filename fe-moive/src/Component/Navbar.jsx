@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import { mobile } from "../responsive";
 import MenuIcon from "@mui/icons-material/Menu";
 import logo1 from "../assets/img/M logo 1.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { Paper } from "@mui/material";
+import { Input } from "@mui/joy";
+import "./Navbar.css";
+import SearchIcon from "@mui/icons-material/Search";
+import { fecthChannel } from "../Container/Search/ApiSearch";
+import Search from "./Search/Search";
+import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
 const Navbar = () => {
   const Container = styled.div`
     width: 100%;
@@ -27,8 +34,8 @@ const Navbar = () => {
   `;
   const Nav = styled.div`
     display: flex;
-    width: 600px;
-    justify-content: space-between;
+    width: 70%;
+    justify-content: center;
     ${mobile({
       height: "100%",
       display: "block",
@@ -65,7 +72,8 @@ const Navbar = () => {
   `;
   const Entrance = styled.div`
     display: flex;
-    width: 10%;
+    justify-content: end;
+    width: 15%;
     ${mobile({
       display: "block",
       position: "absolute",
@@ -94,9 +102,11 @@ const Navbar = () => {
     ${mobile({ background: "none" })};
   `;
   const Menu = styled.div`
-    width: 10%;
+    width: 15%;
     ${mobile({ display: "none" })};
   `;
+
+  const auth = useSelector((item) => item.auth.isAuthenticated);
 
   return (
     <Container>
@@ -107,12 +117,10 @@ const Navbar = () => {
         <NavLink to="/about">
           <About>ABOUT</About>
         </NavLink>
-        <NavLink to="/movie">
-        <About>MOVIES</About>
-
-
+        <NavLink to="/movies">
+          <About>MOVIES</About>
         </NavLink>
-        <NavLink to="/home">
+        <NavLink to="/">
           <Img>
             {" "}
             <img src={logo1} alt="" />
@@ -127,15 +135,28 @@ const Navbar = () => {
           <About>UPCOMING</About>
         </NavLink>
       </Nav>
-      <Entrance>
-        <NavLink to="/login">
-          {" "}
-          <SignIn>SIGN IN</SignIn>
-        </NavLink>
-        <NavLink to="/signup">
-          <SignUp>SIGN UP</SignUp>
-        </NavLink>
-      </Entrance>
+      {/* <Search /> */}
+      {auth === false ? (
+        <Entrance>
+          <Search />
+
+          <div>
+            <NavLink to="/login">
+              {" "}
+              <SignIn>SIGN IN</SignIn>
+            </NavLink>
+          </div>
+          <div>
+            <NavLink to="/signup">
+              <SignUp>SIGN UP</SignUp>
+            </NavLink>
+          </div>
+        </Entrance>
+      ) : (
+        <Entrance>
+          <Search />
+        </Entrance>
+      )}
     </Container>
   );
 };
