@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import "./Card.css";
 import IFilter_Trailer from "../../assets/img/IFilter_trailer.png";
-import { Container } from "@mui/material";
+import ReactPlayer from "react-player";
+import { mobile } from "../../responsive";
+
 const Cont = styled.div`
   align-items: center;
   justify-content: center;
@@ -21,19 +23,14 @@ const Cont = styled.div`
 `;
 const Overlay = styled.div`
   position: relative;
+
 `;
 const CardVideo = ({ Video, Title }) => {
   return (
     <Cont>
       <h1 className="underline-text">{Title}</h1>
       <Overlay>
-        <img
-          className="background_video"
-          src={Video}
-          alt=""
-          style={{ width: "100%" }}
-        ></img>
-        <img className="filter_play" src={IFilter_Trailer} alt="" />
+        <ReactPlayer url={Video} />
       </Overlay>
     </Cont>
   );
