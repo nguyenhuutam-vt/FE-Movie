@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import Slider from "react-slick";
 import { styled } from "styled-components";
 
@@ -45,7 +46,12 @@ const MovieTeaster = ({ videoTester }) => {
       },
     ],
   };
-
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+  }, []);
   return (
     <Container>
       <h1 className="text-center mb-5" style={{ color: "wheat" }}>
@@ -54,18 +60,26 @@ const MovieTeaster = ({ videoTester }) => {
       <Slider {...settings}>
         {videoTester?.map((item) => {
           return (
-            <div>
-              <iframe
-                type="text/html"
-                style={{ backgroundColor: "#000", marginLeft: "55px" }}
-                width="1000px"
-                height="500px"
-                src={`https://www.youtube.com/embed/${item?.key}?controls=1`}
-                // src={"https://www.themoviedb.org/video/play?key=" + videoTester?.key}
-                frameborder="0"
-                allowfullscreen
-              ></iframe>
-            </div>
+            <>
+              {isLoading ? (
+                <div className="cards">
+                  <SkeletonTheme color="#202020" highlightColor="#444">
+                    <Skeleton height="500px" width="1000px" duration={2} />
+                  </SkeletonTheme>
+                </div>
+              ) : (
+                <iframe
+                  type="text/html"
+                  style={{ backgroundColor: "#000", marginLeft: "155px" }}
+                  width="1000px"
+                  height="500px"
+                  src={`https://www.youtube.com/embed/${item?.key}?controls=1`}
+                  // src={"https://www.themoviedb.org/video/play?key=" + videoTester?.key}
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              )}
+            </>
           );
         })}
       </Slider>

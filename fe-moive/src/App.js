@@ -14,24 +14,29 @@ import MovieUpComing from "./Component/UpComing/Movie/MovieUpComing";
 import Movie from "./Component/UpComing/Movie/Movie";
 import Series from "./Container/Serie/Series";
 
+
 import Favorites from "./Container/Profile/Favorite";
 // import Movie from './Container/Movie/Movie';
 
 
 
 import { Detail } from "./page/Detail";
+
 import Movies from "./Container/Movie/Movie";
 import Search from "./Container/Search/Search";
 import SearchMovie from "./Container/Search/SearchMovie";
 import CastInfo from "./Component/UpComing/Movie/CastInfo";
 import { useSelector } from "react-redux";
 
+import Detail from "./page/Detail";
+
+
 function App() {
   const auth = useSelector((item) => item.auth.isAuthenticated);
   // const navigate = useNavigate();
   // if (auth === false) navigate("/login");
+  console.log("auth", auth);
   return (
-
     <>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -60,7 +65,6 @@ function App() {
         <Route path="/cast/:id" element={<CastInfo />} />
       </Routes>
     </>
-
   );
 }
 

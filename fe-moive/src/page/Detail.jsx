@@ -7,7 +7,7 @@ import CardVideo from "../Component/Card/CardVideo";
 import PostersCard from "../Component/Card/Posters";
 import OverViewCard from "../Component/Card/OverviewCard";
 import Footer from "../Component/Footer/Footer";
-export const Detail = () => {
+const Detail = () => {
   const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -91,3 +91,4 @@ export const Detail = () => {
     </Container>
   );
 };
+export default Detail;

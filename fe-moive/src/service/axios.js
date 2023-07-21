@@ -25,7 +25,7 @@ axiosInstance.interceptors.response.use(
   (error) => {
     if (error.response.status === 401) {
       window.location.replace("/login");
-    } else if (error.response.status == 403) {
+    } else if (error.response.status === 403) {
       // refreshToken()
     }
   }
