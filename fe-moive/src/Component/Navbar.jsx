@@ -12,6 +12,7 @@ import { fecthChannel } from "../Container/Search/ApiSearch";
 import Search from "./Search/Search";
 import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
 import Logout from "./Logout";
+import Account from "./Account";
 const Navbar = () => {
   const Container = styled.div`
     width: 100%;
@@ -168,7 +169,7 @@ const Navbar = () => {
       ) : (
         <Entrance>
           <Search />
-          <button
+          {/* <button
             style={{
               backgroundColor: "transparent",
               border: "red",
@@ -183,7 +184,10 @@ const Navbar = () => {
             <NavLink to="/login">
               <Logoutt>Logout</Logoutt>
             </NavLink>
-          </button>
+          </button> */}
+          <div style={{ marginTop: "-30px" }}>
+            <Account />
+          </div>
         </Entrance>
       )}
     </Container>

@@ -2,8 +2,8 @@ import React, { useRef, useState } from "react";
 
 import { styled } from "styled-components";
 import Slider from "react-slick";
-import {ReactComponent as NextArrow} from '../../assets/icons/nextArrow.svg';
-import {ReactComponent as PrevArrow} from '../../assets/icons/prevArrow.svg';
+import { ReactComponent as NextArrow } from "../../assets/icons/nextArrow.svg";
+import { ReactComponent as PrevArrow } from "../../assets/icons/prevArrow.svg";
 
 import { mobile } from "../../responsive";
 import { topMovie } from "../../data/fetchData";
@@ -43,7 +43,7 @@ const Container = styled.div`
   })};
 `;
 const Buttons = styled.div`
-  button:hover{
+  button:hover {
     opacity: 1;
   }
   button {
@@ -61,16 +61,16 @@ const Buttons = styled.div`
   .back {
     left: 0%;
   }
-  .next{
+  .next {
     right: 1.5%;
   }
   ${mobile({
     display: "none",
   })};
-  svg{
-    path{
-      stroke: #FFFFFF;
-      fill: #FFFFFF;
+  svg {
+    path {
+      stroke: #ffffff;
+      fill: #ffffff;
     }
   }
 `;
@@ -84,7 +84,7 @@ const StyledCardTopTen = styled.div`
       height: 13em;
     }
   }
-  .overLay{
+  .overLay {
     user-select: none;
     cursor: pointer;
     position: absolute;
@@ -94,25 +94,25 @@ const StyledCardTopTen = styled.div`
     right: 10%;
     width: 48%;
     border-radius: 28px;
-    color: #FFFFFF;
-    background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1));
+    color: #ffffff;
+    background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
     opacity: 0;
     z-index: 100;
   }
-  .top:hover{
+  .top:hover {
     transition: 0.4s ease-in-out;
     transform: scale(1.1);
-    .num{
+    .num {
       opacity: 0;
       transition: 0.9s ease-in-out;
     }
-    img{
+    img {
       transition: 0.9s ease-in-out;
       z-index: 99;
       transform: translate(-50%, -30%) scale(1.6);
       width: 10em;
     }
-    .overLay{
+    .overLay {
       transition: 0.9s ease-in-out;
       transform: translate(-37%, 0%) scale(1.1);
       opacity: 1;
@@ -129,13 +129,13 @@ const TopTenMovie = () => {
   const arrowRef = useRef(null);
   const StyledTopTenMovie = styled.div`
     width: 100%;
-    
+
     h3 {
       color: #ffffff;
       font-size: 26px;
       padding-left: 2em;
     }
-    .rowHeader{
+    .rowHeader {
       width: 100%;
       margin: 0 auto;
     }
@@ -149,14 +149,13 @@ const TopTenMovie = () => {
   return (
     <StyledTopTenMovie>
       <Container>
-          <h3>Top 10 Film this week</h3>
+        <h3>Top 10 Film this week</h3>
         <div className="rowHeader">
           <Slider ref={arrowRef} {...settings}>
             {topMovie.map((item) => {
               return (
                 <StyledCardTopTen>
-                  <div className="top" 
-                  >
+                  <div className="top">
                     <div className="num">
                       {item.top === 1 ? (
                         <Num1 />
@@ -182,13 +181,13 @@ const TopTenMovie = () => {
                     </div>
                     <img src={item.img} alt="123" />
                     <div className="overLay">
-                    <div className="title">
-                      <h1>Title</h1>
+                      <div className="title">
+                        <h1>Title</h1>
+                      </div>
+                      <div className="description">
+                        <p>Description tio n tion tio ntion tion tion</p>
+                      </div>
                     </div>
-                    <div className="description">
-                      <p>Description tio n tion tio ntion tion tion</p>
-                    </div>
-                  </div>
                   </div>
                 </StyledCardTopTen>
               );
@@ -199,13 +198,13 @@ const TopTenMovie = () => {
               onClick={() => arrowRef.current.slickPrev()}
               className="back"
             >
-              <PrevArrow/>
+              <PrevArrow />
             </button>
             <button
               onClick={() => arrowRef.current.slickNext()}
               className="next"
             >
-              <NextArrow/>
+              <NextArrow />
             </button>
           </Buttons>
         </div>

@@ -4,6 +4,7 @@ import m from "../../assets/img/M logo 2.svg";
 import { mobile } from "../../responsive";
 const Footer = () => {
   const Container = styled.div`
+    text-align: center;
     height: 100%;
     width: 100%;
     background-color: #190401;
