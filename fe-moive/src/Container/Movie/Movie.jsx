@@ -7,7 +7,7 @@ import { actionComedies, horror } from "../../data/fetchData";
 import Footer from "../../Component/Footer/Footer";
 import { useEffect } from "react";
 import axiosInstance from "../../service/axios";
-
+import { useState } from "react";
 const StyledMovie = styled.div`
   background-color: #1b0301;
   width: 100%;
@@ -19,23 +19,29 @@ const StyledMovie = styled.div`
     width: 84%;
     margin: 0 auto;
   }
+  .clear {
+    clear: both;
+  }
 `;
 const Movie = () => {
+  const [cast, setCast] = useState([]);
   useEffect(() => {
     axiosInstance
       .get("/movies/top-ten")
       .then((res) => {
-        console.log(res.data);
+        setCast(res.data.data);
       })
       .catch((err) => {});
-  });
+  }, []);
+  console.log("movie", cast);
   return (
     <StyledMovie>
       <Navbar />
       <TopMovie />
       <TopTenMovie />
-      <GenresMovie2 data={horror} name={"horror film"} />
-      <GenresMovie2 data={actionComedies} name={"Action Comedies"} />
+      <GenresMovie2 cast={cast} name={"horror film"} />
+      <GenresMovie2 cast={cast} name={"Action Comedies"} />
+      <div className="clear"></div>
       <Footer />
     </StyledMovie>
   );

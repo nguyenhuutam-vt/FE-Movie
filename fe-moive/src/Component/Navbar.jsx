@@ -11,6 +11,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import { fecthChannel } from "../Container/Search/ApiSearch";
 import Search from "./Search/Search";
 import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
+import Logout from "./Logout";
+import Account from "./Account";
 const Navbar = () => {
   const Container = styled.div`
     width: 100%;
@@ -105,9 +107,21 @@ const Navbar = () => {
     width: 15%;
     ${mobile({ display: "none" })};
   `;
-
+  const Logoutt = styled.div`
+    color: white;
+    height: 25px;
+    width: 80px;
+    background: linear-gradient(black, black) padding-box,
+      linear-gradient(to right, black, red) border-box;
+    border-radius: 50em;
+    border: 2px solid transparent;
+    text-align: center;
+  `;
   const auth = useSelector((item) => item.auth.isAuthenticated);
-
+  console.log("auth", auth.isAuthenticated);
+  function logout() {
+    localStorage?.removeItem("access_token");
+  }
   return (
     <Container>
       <Menu>
@@ -136,7 +150,7 @@ const Navbar = () => {
         </NavLink>
       </Nav>
       {/* <Search /> */}
-      {auth === false ? (
+      {auth.isAuthenticated === false ? (
         <Entrance>
           <Search />
 
@@ -155,6 +169,25 @@ const Navbar = () => {
       ) : (
         <Entrance>
           <Search />
+          {/* <button
+            style={{
+              backgroundColor: "transparent",
+              border: "red",
+              cursor: "pointer",
+              marginTop: "-10px",
+            }}
+            onClick={() => {
+              logout();
+            }}
+          >
+            {" "}
+            <NavLink to="/login">
+              <Logoutt>Logout</Logoutt>
+            </NavLink>
+          </button> */}
+          <div style={{ marginTop: "-30px" }}>
+            <Account />
+          </div>
         </Entrance>
       )}
     </Container>

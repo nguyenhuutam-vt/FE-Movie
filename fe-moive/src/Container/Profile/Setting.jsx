@@ -78,9 +78,9 @@ const Setting = () => {
         </Content>
         <Content>
           <div>
-            <StyledB>Unusual activity notifications</StyledB>
+            <StyledB>Unauthorized financial activity</StyledB>
             <StyledP>
-              Donec in quam sed urna bibendum tincidunt quis mollis mauris.
+              Fusce lacinia elementum eros, sed vulputate urna eleifend nec.
             </StyledP>
           </div>
           <label className="switch">

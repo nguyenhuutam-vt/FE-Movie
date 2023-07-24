@@ -5,12 +5,13 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import Navbar from "../../Navbar";
+import PersonMediaGrid from "../PersonMediaGrid/PersonMediaGrid";
 
 const CastInfo = () => {
   const { id } = useParams();
   console.log("id", id);
   const [cast, setCast] = useState("");
-  const [movie, setMovie] = useState("");
+  const [movie, setMovie] = useState([]);
 
   useEffect(() => {
     getData("");
@@ -40,9 +41,13 @@ const CastInfo = () => {
   console.log("cast", cast);
   const Container = styled.div`
     height: 100%;
-    width: 60%;
+    width: 100%;
   `;
-  const Body = styled.div``;
+  const Body = styled.div`
+    background-color: "red";
+    padding: 80px 150px;
+    background: black;
+  `;
   return (
     <Container>
       <Navbar />
@@ -77,7 +82,11 @@ const CastInfo = () => {
               }}
             >
               <Stack spacing={2}>
-                <Typography variant="h5" fontWeight="700">
+                <Typography
+                  style={{ color: "wheat" }}
+                  variant="h5"
+                  fontWeight="700"
+                >
                   {`${cast?.name} (${
                     cast?.birthday && cast?.birthday.split("-")[0]
                   }`}
@@ -85,10 +94,13 @@ const CastInfo = () => {
                     ` - ${cast?.deathday && cast?.deathday.split("-")[0]}`}
                   {")"}
                 </Typography>
-                <Typography>{cast?.biography}</Typography>
+                <Typography style={{ color: "wheat" }}>
+                  {cast?.biography}
+                </Typography>
               </Stack>
             </Box>
           </Box>
+          <PersonMediaGrid movie={movie} />
         </Box>
       </Body>
     </Container>

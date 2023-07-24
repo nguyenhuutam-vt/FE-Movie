@@ -1,4 +1,11 @@
-import { Box, Divider, Stack, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import TextAvatar from "./TextAvatar";
@@ -16,13 +23,19 @@ const Comment = ({ comment }) => {
     width: 60%;
   `;
   const [onRequest, setOnRequest] = useState(false);
-  const [content, setContent] = useState("");
+
+  const [displayCount, setDisplayCount] = useState(3);
+
+  const handleLoadMore = () => {
+    setDisplayCount((prevDisplayCount) => prevDisplayCount + 3); // Tăng số lượng phần tử hiển thị lên 10
+  };
+  const displayedData = comment?.slice(0, displayCount);
   return (
     <Container>
       <h1 className="text-center mb-5" style={{ color: "wheat" }}>
         Review
       </h1>
-      {comment?.map((item) => {
+      {displayedData?.map((item) => {
         return (
           <div>
             <Box
@@ -87,6 +100,12 @@ const Comment = ({ comment }) => {
           </div>
         );
       })}
+      <Button
+        style={{ background: "transparent", color: "red" }}
+        onClick={handleLoadMore}
+      >
+        Load More
+      </Button>
       <Divider style={{ background: "black" }} />
       <Stack direction="row" spacing={2}>
         <TextAvatar text="Tam" />
