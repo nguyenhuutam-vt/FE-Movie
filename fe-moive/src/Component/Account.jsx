@@ -106,6 +106,9 @@ const Account = ({ ImgLogin }) => {
       width: 15px;
     }
   `;
+  function logout() {
+    localStorage?.removeItem("access_token");
+  }
   return (
     <Entrance onMouseLeave={handleMouseLeave}>
       <img
@@ -115,7 +118,7 @@ const Account = ({ ImgLogin }) => {
         alt=""
       />
       <NotificationsNoneIcon className="icon"></NotificationsNoneIcon>
-      
+
       {showAnalog && (
         <Dialog>
           {showOptions && (
@@ -138,7 +141,12 @@ const Account = ({ ImgLogin }) => {
                   Setting
                 </Value>
               </NavLink>
-              <NavLink to="/Login">
+              <NavLink
+                to="/login"
+                onClick={() => {
+                  logout();
+                }}
+              >
                 <Value>
                   <LogoutIcon className="icon2" />
                   Log Out

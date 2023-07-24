@@ -19,9 +19,12 @@ const StyledMovie = styled.div`
     width: 84%;
     margin: 0 auto;
   }
+  .clear {
+    clear: both;
+  }
 `;
 const Movie = () => {
-  const [cast, setCast] = useState("");
+  const [cast, setCast] = useState([]);
   useEffect(() => {
     axiosInstance
       .get("/movies/top-ten")
@@ -36,8 +39,9 @@ const Movie = () => {
       <Navbar />
       <TopMovie />
       <TopTenMovie />
-      <GenresMovie2 data={horror} name={"horror film"} />
-      <GenresMovie2 data={actionComedies} name={"Action Comedies"} />
+      <GenresMovie2 cast={cast} name={"horror film"} />
+      <GenresMovie2 cast={cast} name={"Action Comedies"} />
+      <div className="clear"></div>
       <Footer />
     </StyledMovie>
   );

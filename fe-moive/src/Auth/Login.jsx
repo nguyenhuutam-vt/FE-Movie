@@ -9,6 +9,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
 const StyledLogin = styled.div`
   .err {
     display: block;
@@ -75,7 +76,14 @@ const Login = () => {
         localStorage.setItem("access_token", res.data.access_token);
         navigate("/");
       })
-      .catch((err) => err);
+      .catch((err) =>
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Username or password is not correct!",
+          footer: '<a href="">Why do I have this issue?</a>',
+        })
+      );
     console.log(input);
 
     // else if(error.response.data.data === "User not verify yet. Please verify your email"){

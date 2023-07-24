@@ -1,8 +1,8 @@
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import { styled } from "styled-components";
 import Slider from "react-slick";
-import {ReactComponent as NextArrow} from '../../assets/icons/nextArrow.svg';
-import {ReactComponent as PrevArrow} from '../../assets/icons/prevArrow.svg';
+import { ReactComponent as NextArrow } from "../../assets/icons/nextArrow.svg";
+import { ReactComponent as PrevArrow } from "../../assets/icons/prevArrow.svg";
 
 import { mobile } from "../../responsive";
 
@@ -24,17 +24,16 @@ const Container = styled.div`
   position: relative;
   width: 100%;
   padding-top: 1em;
-  h3{
+  h3 {
     margin-top: 0;
   }
   ${mobile({
     height: "100%",
     transform: "translate(0px, -135px)",
   })};
-
 `;
 const Buttons = styled.div`
-  button:hover{
+  button:hover {
     opacity: 1;
   }
   button {
@@ -51,21 +50,20 @@ const Buttons = styled.div`
   .back {
     left: 3%;
   }
-  .next{
+  .next {
     right: 0;
   }
   ${mobile({
     display: "none",
   })};
-  svg{
-    path{
-      stroke: #FFFFFF;
-      fill: #FFFFFF;
+  svg {
+    path {
+      stroke: #ffffff;
+      fill: #ffffff;
     }
   }
 `;
 const StyledTopTenMovie = styled.div`
-
   h3 {
     color: #ffffff;
     font-size: 26px;
@@ -73,52 +71,52 @@ const StyledTopTenMovie = styled.div`
     user-select: none;
     padding-left: 2em;
   }
-  .rowHeader{
+  .rowHeader {
     width: 100%;
     padding-left: 4em;
     .top {
-    display: flex;
-    position: relative;
-    height: 26em;
-    .img1 {
-      cursor: pointer;
-      transition: 0.2s ease-in-out;
+      display: flex;
+      position: relative;
       height: 26em;
-      object-fit: cover;
+      .img1 {
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+        height: 26em;
+        object-fit: cover;
+      }
     }
-  }
-  .overLay{
-    user-select: none;
-    cursor: pointer;
-    position: absolute;
-    padding: 0 1em;
-    bottom: -0.2%;
-    left: 0%;
-    width: 73.57%;
-    border-radius: 28px;
-    color: #FFFFFF;
-    background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,0.8));
-    opacity: 0;
-    transition: 0.4s ease-in-out;
-    z-index: 100;
-  }
-  .top:hover{
-    transform: scale(1.2);
-    transition: 0.4s ease-in-out;
-    z-index: 10;
-    .img1{
-      opacity: 0.9;
+    .overLay {
+      user-select: none;
+      cursor: pointer;
+      position: absolute;
+      padding: 0 1em;
+      bottom: -0.2%;
+      left: 0%;
+      width: 73.57%;
+      border-radius: 28px;
+      color: #ffffff;
+      background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 0.8));
+      opacity: 0;
+      transition: 0.4s ease-in-out;
+      z-index: 100;
     }
-    .overLay{
-      opacity: 1;
+    .top:hover {
+      transform: scale(1.2);
+      transition: 0.4s ease-in-out;
+      z-index: 10;
+      .img1 {
+        opacity: 0.9;
+      }
+      .overLay {
+        opacity: 1;
+      }
     }
-  }
-  .num {
-    width: 50%;
-    svg {
-      height: 13em;
+    .num {
+      width: 50%;
+      svg {
+        height: 13em;
+      }
     }
-  }
   }
   .slick-list,
   .slick-slider,
@@ -127,29 +125,34 @@ const StyledTopTenMovie = styled.div`
     overflow: visible;
   }
 `;
-const GenresMovie2 = ({data, name}) => {
+const GenresMovie2 = ({ cast }) => {
   const arrowRef = useRef(null);
-  const datas = [...data];
+
+  console.log("casttt", cast);
 
   return (
     <StyledTopTenMovie>
       <Container>
-        <h3>{name}</h3>
+        <h3>asd</h3>
         <div className="rowHeader">
           <Slider ref={arrowRef} {...settings}>
-            {datas.map((item) => {
+            {cast?.map((item) => {
               return (
-                  <div className="top">
-                    <img className="img1" src={item.img} alt="123" />
+                <div className="top">
+                  <img
+                    className="img1"
+                    src={process.env.REACT_APP_IMG_URL + `${item?.mainPoster}`}
+                    alt="123"
+                  />
                   <div className="overLay">
                     <div className="title">
                       <h1>Title</h1>
                     </div>
                     <div className="description">
-                      <p>Description tio n tion tio ntion tion tion</p>
+                      <p>{item?.description}</p>
                     </div>
                   </div>
-                  </div>
+                </div>
               );
             })}
           </Slider>
@@ -158,13 +161,13 @@ const GenresMovie2 = ({data, name}) => {
               onClick={() => arrowRef.current.slickPrev()}
               className="back"
             >
-              <PrevArrow/>
+              <PrevArrow />
             </button>
             <button
               onClick={() => arrowRef.current.slickNext()}
               className="next"
             >
-              <NextArrow/>
+              <NextArrow />
             </button>
           </Buttons>
         </div>

@@ -1,13 +1,15 @@
 import { styled } from "styled-components";
 import logo from "../assets/img/M logo 1.png";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const StyledSignup = styled.div`
-.err {
-  margin: 4px 0 0 0;
-  font-size: 13px;
-  color: #e64646;
-}
+  .err {
+    margin: 4px 0 0 0;
+    font-size: 13px;
+    color: #e64646;
+  }
 `;
 
 const Signup = () => {
@@ -76,6 +78,11 @@ const Signup = () => {
       return stateObj;
     });
   };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSummit = (e) => {
+    e.preventDefault();
+  };
   return (
     <StyledSignup>
       <div className="headerLogo">
@@ -85,7 +92,7 @@ const Signup = () => {
         <h5>Register</h5>
       </div>
       <div className="formSignup">
-        <form action="">
+        <form action="" onSubmit={handleSummit}>
           <div className="inputSignup">
             <input
               type="text"
@@ -97,7 +104,7 @@ const Signup = () => {
               onBlur={validateInput}
             />
           </div>
-            {error.fullName && <span className="err">{error.fullName}</span>}
+          {error.fullName && <span className="err">{error.fullName}</span>}
           <div className="inputSignup">
             <input
               type="text"
@@ -109,7 +116,7 @@ const Signup = () => {
               onBlur={validateInput}
             />
           </div>
-            {error.email && <span className="err">{error.email}</span>}
+          {error.email && <span className="err">{error.email}</span>}
           <div className="inputSignup">
             <input
               type="password"
@@ -121,7 +128,7 @@ const Signup = () => {
               onBlur={validateInput}
             />
           </div>
-            {error.password && <span className="err">{error.password}</span>}
+          {error.password && <span className="err">{error.password}</span>}
           <div className="inputSignup">
             <input
               type="password"
@@ -133,7 +140,9 @@ const Signup = () => {
               onBlur={validateInput}
             />
           </div>
-            {error.confirmPassword && <span className='err'>{error.confirmPassword}</span>}
+          {error.confirmPassword && (
+            <span className="err">{error.confirmPassword}</span>
+          )}
           <div className="btnSignupPage">
             <div className="signupPage">
               <button type="submit">Create account</button>

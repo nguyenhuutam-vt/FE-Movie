@@ -10,7 +10,7 @@ import { top5Movie } from "../data/fetchData";
 import TopTenMovie from "../Component/TopTenMovie/TopTenMovie";
 const StyledTopMovie = styled.div`
   /* position: relative; */
-  .rowW{
+  .rowW {
     width: 100%;
   }
 `;
@@ -143,41 +143,45 @@ const TopMovie = () => {
 
   return (
     <StyledTopMovie>
-    <Container>
-      {top5Movie.map((item) => {
-        return (
-          <TopMovie>
-            <div className="topMv">
-              <img src={item.imgB} alt="tpo" />
-            </div>
-            <div className="info">
-              <ImgInfo>
-                <ImgInfoo src={item.imgBlackwind} alt="" className="imgInfo" />
-              </ImgInfo>
-              <Ratee>
-                <Rating name="read-only" value={5} readOnly />
-              </Ratee>
-              <Genres>
-                <Drama>Drama</Drama>
-                <Rectangle></Rectangle>
-                <Action>Action</Action>
-                <Rectangle></Rectangle>
-                <Sci>SCI-FI</Sci>
-              </Genres>
-              <Play>
-                <PlayCircleFilledWhiteIcon
-                  style={{ color: "red", fontSize: "4.1875rem" }}
-                />
-                <AddCircleIcon
-                  style={{ color: "red", fontSize: "4.1875rem" }}
-                />
-              </Play>
-              <Des>{item.description}</Des>
-            </div>
-          </TopMovie>
-        );
-      })}
-    </Container>
+      <Container>
+        {top5Movie.map((item) => {
+          return (
+            <TopMovie>
+              <div className="topMv">
+                <img src={item.imgB} alt="tpo" />
+              </div>
+              <div className="info">
+                <ImgInfo>
+                  <ImgInfoo
+                    src={item.imgBlackwind}
+                    alt=""
+                    className="imgInfo"
+                  />
+                </ImgInfo>
+                <Ratee>
+                  <Rating name="read-only" value={5} readOnly />
+                </Ratee>
+                <Genres>
+                  <Drama>Drama</Drama>
+                  <Rectangle></Rectangle>
+                  <Action>Action</Action>
+                  <Rectangle></Rectangle>
+                  <Sci>SCI-FI</Sci>
+                </Genres>
+                <Play>
+                  <PlayCircleFilledWhiteIcon
+                    style={{ color: "red", fontSize: "4.1875rem" }}
+                  />
+                  <AddCircleIcon
+                    style={{ color: "red", fontSize: "4.1875rem" }}
+                  />
+                </Play>
+                <Des>{item.description}</Des>
+              </div>
+            </TopMovie>
+          );
+        })}
+      </Container>
     </StyledTopMovie>
   );
 };
