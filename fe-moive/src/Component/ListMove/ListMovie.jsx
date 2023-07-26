@@ -5,6 +5,10 @@ import { mobile } from "../../responsive";
 import { list } from "../../data/fetchData";
 import "./ListMovie.css";
 import Slider from "react-slick";
+import { useState } from "react";
+import axiosInstance from "../../service/axios";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 const settings = {
   dots: true,
   infinite: false,
@@ -43,6 +47,17 @@ const settings = {
   ],
 };
 const ListMovie = () => {
+  const [upComming, setUpComming] = useState([]);
+  useEffect(() => {
+    axiosInstance
+      .get("/movies/upcoming")
+      .then((res) => {
+        setUpComming(res.data.data);
+      })
+      .catch((err) => {});
+  }, []);
+
+  console.log("upComming", upComming);
   const Container = styled.div`
     width: 100%;
     height: 100%;
@@ -75,16 +90,23 @@ const ListMovie = () => {
   return (
     <Container>
       <Slider {...settings}>
-        {list.map((item) => {
+        {upComming.map((item) => {
           return (
             <Movie className="poster">
               <Poster>
-                <a href="/detail">
+                <Link
+                  to={`/detail/${item.id}`}
+                  style={{ textDecoration: "none", color: "white" }}
+                >
                   {" "}
-                  <Img src={item.imgList} alt="" />
-                </a>
+                  <Img
+                    style={{ width: "50%" }}
+                    src={process.env.REACT_APP_IMG_URL + `${item?.mainPoster}`}
+                    alt=""
+                  />
+                </Link>
               </Poster>
-              <Title>{item.title}</Title>
+              <Title>{item.movieName}</Title>
             </Movie>
           );
         })}
