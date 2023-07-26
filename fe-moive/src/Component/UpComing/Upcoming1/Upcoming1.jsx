@@ -109,7 +109,6 @@ const Upcoming1 = ({ type }) => {
         </Drop>
       </Release>
       <August />
-      <September />
     </Container>
   );
 };

@@ -3,7 +3,9 @@ import logo from "../assets/img/M logo 1.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const StyledSignup = styled.div`
   .err {
     margin: 4px 0 0 0;
@@ -14,17 +16,21 @@ const StyledSignup = styled.div`
 
 const Signup = () => {
   const [input, setInput] = useState({
-    fullName: "",
+    username: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    billing_plan_id: 0,
+    full_name: "",
+    address: "",
+    phone_number: "",
+    avatar: "",
+    dateOfBirth: "",
   });
 
   const [error, setError] = useState({
     fullName: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   const onInputChange = (e) => {
@@ -82,9 +88,19 @@ const Signup = () => {
   const navigate = useNavigate();
   const handleSummit = (e) => {
     e.preventDefault();
+    dispatch.auth
+      .sigup(input)
+      .then((res) => {
+        dispatch.auth.setAuth(true);
+        toast.success("Successfully Created Account");
+      })
+      .catch((err) => {
+        toast.error("Error");
+      });
   };
   return (
     <StyledSignup>
+      <ToastContainer />
       <div className="headerLogo">
         <div className="logo">
           <img src={logo} alt="logo" />
@@ -96,15 +112,15 @@ const Signup = () => {
           <div className="inputSignup">
             <input
               type="text"
-              id="fullName"
-              name="fullName"
+              id="username"
+              name="username"
               placeholder="Full Name"
-              value={input.fullName}
+              value={input.username}
               onChange={onInputChange}
               onBlur={validateInput}
             />
           </div>
-          {error.fullName && <span className="err">{error.fullName}</span>}
+          {error.username && <span className="err">{error.username}</span>}
           <div className="inputSignup">
             <input
               type="text"
@@ -129,7 +145,7 @@ const Signup = () => {
             />
           </div>
           {error.password && <span className="err">{error.password}</span>}
-          <div className="inputSignup">
+          {/* <div className="inputSignup">
             <input
               type="password"
               id="confirmPassword"
@@ -142,7 +158,7 @@ const Signup = () => {
           </div>
           {error.confirmPassword && (
             <span className="err">{error.confirmPassword}</span>
-          )}
+          )} */}
           <div className="btnSignupPage">
             <div className="signupPage">
               <button type="submit">Create account</button>

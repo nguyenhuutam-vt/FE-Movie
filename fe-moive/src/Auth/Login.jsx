@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Swal from "sweetalert2";
+import { Button } from "@mui/material";
 const StyledLogin = styled.div`
   .err {
     display: block;
@@ -63,8 +64,8 @@ const Login = () => {
       return stateObj;
     });
   };
-  const auth = useSelector((item) => item.auth);
-  console.log("auth", auth);
+  // const auth = useSelector((item) => item.auth);
+  // console.log("auth", auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // const [values, setValues] = useState(initioValue);
@@ -160,9 +161,13 @@ const Login = () => {
                 <button type="button" onClick={handleSummit}>
                   LOGIN NOW
                 </button>
-                <button type="submit">
+                <Button
+                  href={
+                    "http://localhost:8080/oauth2/authorize/google?redirect_uri=http://localhost:3000/oauth2"
+                  }
+                >
                   <IconGoogle />
-                </button>
+                </Button>
               </div>
               <div className="or">
                 <div className="line" />

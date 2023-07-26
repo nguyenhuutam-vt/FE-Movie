@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import FontBerlin from "../../font/BRLNSR.woff";
 import { mobile } from "../../responsive";
+import dayjs from "dayjs";
 const TextView = styled.p`
   @font-face {
     font-family: "Berlin Sans FB";
@@ -51,31 +52,25 @@ const ViewRight = styled.div`
 const ViewLeft = styled.div`
   ${mobile({ width: "60%" })}
 `;
-const OverViewCard = () => {
+const OverViewCard = ({ detail }) => {
   return (
     <container className="cont">
       <h1 className="text">OVERVIEW</h1>
       <Content>
         <ViewLeft>
-          <TextView>
-            Queen Ramonda (Angela Bassett), Shuri (Letitia Wright), M’Baku
-            (Winston Duke), Okoye (Danai Gurira) and the Dora Milaje (including
-            Florence Kasumba), fight to protect their nation from intervening
-            world powers in the wake of King T’Challa’s death. As the Wakandans
-            strive to embrace their next chapter, the heroes must band together
-            with the help of War Dog Nakia (Lupita Nyong’o) and Everett Ross
-            (Martin Freeman) and forge a new path for the kingdom of Wakanda.
-          </TextView>
+          <TextView>{detail?.description}</TextView>
         </ViewLeft>
         <ViewRight>
           <TitleText>DIRECTER</TitleText>
-          <TextView>Ryan Coogler</TextView>
+          <TextView>{detail?.director_directorName}</TextView>
           <TitleText>WRITER</TitleText>
-          <TextView>Ryan Coogler</TextView>
+          <TextView>{detail?.writer_writerName}</TextView>
           <TitleText>RELEASE DATE</TitleText>
-          <TextView>November 11, 2022</TextView>
+          <TextView>
+            {dayjs(detail?.releasedDate).format("DD-MM-YYYY ")}
+          </TextView>
           <TitleText>RUNNING TIME</TitleText>
-          <TextView>161 MINUTES</TextView>
+          <TextView>{detail?.runningTime}</TextView>
         </ViewRight>
       </Content>
       <TitleText>CAST</TitleText>

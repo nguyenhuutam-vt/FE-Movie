@@ -39,7 +39,7 @@ function SampleNextArrow(props) {
           ...style,
           display: "block",
           zIndex: "1",
-          right: "90px",
+          right: "150px",
           top: "500px",
           height: "40px",
           width: "50px",
@@ -122,6 +122,7 @@ const Container = styled.div`
   height: 100%;
   width: 100%;
   margin-top: 20px;
+  margin-left: 40px;
   ${mobile({
     height: "100%",
     transform: "translate(0px, -135px)",
@@ -142,15 +143,19 @@ const Buttons = styled.div`
 
   .back {
     left: 0rem;
+    background-color: transparent;
+  }
+  .next {
+    background-color: transparent;
   }
   ${mobile({
     display: "none",
   })};
 `;
-const SliderComp = () => {
+const SliderComp = ({ movie }) => {
   const arrowRef = useRef(null);
   let sliderProject = "";
-  sliderProject = data.map((item, i) => <Project item={item} key={i} />);
+  sliderProject = movie.map((item, i) => <Project item={item} key={i} />);
   return (
     <Container>
       <Slider ref={arrowRef} {...settings}>
@@ -160,7 +165,11 @@ const SliderComp = () => {
         <button onClick={() => arrowRef.current.slickPrev()} className="back">
           <img src={icon1} alt="" />
         </button>
-        <button onClick={() => arrowRef.current.slickNext()} className="next">
+        <button
+          onClick={() => arrowRef.current.slickNext()}
+          className="next"
+          style={{ right: "5rem" }}
+        >
           <img src={icon2} alt="" />
         </button>
       </Buttons>
