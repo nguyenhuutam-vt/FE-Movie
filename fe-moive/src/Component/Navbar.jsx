@@ -13,6 +13,7 @@ import Search from "./Search/Search";
 import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
 import Logout from "./Logout";
 import Account from "./Account";
+import Bars from "../Component/icon/Bars";
 const Navbar = () => {
   const Container = styled.div`
     width: 100%;
@@ -125,7 +126,7 @@ const Navbar = () => {
   return (
     <Container>
       <Menu>
-        <MenuIcon />
+        <Bars />
       </Menu>
       <Nav>
         <NavLink to="/about">
