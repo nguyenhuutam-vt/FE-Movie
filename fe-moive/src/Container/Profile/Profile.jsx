@@ -1,15 +1,25 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import NavbarDetail from "./../../Component/NavbarDetail";
 import Modal from "react-modal";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useDispatch } from "react-redux";
 // import Avatar2 from "../../Component/Card/Avatar";
 import Avatar1 from "../../assets/img/M logo 2.png";
 import { mobile } from "../../responsive";
 import EditProfile from "./EditProfile";
 import Footer from "../../Component/Footer/Footer";
+import BillingPlan from "../../Component/BillingPlan/BillingPlan";
 const Profile = () => {
+  const userInfo = useSelector((prop) => prop.user);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch.user.getUserInfo();
+  }, []);
+  const data = userInfo.userInfo;
   const [Avatar, setAvatar] = useState(Avatar1);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalUp, setModalUp] = useState(false);
   const Container = styled.div`
     background-color: #1b0301;
     width: 100%;
@@ -77,6 +87,12 @@ const Profile = () => {
   const closeModal = () => {
     setModalIsOpen(false);
   };
+  const OpenModalUp = () => {
+    setModalUp(true);
+  };
+  const closeModalUp = () => {
+    setModalUp(false);
+  };
   const handleImageSelect = (event) => {
     const newAvatar = URL.createObjectURL(event.target.files[0]);
     setAvatar(newAvatar);
@@ -108,20 +124,27 @@ const Profile = () => {
   `;
   return (
     <Container>
-      <NavbarDetail ImgLogin={Avatar} />
+      <NavbarDetail ImgLogin={data.avatar == null ? Avatar : data.avatar} />
       <Body>
         <Info>
           <InfoUser>
             <SAvatar onClick={handleAvatarClick}>
-              <img src={Avatar} alt="" />
+              <img src={data.avatar == null ? Avatar : data.avatar} alt="" />
             </SAvatar>
-            <Name>Thái Nguyên</Name>
+            <Name>{data.username}</Name>
           </InfoUser>
+          <button className="button" onClick={OpenModalUp}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24">
+              <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z"></path>
+            </svg>
+            Unlock Premium
+          </button>
         </Info>
         <Content>
-          <EditProfile />
+          <EditProfile data={data} />
           <Button>Reset Password</Button>
         </Content>
+        {modalUp === false ? modalIsOpen : <BillingPlan closeModalUp/>}
       </Body>
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
         <h2>Choose a new photo</h2>

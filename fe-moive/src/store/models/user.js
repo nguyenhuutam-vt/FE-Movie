@@ -1,30 +1,42 @@
-// export const users = {
-//     state:{
-//         listUser: [],
-//         count: 0
-//     },
-//     reducers:{
-//         setListUser(state,listUser){
-//             return {
-//                ...state,
-//                listUser     
-//             }
-//         },
-//         setCount(state,payload){
-//             return state + payload;
-//         }
-//     },
-//     effects: (dispatch) =>({
-//         async fetchUsers(payload, rootState) {
-//             const data = await fetch('https://jsonplaceholder.typicode.com/users')
-//             .then(response => response.json());
-//             console.log(data);
-//             this.setListUser(data);
-//           }
-//     }),
-//     // selectors:(slice,createSelector) =>({
-//     //     selectorProducts(){
-//     //         return slice(state => state.listUser)
-//     //     }
-//     // })
-// }
+import axios from "../../service/axios";
+export const user = {
+  state: {
+    userInfo: {
+      // username: "",
+      // billingPlanExpiredAt: null,
+      // billingPlan_billingPlanName: "",
+      // billingPlan_id: null,
+      // fullName: "",
+      // address: null,
+      // phoneNumber: "",
+      // avatar: null,
+      // dateOfBirth: null,
+      // email: "",
+    },
+  },
+  reducers: {
+    setListUser(state, userInfo) {
+      return {
+        ...state,
+        userInfo,
+      };
+    },
+    setCount(state, payload) {
+      return state + payload;
+    },
+  },
+  effects: (dispatch) => ({
+    async getUserInfo() {
+      axios({
+        method: "get",
+        url: "/info",
+      })
+        .then((res) => {
+          this.setListUser(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  }),
+};
