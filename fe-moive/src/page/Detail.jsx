@@ -120,8 +120,12 @@ const Detail = () => {
         />
       </BannerD> */}
       <div style={{ marginTop: "70px", textAlign: "center" }}>
-        <img src={process.env.REACT_APP_IMG_URL + `${detail?.banner}`} alt="" />
+        <img
+          src={process.env.REACT_APP_IMG_URL + `${detail?.mainPoster}`}
+          alt=""
+        />
       </div>
+
       <div style={{ textAlign: "center", marginTop: "20px" }}>
         <Link to={`/watch/${id}`}>
           <Button

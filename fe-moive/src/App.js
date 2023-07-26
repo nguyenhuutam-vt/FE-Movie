@@ -42,14 +42,14 @@ function App() {
           <Route path="/forgotpassword" element={<ForgotPassword />} />
         </Route>
         <Route path="/oauth2" element={<Oauth2 />} />
-        <Route path="/Profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/about" element={<About />} />
         <Route path="/movie/:id" element={<Movie />} />
         <Route path="/series" element={<Series />} />
         <Route path="/upcoming" element={<Upcoming />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/setting" element={<Setting />} />
-        <Route path="/Profile" element={<Profile />} />
+        {/* <Route path="/Profile" element={<Profile />} /> */}
         <Route path="/movies" element={<Movies />} />
         <Route path="/searchMovie/:searchTerm" element={<SearchMovie />} />
         <Route path="/cast/:id" element={<CastInfo />} />

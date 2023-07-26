@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import "../BillingPlan/index.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axiosInstance from "../../service/axios";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 const Container = styled.div`
   background-color: red;
   width: 25%;
@@ -27,11 +32,38 @@ const Body = styled.body`
 const Price = styled.div`
   font-size: 50px;
 `;
+
 const BillingPlan = () => {
+  const user = useSelector((item) => item.user);
+  const [bill, setBill] = useState([]);
+  useEffect(() => {
+    axiosInstance
+      .get("/billing-plan")
+      .then((res) => {
+        setBill(res.data[1]);
+      })
+      .catch((err) => {});
+  }, []);
+
+  const navigate = useNavigate();
+  console.log("bill", bill);
+  const handlePrime = () => {
+    axiosInstance({
+      method: "post",
+      url: `/payment`,
+      params: {
+        billingPlanId: 2,
+      },
+    })
+      .then((res) => {
+        navigate("/");
+      })
+      .catch((err) => {});
+  };
   return (
     <Body className="modal">
       <button>Close</button>
-      <form className="form">
+      <div>
         <div className="banner"></div>
         <Header className="title">UPGRADE TO PREMIUM</Header>
         <div className="tab-container">
@@ -60,7 +92,7 @@ const BillingPlan = () => {
                   d="M5 8.5L7.5 10.5L11 6"
                 ></path>
               </svg>
-              <span>Access more TV shows and movies.</span>
+              <span>{bill?.billingPlanName}</span>
             </li>
             <li>
               <svg
@@ -79,17 +111,21 @@ const BillingPlan = () => {
                   d="M5 8.5L7.5 10.5L11 6"
                 ></path>
               </svg>
-              <span>Change or cancel your plan anytime.</span>
+              <span>Price ${bill?.price}</span>
             </li>
           </ul>
         </div>
         <div className="modal--footer">
           <label className="price">
-            <sup>Only</sup>59.000<sub>VND</sub>
+            <sup>Only</sup>
+            {bill?.price}
+            <sub>VND</sub>
           </label>
-          <button className="upgrade-btn">Upgrade to PREMIUM</button>
+          <button className="upgrade-btn" onClick={handlePrime}>
+            Upgrade to PREMIUM
+          </button>
         </div>
-      </form>
+      </div>
     </Body>
   );
 };
