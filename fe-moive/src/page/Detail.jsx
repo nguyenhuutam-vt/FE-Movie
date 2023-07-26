@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { mobile } from "../responsive";
 import NavbarDetail from "../Component/NavbarDetail";
@@ -7,8 +7,39 @@ import CardVideo from "../Component/Card/CardVideo";
 import PostersCard from "../Component/Card/Posters";
 import OverViewCard from "../Component/Card/OverviewCard";
 import Footer from "../Component/Footer/Footer";
+import { Link, useParams } from "react-router-dom";
+import axiosInstance from "../service/axios";
+import { Button } from "@mui/material";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Detail = () => {
+  const { id } = useParams();
+  const [detail, setDetail] = useState([]);
+  useEffect(() => {
+    axiosInstance
+      .get(`/movies/details/${id}`)
+      .then((res) => {
+        setDetail(res.data);
+      })
+      .catch((err) => {});
+  }, []);
+
+  const [trailer, setTrailer] = useState([]);
+  useEffect(() => {
+    axiosInstance
+      .get(`/movies/details/${id}`)
+      .then((res) => {
+        setTrailer(res.data.movieTrailers[0]);
+      })
+      .catch((err) => {});
+  }, []);
+  console.log("trailer", trailer);
+  console.log("detail", detail);
+  console.log("id", id);
   const Container = styled.div`
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     background-color: black;
@@ -16,11 +47,12 @@ const Detail = () => {
   `;
   const BannerD = styled.header`
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 100%;
+    text-align: center;
     height: 50cqmax;
     background-size: contain;
-    background-image: url(${Banner});
+    /* background-image: url({} ); */
     background-repeat: no-repeat;
     ${mobile({
       height: "220px",
@@ -64,27 +96,73 @@ const Detail = () => {
       width: "100%",
     })}
   `;
+  const handleWatch = () => {
+    axiosInstance({
+      method: "post",
+      url: `/watchlist`,
+      params: {
+        movieId: id,
+      },
+    })
+      .then((res) => {
+        toast.success("Add Success");
+      })
+      .catch((err) => {});
+  };
   return (
     <Container>
-      <BannerD>
-        <NavbarDetail />
-      </BannerD>
+      <ToastContainer />
+      <NavbarDetail />
+      {/* <BannerD>
+        <img
+          src={process.env.REACT_APP_IMG_URL + `${detail?.mainPoster}`}
+          alt=""
+        />
+      </BannerD> */}
+      <div style={{ marginTop: "70px", textAlign: "center" }}>
+        <img
+          src={process.env.REACT_APP_IMG_URL + `${detail?.mainPoster}`}
+          alt=""
+        />
+      </div>
+      <div style={{ textAlign: "center", marginTop: "20px" }}>
+        <Link to={`/watch/${id}`}>
+          <Button
+            variant="contained"
+            sx={{ width: "max-content", background: "red" }}
+            size="large"
+            startIcon={<PlayArrowIcon />}
+          >
+            watch now
+          </Button>
+        </Link>
+        <Button
+          variant="contained"
+          sx={{ width: "max-content", background: "red" }}
+          size="large"
+          startIcon={<PlayArrowIcon />}
+          onClick={handleWatch}
+        >
+          Add Watch List
+        </Button>
+      </div>
+
       <Content>
         <CardVideo
           Title={"WATCH TRAILER"}
-          Video={"https://www.youtube.com/embed/v8ItGrI-Ou0"}
+          Video={trailer?.trailerName}
         ></CardVideo>
         <CardVideo
           Title={"WATCH MOVIE NOW"}
-          Video={"https://www.youtube.com/watch?v=UH0KeoB72zs"}
+          Video={trailer?.trailerName}
         ></CardVideo>
       </Content>
       <DFooter>
         <OverView>
-          <OverViewCard />
+          <OverViewCard detail={detail} />
         </OverView>
         <Posters>
-          <PostersCard />
+          <PostersCard detail={detail} />
         </Posters>
       </DFooter>
       <Footer />

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styled } from "styled-components";
 import wakan from "../../assets/img/wakanda forever 1.png";
 import { popular } from "../../data/fetchData";
 import { mobile } from "../../responsive";
+import axiosInstance from "../../service/axios";
 const Rate = styled.div`
   width: 40px;
   height: 25px;
@@ -28,9 +29,9 @@ left: 155px; */
 const RateFill = ({ fill, fills, ...rest }) => {
   return <Rate fill={fill} fills={fills} {...rest}></Rate>;
 };
-const Popular = () => {
+const Popular = ({ movieGenres }) => {
   const Container = styled.div`
-    height: 1100px;
+    height: 100%;
     width: 100%;
     ${mobile({
       height: "100%",
@@ -70,7 +71,7 @@ const Popular = () => {
     /* position: relative;
     width: 210px; */
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     row-gap: 100px;
     ${mobile({
       padding: "0px 10px",
@@ -89,8 +90,6 @@ const Popular = () => {
       fontSize: "8px",
       width: "100%",
     })};
-    /* position: absolute;
-    transform: translate(0px, 310px); */
   `;
   const Des = styled.div`
     color: #d1d0d0;
@@ -103,9 +102,6 @@ const Popular = () => {
       height: "0px",
       fontSize: "5px",
     })};
-    /* position: absolute; */
-    /* bottom: 700px; */
-    /* transform: translate(0px, 390px); */
   `;
   const Img = styled.div`
     ${mobile({ padding: "0px 0px" })};
@@ -116,34 +112,51 @@ const Popular = () => {
     })};
   `;
   const ImgWakan = styled.img`
+    width: 45%;
     position: relative;
     ${mobile({
       padding: "0px 0px",
       width: "100%",
     })};
   `;
+  // const [movieGenres, setMovieGenres] = useState();
+  // const SeeAll1 = () =>{
+  //   useEffect(() => {
+  //     axiosInstance
+  //       .get("/movies")
+  //       .then((res) => {
+  //         setMovieGenres(res.data.data);
+  //       })
+  //       .catch((error) => {});
+  //   }, []);
+  // }
+  // const handleSeeAll = () => {
+  //   SeeAll1()
+  // };
 
-  const Footer = styled.div``;
   return (
     <Container>
       <Wrapper>
         <PopularRight>POPULAR RIGHT NOW</PopularRight>
-        <SeeAll>SEE ALL </SeeAll>
+        <SeeAll>SEE ALL</SeeAll>
       </Wrapper>
       <Movie>
-        {popular.map((item) => {
+        {movieGenres?.map((item) => {
           return (
             <Wrapperr>
               {" "}
               <Img>
                 {" "}
-                <ImgWakan src={item.img} alt="" />
+                <ImgWakan
+                  src={process.env.REACT_APP_IMG_URL + `${item?.mainPoster}`}
+                  alt=""
+                />
               </Img>
-              <RateFill fill={item.fill} fills={item.color}>
+              {/* <RateFill fill={item.fill} fills={item.color}>
                 {item.rate}
               </RateFill>
               <Title>{item.title}</Title>
-              <Des>{item.des}</Des>
+              <Des>{item.des}</Des> */}
             </Wrapperr>
           );
         })}
