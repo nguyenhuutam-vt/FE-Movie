@@ -93,7 +93,7 @@ const StyledTopTenMovie = styled.div`
       bottom: -0.2%;
       left: 0%;
       width: 73.57%;
-      border-radius: 28px;
+      /* border-radius: 28px; */
       color: #ffffff;
       background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 0.8));
       opacity: 0;
@@ -104,11 +104,13 @@ const StyledTopTenMovie = styled.div`
       transform: scale(1.2);
       transition: 0.4s ease-in-out;
       z-index: 10;
+
       .img1 {
         opacity: 0.9;
       }
       .overLay {
         opacity: 1;
+        color: white;
       }
     }
     .num {
@@ -125,18 +127,18 @@ const StyledTopTenMovie = styled.div`
     overflow: visible;
   }
 `;
-const GenresMovie2 = ({ cast }) => {
+const GenresMovie2 = ({ title, name }) => {
   const arrowRef = useRef(null);
 
-  console.log("casttt", cast);
+  console.log("casttt", title);
 
   return (
     <StyledTopTenMovie>
       <Container>
-        <h3>asd</h3>
+        <h3>{name}</h3>
         <div className="rowHeader">
           <Slider ref={arrowRef} {...settings}>
-            {cast?.map((item) => {
+            {title?.map((item) => {
               return (
                 <div className="top">
                   <img
@@ -146,10 +148,10 @@ const GenresMovie2 = ({ cast }) => {
                   />
                   <div className="overLay">
                     <div className="title">
-                      <h1>Title</h1>
+                      <h1 style={{ color: "white" }}>{item?.movieName}</h1>
                     </div>
                     <div className="description">
-                      <p>{item?.description}</p>
+                      <p style={{ color: "wheat" }}>{item?.description}</p>
                     </div>
                   </div>
                 </div>

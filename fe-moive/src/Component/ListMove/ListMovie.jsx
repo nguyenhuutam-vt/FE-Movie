@@ -100,7 +100,7 @@ const ListMovie = () => {
                 >
                   {" "}
                   <Img
-                    style={{ width: "50%" }}
+                    style={{ width: "50%", borderRadius: "10px" }}
                     src={process.env.REACT_APP_IMG_URL + `${item?.mainPoster}`}
                     alt=""
                   />
