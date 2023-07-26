@@ -123,7 +123,7 @@ const Profile = () => {
     align-items: center;
   `;
   return (
-    <Container>
+    <Container onDoubleClick={closeModalUp}>
       <NavbarDetail ImgLogin={data.avatar == null ? Avatar : data.avatar} />
       <Body>
         <Info>
@@ -140,11 +140,11 @@ const Profile = () => {
             Unlock Premium
           </button>
         </Info>
-        <Content>
+        <Content onClick={closeModalUp}>
           <EditProfile data={data} />
           <Button>Reset Password</Button>
         </Content>
-        {modalUp === false ? modalIsOpen : <BillingPlan closeModalUp/>}
+        {modalUp === false ? modalIsOpen : <BillingPlan closeModalUp />}
       </Body>
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
         <h2>Choose a new photo</h2>
