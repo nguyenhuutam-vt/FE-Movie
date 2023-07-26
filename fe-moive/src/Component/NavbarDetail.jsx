@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { mobile } from "../responsive";
-import MenuIcon from "@mui/icons-material/Menu";
-
-
+// import MenuIcon from "@mui/icons-material/Menu";
+import Bars from "../Component/icon/Bars";
 import logo1 from "../assets/img/M logo 1.png";
 import ImgLogin from "../assets/img/ACCOUNT 1.png";
 import Account from "./Account";
 
 const NavbarDetail = ({ ImgLogin }) => {
-  
-
-  
   const Container = styled.div`
     width: 100%;
     display: flex;
@@ -51,7 +47,6 @@ const NavbarDetail = ({ ImgLogin }) => {
   };
   const Avatar = styled.div``;
 
-
   const Img = styled.img`
     /* margin-top: -15px; */
     ${mobile({ display: "flex", width: "25px", Height: "25px" })}
@@ -86,20 +81,17 @@ const NavbarDetail = ({ ImgLogin }) => {
     setShowAnalog(true);
   };
   return (
-    <Container >
+    <Container>
       <Entrance>
-        <MenuIcon className="icon" htmlColor="black" />
+        <Bars />
       </Entrance>
-      <Img src={logo1} alt="" />{" "}
-      <Account ImgLogin={ImgLogin}>
-      </Account>
+      <Img src={logo1} alt="" /> <Account ImgLogin={ImgLogin}></Account>
       <img
         className="account"
         onClick={handleAvatarClick}
         src={ImgLogin}
         alt=""
       />{" "}
-      
     </Container>
   );
 };

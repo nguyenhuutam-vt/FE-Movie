@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import SaveIcon from "@mui/icons-material/Save";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import { mobile } from "../../responsive";
 import "./Edit.css";
-const EditProfile = () => {
+
+const EditProfile = ({ data }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [fullName, setFullName] = useState("Nguyen Thai Nguyen");
-  const [email, setEmail] = useState("example@example.com");
-  const [phone, setPhone] = useState("1234567890");
-  const [address, setAddress] = useState("123 ABC Street, XYZ City");
-  const [dateOfBirth, setDateOfBirth] = useState("01/01/2000");
+  const [fullName, setFullName] = useState(data.fullName);
+  const [email, setEmail] = useState(data.email);
+  const [phone, setPhone] = useState(data.phoneNumber);
+  const [address, setAddress] = useState(data.address);
+  const [dateOfBirth, setDateOfBirth] = useState(data.dateOfBirth);
+
   const Button = styled.button`
     background-color: red;
     align-items: center;
@@ -78,7 +80,9 @@ const EditProfile = () => {
           onChange={(e) => setFullName(e.target.value)}
         />
       ) : (
-        <Text>{fullName}</Text>
+        <Text>
+          {data.fullName == null ? "Enter your full name" : data.fullName}
+        </Text>
       )}
       <Label htmlFor="email">Email</Label>
       {isEditing ? (
@@ -92,9 +96,9 @@ const EditProfile = () => {
           required
         />
       ) : (
-        <Text>{email}</Text>
+        <Text>{data.email == null ? "Enter your email" : email}</Text>
       )}
-      <Label htmlFor="phone"> Phone</Label>
+      <Label htmlFor="phone">Phone</Label>
       {isEditing ? (
         <input
           className="input"
@@ -106,7 +110,11 @@ const EditProfile = () => {
           onChange={(e) => setPhone(e.target.value)}
         />
       ) : (
-        <Text>{phone}</Text>
+        <Text>
+          {data.phoneNumber == null
+            ? "Enter your phone number"
+            : data.phoneNumber}
+        </Text>
       )}
       <Label htmlFor="address">Address</Label>
       {isEditing ? (
@@ -114,13 +122,13 @@ const EditProfile = () => {
           className="input"
           type="text"
           name="address"
-          placeholder="address"
+          placeholder="Enter address"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
           required
         />
       ) : (
-        <Text>{address}</Text>
+        <Text>{data.address == null ? "Enter address" : data.address}</Text>
       )}
       <Label htmlFor="dateOfBirth">Date of Birth</Label>
       {isEditing ? (
@@ -133,12 +141,12 @@ const EditProfile = () => {
           required
         />
       ) : (
-        <div className="button">
-          <Text>{dateOfBirth}</Text>
-          {/* <Button>
-            <DriveFileRenameOutlineIcon />
-            <TextB>Edit Profile</TextB>
-          </Button> */}
+        <div className="button2">
+          <Text>
+            {data.dateOfBirth == null
+              ? "Select date of Birth"
+              : data.dateOfBirth}
+          </Text>
         </div>
       )}
     </form>
