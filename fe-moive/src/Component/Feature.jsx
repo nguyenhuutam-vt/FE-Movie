@@ -15,6 +15,9 @@ import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite
 import { movie } from "../data/fetchData";
 import icon2 from "../assets/img/S3.png";
 import icon1 from "../assets/img/S31.png";
+import { useState } from "react";
+import { useEffect } from "react";
+import axiosInstance from "../service/axios";
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
 
