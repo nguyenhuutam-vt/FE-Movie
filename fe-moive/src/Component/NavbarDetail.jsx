@@ -12,6 +12,7 @@ const NavbarDetail = ({ ImgLogin }) => {
   const Container = styled.div`
     width: 100%;
     display: flex;
+    color: white;
     background-color: #1b0301;
     justify-content: space-between;
     position: fixed;

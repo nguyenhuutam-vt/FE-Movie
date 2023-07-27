@@ -2,7 +2,7 @@
     display: inline-block;
     transition: transform .2s;
     position: relative;
-    border-radius: 10px;
+    border-radius: 25px;
     overflow: hidden;
     margin: 0.19rem;
     cursor:pointer;

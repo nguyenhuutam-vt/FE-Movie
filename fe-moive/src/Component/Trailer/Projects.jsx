@@ -8,7 +8,7 @@ import Popular from "../Popular/Popular";
 import GenresMovie from "../GenresMovie/GenresMovie";
 import Generess from "../GenresMovie/Generess";
 
-const Projects = () => {
+const Projects = ({ movie }) => {
   const Container = styled.div`
     width: 100%;
     height: 100%;
@@ -37,14 +37,14 @@ const Projects = () => {
   return (
     <Container id="project" className="trailer">
       <div>
-        <SliderComp />
+        <SliderComp movie={movie} />
       </div>
       <div>
         <Genres />
       </div>
-      <div>
+      {/* <div>
         <Popular />
-      </div>
+      </div> */}
     </Container>
   );
 };

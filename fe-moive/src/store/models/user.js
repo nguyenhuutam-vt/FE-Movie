@@ -1,18 +1,7 @@
 import axios from "../../service/axios";
 export const user = {
   state: {
-    userInfo: {
-      // username: "",
-      // billingPlanExpiredAt: null,
-      // billingPlan_billingPlanName: "",
-      // billingPlan_id: null,
-      // fullName: "",
-      // address: null,
-      // phoneNumber: "",
-      // avatar: null,
-      // dateOfBirth: null,
-      // email: "",
-    },
+    userInfo: null,
   },
   reducers: {
     setListUser(state, userInfo) {

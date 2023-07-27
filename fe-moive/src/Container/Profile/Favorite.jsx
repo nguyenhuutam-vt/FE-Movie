@@ -11,7 +11,7 @@ const Favorite = () => {
   const Body = styled.body`
     width: 70%;
     height: 400vh;
-    padding: 20px;
+    padding: 0px 60px 60px 60px;
     margin-top: 100px;
     box-sizing: border-box;
     flex-direction: column;
@@ -19,9 +19,6 @@ const Favorite = () => {
     align-items: left;
     background-color: black;
     border-radius: 10px;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto auto;
     overflow: auto;
   `;
   const Container = styled.div`
@@ -52,9 +49,6 @@ const Favorite = () => {
       <NavbarDetail />
       <Body>
         <CardFavorite cast={cast} />
-        {/* <CardFavorite />
-        <CardFavorite />
-        <CardFavorite /> */}
       </Body>
       <Footer />
     </Container>

@@ -58,12 +58,12 @@ const StyledLayoutAuth = styled.div`
     ///////////////////////////////// Login page in light mode///////////////////////////////////////////////////
     .inputStyled {
       width: 100%;
-      background-color: #000000;
+      background-color: #000000 !important;
       display: flex;
       border-radius: 10px;
       ${mobile({ width: "80%" })}
       input {
-        background-color: #000000;
+        background-color: #000000 !important;
         margin-left: 10px;
         color: #ffffff;
       }
@@ -89,6 +89,33 @@ const StyledLayoutAuth = styled.div`
           font-family: "Inter";
           src: local("Inter-Regular"), url(${InterForm}) format("woff");
         }
+        font-size: 22px;
+        font-weight: 700;
+        position: relative;
+        width: 46%;
+        height: 56px;
+        color: #ffe919;
+        border-radius: 50px;
+        border: 2px solid transparent;
+        box-shadow: -14.719192504882812px 17.347618103027344px
+          84.10966491699219px 0px #8f00ff3b;
+
+        box-shadow: 15.770564079284668px -13.667821884155273px 112.49666595458984px
+          0px #ffe919;
+
+        background: linear-gradient(#000000 0 0) padding-box,
+          linear-gradient(
+              228.09deg,
+              #000000 -9.95%,
+              #ffe919 12.47%,
+              #ffe919 30.87%,
+              #ffe919 53.87%,
+              #000000 74.79%,
+              #000000 100.44%
+            )
+            border-box;
+      }
+      .login a {
         font-size: 22px;
         font-weight: 700;
         position: relative;
@@ -434,6 +461,32 @@ const StyledLayoutAuth = styled.div`
           font-family: "Inter";
           src: local("Inter-Regular"), url(${InterForm}) format("woff");
         }
+        font-size: 22px;
+        font-weight: 700;
+        position: relative;
+        width: 46%;
+        height: 56px;
+        color: #46348b;
+        border-radius: 50px;
+        border: 2px solid transparent;
+        box-shadow: -14.719192504882812px 17.347618103027344px
+          84.10966491699219px 0px rgba(143, 0, 255, 0.15);
+
+        box-shadow: 15.770564079284668px -13.667821884155273px 112.49666595458984px
+          0px rgba(255, 0, 0, 0.15);
+        background: linear-gradient(#ffffff 0 0) padding-box,
+          linear-gradient(
+              265.43deg,
+              #ff2c2c 7.26%,
+              rgba(251, 152, 4, 0.796875) 22.2%,
+              rgba(223, 255, 218, 0.23084) 47.78%,
+              rgba(255, 255, 255, 0) 54.69%,
+              rgba(255, 10, 127, 0.82) 84.51%,
+              #780eff 101.13%
+            )
+            border-box;
+      }
+      .login a {
         font-size: 22px;
         font-weight: 700;
         position: relative;

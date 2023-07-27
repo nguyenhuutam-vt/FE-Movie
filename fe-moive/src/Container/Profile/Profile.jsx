@@ -16,11 +16,12 @@ const Profile = () => {
   useEffect(() => {
     dispatch.user.getUserInfo();
   }, []);
-  const data = userInfo.userInfo;
+  const data = userInfo?.userInfo;
   const [Avatar, setAvatar] = useState(Avatar1);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [modalUp, setModalUp] = useState(false);
   const Container = styled.div`
+    color: white;
     background-color: #1b0301;
     width: 100%;
     height: 100vh;
@@ -66,6 +67,7 @@ const Profile = () => {
   `;
   const Name = styled.p`
     text-align: center;
+    color: white;
     margin-left: 10px;
     font-size: 32px;
     ${mobile({ fontSize: "12px" })}
@@ -122,36 +124,54 @@ const Profile = () => {
     justify-content: space-between;
     align-items: center;
   `;
+  console.log("data", data);
   return (
     <Container onDoubleClick={closeModalUp}>
-      <NavbarDetail ImgLogin={data.avatar == null ? Avatar : data.avatar} />
-      <Body>
-        <Info>
-          <InfoUser>
-            <SAvatar onClick={handleAvatarClick}>
-              <img src={data.avatar == null ? Avatar : data.avatar} alt="" />
-            </SAvatar>
-            <Name>{data.username}</Name>
-          </InfoUser>
-          <button className="button" onClick={OpenModalUp}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24">
-              <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z"></path>
-            </svg>
-            Unlock Premium
-          </button>
-        </Info>
-        <Content onClick={closeModalUp}>
-          <EditProfile data={data} />
-          <Button>Reset Password</Button>
-        </Content>
-        {modalUp === false ? modalIsOpen : <BillingPlan closeModalUp />}
-      </Body>
-      <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
-        <h2>Choose a new photo</h2>
-        <input type="file" onChange={handleImageSelect} />
-        <button onClick={closeModal}>Close</button>
-      </Modal>
-      <Footer />
+      {data && (
+        <>
+          <NavbarDetail ImgLogin={data.avatar == null ? Avatar : data.avatar} />
+          <Body>
+            <Info>
+              <InfoUser>
+                <SAvatar onClick={handleAvatarClick}>
+                  <img
+                    src={data.avatar == null ? Avatar : data.avatar}
+                    alt=""
+                  />
+                </SAvatar>
+                <Name>{data.username}</Name>
+              </InfoUser>
+              {data?.billingPlan_id === 1 ? (
+                <button className="button" onClick={OpenModalUp}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24">
+                    <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z"></path>
+                  </svg>
+                  Unlock Premium
+                </button>
+              ) : (
+                <div></div>
+              )}
+              {/* <button className="button" onClick={OpenModalUp}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 24">
+                  <path d="m18 0 8 12 10-8-4 20H4L0 4l10 8 8-12z"></path>
+                </svg>
+                Unlock Premium
+              </button> */}
+            </Info>
+            <Content onClick={closeModalUp}>
+              <EditProfile data={data} />
+              <Button>Reset Password</Button>
+            </Content>
+            {modalUp === false ? modalIsOpen : <BillingPlan closeModalUp />}
+          </Body>
+          <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
+            <h2>Choose a new photo</h2>
+            <input type="file" onChange={handleImageSelect} />
+            <button onClick={closeModal}>Close</button>
+          </Modal>
+          <Footer />
+        </>
+      )}
     </Container>
   );
 };

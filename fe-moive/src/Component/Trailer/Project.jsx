@@ -3,9 +3,10 @@ import { styled } from "styled-components";
 import "../../Component/Trailer/WatchTrailer.css";
 import PlayCircleFilledWhiteIcon from "@mui/icons-material/PlayCircleFilledWhite";
 import { mobile } from "../../responsive";
-const Project = (props) => {
+import { NavLink, useNavigate } from "react-router-dom";
+const Project = ({ item }) => {
   const Container = styled.div`
-    width: 100%;
+    width: 70%;
     height: 100%;
 
     margin: 0 0.5rem;
@@ -55,7 +56,7 @@ const Project = (props) => {
     })};
   `;
   const Disc = styled.div`
-    transform: translate(-270px, 45px);
+    transform: translate(-150px, 45px);
     position: absolute;
 
     display: flex;
@@ -67,17 +68,23 @@ const Project = (props) => {
     transition: transform 400ms ease-in-out;
   `;
 
-  const { img, disc } = props.item;
+  // const { img, disc } = props.item;
+  const navigate = useNavigate();
   return (
     <Container className="project">
-      <Img src={img} alt="project" />
+      <Img
+        src={process.env.REACT_APP_IMG_URL + `${item?.mainPoster}`}
+        alt="project"
+      />
       <Disc className="middle">
-        <div>
-          <PlayCircleFilledWhiteIcon
-            style={{ color: "yellow", fontSize: "4.1875rem" }}
-          />
-        </div>
-        <div style={{ color: "white", marginTop: "25px" }}>WATCH TRAILER</div>
+        <NavLink to={`/detail/${item?.id}`}>
+          <div>
+            <PlayCircleFilledWhiteIcon
+              style={{ color: "yellow", fontSize: "4.1875rem" }}
+            />
+          </div>
+          <div style={{ color: "white", marginTop: "25px" }}>WATCH TRAILER</div>
+        </NavLink>
       </Disc>
     </Container>
   );

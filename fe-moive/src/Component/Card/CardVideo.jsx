@@ -23,7 +23,6 @@ const Cont = styled.div`
 `;
 const Overlay = styled.div`
   position: relative;
-
 `;
 const CardVideo = ({ Video, Title }) => {
   return (

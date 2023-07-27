@@ -9,17 +9,26 @@ import { useEffect } from "react";
 import Projects from "../../Component/Trailer/Projects";
 import Footer from "../../Component/Footer/Footer";
 import axios from "../../service/axios";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 export const Home = () => {
+  const [movie, setMovie] = useState([]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch.user.getUserInfo();
+  }, []);
   useEffect(() => {
     axios
       .get("/movies")
       .then((res) => {
-        console.log(res.data);
+        setMovie(res.data.data);
       })
       .catch((error) => {});
   }, []);
+
   const Container = styled.div`
     height: 100%;
+    overflow-x: hidden;
     ${mobile({ height: "100%" })}
   `;
   const Black = styled.div`
@@ -39,10 +48,10 @@ export const Home = () => {
     <Container>
       <Container1>
         <Navbar />
-        <Feature />
+        <Feature movie={movie} />
       </Container1>
       <ListMovie />
-      <Projects />
+      <Projects movie={movie} />
       <Footer />
     </Container>
   );

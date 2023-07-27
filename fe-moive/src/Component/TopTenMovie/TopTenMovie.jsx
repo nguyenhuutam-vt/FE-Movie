@@ -91,9 +91,8 @@ const StyledCardTopTen = styled.div`
     padding: 0 1em;
     bottom: 8%;
     /* left: 18.5%; */
-    right: 10%;
-    width: 48%;
-    border-radius: 28px;
+    right: 4%;
+    width: 55%;
     color: #ffffff;
     background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
     opacity: 0;
@@ -125,7 +124,7 @@ const StyledCardTopTen = styled.div`
     }
   }
 `;
-const TopTenMovie = () => {
+const TopTenMovie = ({ cast }) => {
   const arrowRef = useRef(null);
   const StyledTopTenMovie = styled.div`
     width: 100%;
@@ -152,34 +151,39 @@ const TopTenMovie = () => {
         <h3>Top 10 Film this week</h3>
         <div className="rowHeader">
           <Slider ref={arrowRef} {...settings}>
-            {topMovie.map((item) => {
+            {cast.map((item, index) => {
               return (
                 <StyledCardTopTen>
                   <div className="top">
                     <div className="num">
-                      {item.top === 1 ? (
+                      {index === 0 ? (
                         <Num1 />
-                      ) : item.top == 2 ? (
+                      ) : index === 1 ? (
                         <Num2 />
-                      ) : item.top == 3 ? (
+                      ) : index === 2 ? (
                         <Num3 />
-                      ) : item.top == 4 ? (
+                      ) : index === 3 ? (
                         <Num4 />
-                      ) : item.top == 5 ? (
+                      ) : index === 4 ? (
                         <Num5 />
-                      ) : item.top == 6 ? (
+                      ) : index === 5 ? (
                         <Num6 />
-                      ) : item.top == 7 ? (
+                      ) : index === 6 ? (
                         <Num7 />
-                      ) : item.top == 8 ? (
+                      ) : index === 7 ? (
                         <Num8 />
-                      ) : item.top == 9 ? (
+                      ) : index === 8 ? (
                         <Num9 />
                       ) : (
                         <Num10 />
                       )}
                     </div>
-                    <img src={item.img} alt="123" />
+                    <img
+                      src={
+                        process.env.REACT_APP_IMG_URL + `${item?.mainPoster}`
+                      }
+                      alt="123"
+                    />
                     <div className="overLay">
                       <div className="title">
                         <h1>Title</h1>

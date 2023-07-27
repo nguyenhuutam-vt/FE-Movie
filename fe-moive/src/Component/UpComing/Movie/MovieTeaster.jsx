@@ -70,7 +70,7 @@ const MovieTeaster = ({ videoTester }) => {
               ) : (
                 <iframe
                   type="text/html"
-                  style={{ backgroundColor: "#000", marginLeft: "155px" }}
+                  style={{ backgroundColor: "#000", marginLeft: "30px" }}
                   width="1000px"
                   height="500px"
                   src={`https://www.youtube.com/embed/${item?.key}?controls=1`}

@@ -20,6 +20,8 @@ import Search from "./Container/Search/Search";
 import SearchMovie from "./Container/Search/SearchMovie";
 import CastInfo from "./Component/UpComing/Movie/CastInfo";
 import { useSelector } from "react-redux";
+import WatchMovie from "./Container/Watch/WatchMovie";
+import Oauth2 from "./Component/Oauth2/Oauth2";
 
 function App() {
   const auth = useSelector((item) => item.auth.isAuthenticated);
@@ -39,18 +41,19 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
         </Route>
-
-        <Route path="/Profile" element={<Profile />} />
+        <Route path="/oauth2" element={<Oauth2 />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/about" element={<About />} />
         <Route path="/movie/:id" element={<Movie />} />
         <Route path="/series" element={<Series />} />
         <Route path="/upcoming" element={<Upcoming />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail />} />
         <Route path="/setting" element={<Setting />} />
-        <Route path="/Profile" element={<Profile />} />
+        {/* <Route path="/Profile" element={<Profile />} /> */}
         <Route path="/movies" element={<Movies />} />
         <Route path="/searchMovie/:searchTerm" element={<SearchMovie />} />
         <Route path="/cast/:id" element={<CastInfo />} />
+        <Route path="/watch/:id" element={<WatchMovie />} />
       </Routes>
     </>
   );

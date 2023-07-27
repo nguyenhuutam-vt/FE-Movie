@@ -33,14 +33,35 @@ const Movie = () => {
       })
       .catch((err) => {});
   }, []);
-  console.log("movie", cast);
+
+  const [action, setAction] = useState([]);
+  useEffect(() => {
+    axiosInstance
+      .get("/movies?search=genre%3A1")
+      .then((res) => {
+        setAction(res.data.data);
+      })
+      .catch((err) => {});
+  }, []);
+  console.log("horror", action);
+
+  const [commedy, setCommedy] = useState([]);
+  useEffect(() => {
+    axiosInstance
+      .get("/movies?search=genre%3A2")
+      .then((res) => {
+        setCommedy(res.data.data);
+      })
+      .catch((err) => {});
+  }, []);
+  console.log("horror", commedy);
   return (
     <StyledMovie>
       <Navbar />
       <TopMovie />
-      <TopTenMovie />
-      <GenresMovie2 cast={cast} name={"horror film"} />
-      <GenresMovie2 cast={cast} name={"Action Comedies"} />
+      <TopTenMovie cast={cast} />
+      <GenresMovie2 title={action} name={"Action"} />
+      <GenresMovie2 title={commedy} name={"Commedy"} />
       <div className="clear"></div>
       <Footer />
     </StyledMovie>
