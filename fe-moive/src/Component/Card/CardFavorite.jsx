@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import BackgroundImage from "../../assets/img/Movie_Detail.png";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-const CardFavorite = () => {
+const CardFavorite = ({ cast }) => {
   const Container = styled.body`
-    width: 300px;
+    width: 500px;
     height: 250px;
     border-radius: 10px;
     background-color: transparent;
@@ -13,7 +13,6 @@ const CardFavorite = () => {
   const Card = styled.div`
     width: 100%;
     height: 100%;
-    background-image: url(${BackgroundImage});
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 10px;
@@ -38,18 +37,31 @@ const CardFavorite = () => {
     padding: unset;
   `;
   return (
-    <Container>
-      <Card></Card>
-      <Content>
-        <TextView>
-          <b>Phim Này Hay Nè</b>
-          <div>
-            <TextView>2023 | Action Comedy</TextView>
-          </div>
-        </TextView>
-        <FavoriteIcon htmlColor="Red"></FavoriteIcon>
-      </Content>
-    </Container>
+    <div>
+      {cast?.map((item) => {
+        return (
+          <Container>
+            <Card
+              style={{
+                backgroundImage: `url(${process.env.REACT_APP_IMG_URL}${item.movie.mainPoster})`,
+              }}
+            ></Card>
+            <Content>
+              <TextView>
+                <b>{item.movie.movieName}</b>
+                <div>
+                  <TextView>
+                    {item.movie.releasedDate.slice(0, 4)} |
+                    {item.movie.genres.map((g) => g.genresName)}
+                  </TextView>
+                </div>
+              </TextView>
+              <FavoriteIcon htmlColor="Red"></FavoriteIcon>
+            </Content>
+          </Container>
+        );
+      })}
+    </div>
   );
 };
 export default CardFavorite;

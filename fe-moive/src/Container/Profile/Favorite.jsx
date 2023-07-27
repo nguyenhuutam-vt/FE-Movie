@@ -3,6 +3,9 @@ import NavbarDetail from "./../../Component/NavbarDetail";
 import Footer from "./../../Component/Footer/Footer";
 import { mobile } from "../../responsive";
 import CardFavorite from "../../Component/Card/CardFavorite";
+import { useState } from "react";
+import { useEffect } from "react";
+import axiosInstance from "../../service/axios";
 
 const Favorite = () => {
   const Body = styled.body`
@@ -33,14 +36,25 @@ const Favorite = () => {
       fontSize: "12px",
     })}
   `;
+  //kho
+  const [cast, setCast] = useState([]);
+  useEffect(() => {
+    axiosInstance
+      .get("/watchlist")
+      .then((res) => {
+        setCast(res.data);
+      })
+      .catch((err) => {});
+  }, []);
+  // console.log("watchlist", cast);
   return (
     <Container>
       <NavbarDetail />
       <Body>
+        <CardFavorite cast={cast} />
+        {/* <CardFavorite />
         <CardFavorite />
-        <CardFavorite />
-        <CardFavorite />
-        <CardFavorite />
+        <CardFavorite /> */}
       </Body>
       <Footer />
     </Container>

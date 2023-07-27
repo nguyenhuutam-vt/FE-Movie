@@ -6,6 +6,7 @@ import Bars from "../Component/icon/Bars";
 import logo1 from "../assets/img/M logo 1.png";
 import ImgLogin from "../assets/img/ACCOUNT 1.png";
 import Account from "./Account";
+import { NavLink } from "react-router-dom";
 
 const NavbarDetail = ({ ImgLogin }) => {
   const Container = styled.div`
@@ -85,7 +86,10 @@ const NavbarDetail = ({ ImgLogin }) => {
       <Entrance>
         <Bars />
       </Entrance>
-      <Img src={logo1} alt="" /> <Account ImgLogin={ImgLogin}></Account>
+      <NavLink to="/">
+        <Img src={logo1} alt="" />
+      </NavLink>
+      <Account ImgLogin={ImgLogin}></Account>
       <img
         className="account"
         onClick={handleAvatarClick}

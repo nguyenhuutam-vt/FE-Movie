@@ -31,7 +31,7 @@ const BillingPlan = () => {
   return (
     <Body className="modal">
       <button>Close</button>
-      <form className="form">
+      <div className="form">
         <div className="banner"></div>
         <Header className="title">UPGRADE TO PREMIUM</Header>
         <div className="tab-container">
@@ -89,7 +89,7 @@ const BillingPlan = () => {
           </label>
           <button className="upgrade-btn">Upgrade to PREMIUM</button>
         </div>
-      </form>
+      </div>
     </Body>
   );
 };
