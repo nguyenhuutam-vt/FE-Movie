@@ -5,6 +5,7 @@ import { ReactComponent as NextArrow } from "../../assets/icons/nextArrow.svg";
 import { ReactComponent as PrevArrow } from "../../assets/icons/prevArrow.svg";
 
 import { mobile } from "../../responsive";
+import { NavLink } from "react-router-dom";
 
 const settings = {
   className: "center",
@@ -140,21 +141,25 @@ const GenresMovie2 = ({ title, name }) => {
           <Slider ref={arrowRef} {...settings}>
             {title?.map((item) => {
               return (
-                <div className="top">
-                  <img
-                    className="img1"
-                    src={process.env.REACT_APP_IMG_URL + `${item?.mainPoster}`}
-                    alt="123"
-                  />
-                  <div className="overLay">
-                    <div className="title">
-                      <h1 style={{ color: "white" }}>{item?.movieName}</h1>
-                    </div>
-                    <div className="description">
-                      <p style={{ color: "wheat" }}>{item?.description}</p>
+                <NavLink to={`/detail/${item?.id}`}>
+                  <div className="top">
+                    <img
+                      className="img1"
+                      src={
+                        process.env.REACT_APP_IMG_URL + `${item?.mainPoster}`
+                      }
+                      alt="123"
+                    />
+                    <div className="overLay">
+                      <div className="title">
+                        <h1 style={{ color: "white" }}>{item?.movieName}</h1>
+                      </div>
+                      <div className="description">
+                        <p style={{ color: "wheat" }}>{item?.description}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </NavLink>
               );
             })}
           </Slider>

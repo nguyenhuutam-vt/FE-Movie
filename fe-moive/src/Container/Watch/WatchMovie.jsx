@@ -8,16 +8,35 @@ import Navbar from "../../Component/Navbar";
 import Moviee from "./Moviee";
 import Footer from "../../Component/Footer/Footer";
 import Swal from "sweetalert2";
-
+import { useRef } from "react";
 const WatchMovie = () => {
   const { id } = useParams();
-  const [watch, setWatch] = useState([]);
+  const [watch, setWatch] = useState();
+  const [episodes, setEpisodes] = useState();
+  const [seasons, setSeasons] = useState();
   const navigate = useNavigate();
+  const isSeries = useRef();
+  const getSeasons = async () => {
+    await axiosInstance
+      .get(`/seasons/${id}`)
+      .then((res) => {
+        setSeasons(res.data);
+      })
+      .catch((err) => {
+        console.log("season error");
+      });
+  };
   useEffect(() => {
     axiosInstance
       .get(`/watching-movie/${id}`)
       .then((res) => {
-        setWatch(res.data);
+        const data = res.data;
+        isSeries.current = data.series;
+        if (data.series === false) {
+          setWatch(data);
+        } else {
+          getSeasons();
+        }
       })
       .catch((err) => {
         Swal.fire({
@@ -38,7 +57,7 @@ const WatchMovie = () => {
   return (
     <Container>
       <Navbar />
-      <Moviee watch={watch} />
+      <Moviee watch={watch} seasons={seasons} isSeries={isSeries.current} />
       {/* <h1 className="text-center mb-5" style={{ color: "wheat" }}>
         Trailer
       </h1>
