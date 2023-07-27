@@ -63,6 +63,7 @@ const BillingPlan = () => {
   return (
     <Body className="modal">
       <button>Close</button>
+
       <div>
         <div className="banner"></div>
         <Header className="title">UPGRADE TO PREMIUM</Header>

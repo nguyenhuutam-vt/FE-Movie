@@ -28,6 +28,7 @@ const Account = ({ ImgLogin }) => {
     padding-top: 20px;
     position: relative;
     justify-content: space-evenly;
+    color: white;
     .icon {
       color: red;
     }
