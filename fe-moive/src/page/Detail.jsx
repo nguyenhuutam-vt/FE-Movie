@@ -13,6 +13,7 @@ import { Button } from "@mui/material";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { memo } from "react";
 const Detail = () => {
   const { id } = useParams();
   const [detail, setDetail] = useState([]);
@@ -120,10 +121,7 @@ const Detail = () => {
         />
       </BannerD> */}
       <div style={{ marginTop: "70px", textAlign: "center" }}>
-        <img
-          src={process.env.REACT_APP_IMG_URL + `${detail?.mainPoster}`}
-          alt=""
-        />
+        <img src={process.env.REACT_APP_IMG_URL + `${detail?.banner}`} alt="" />
       </div>
 
       <div style={{ textAlign: "center", marginTop: "20px" }}>
@@ -170,4 +168,4 @@ const Detail = () => {
     </Container>
   );
 };
-export default Detail;
+export default memo(Detail);

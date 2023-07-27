@@ -11,6 +11,7 @@ import Footer from "../../Component/Footer/Footer";
 import axios from "../../service/axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { memo } from "react";
 export const Home = () => {
   const [movie, setMovie] = useState([]);
   const dispatch = useDispatch();

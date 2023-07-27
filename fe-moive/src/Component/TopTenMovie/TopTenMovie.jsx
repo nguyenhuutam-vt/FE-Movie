@@ -186,10 +186,10 @@ const TopTenMovie = ({ cast }) => {
                     />
                     <div className="overLay">
                       <div className="title">
-                        <h1>Title</h1>
+                        <h1>{item?.movieName}</h1>
                       </div>
                       <div className="description">
-                        <p>Description tio n tion tio ntion tion tion</p>
+                        <p>{item?.description}</p>
                       </div>
                     </div>
                   </div>
