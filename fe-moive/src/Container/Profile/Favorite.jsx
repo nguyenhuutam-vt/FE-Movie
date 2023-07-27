@@ -9,7 +9,7 @@ import axiosInstance from "../../service/axios";
 
 const Favorite = () => {
   const Body = styled.body`
-    width: 70%;
+    width: 80%;
     height: 400vh;
     padding: 0px 60px 60px 60px;
     margin-top: 100px;
