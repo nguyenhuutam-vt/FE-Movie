@@ -81,6 +81,11 @@ const Detail = () => {
       marginTop: "50px",
     })}
   `;
+  const Img = styled.img`
+    background-size: cover;
+    width: 100%;
+    height: auto;
+  `;
   const OverView = styled.footer`
     width: 50%;
     margin-left: 37px;
@@ -121,7 +126,7 @@ const Detail = () => {
         />
       </BannerD> */}
       <div style={{ marginTop: "70px", textAlign: "center" }}>
-        <img src={process.env.REACT_APP_IMG_URL + `${detail?.banner}`} alt="" />
+        <Img src={process.env.REACT_APP_IMG_URL + `${detail?.banner}`} alt="" />
       </div>
 
       <div style={{ textAlign: "center", marginTop: "20px" }}>
